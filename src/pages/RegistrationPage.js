@@ -7,6 +7,7 @@ const RegistrationPage = () => {
 
 	const register = (e) => {
 		e.preventDefault();
+		console.log(e);
 		axios
 			.post('/user/register', {
 				email,
@@ -23,6 +24,7 @@ const RegistrationPage = () => {
 			<div>
 				<label htmlFor="email">Email</label>
 				<input
+					value={email}
 					name="email"
 					type="email"
 					placeholder="foo@bar.com"
@@ -33,6 +35,7 @@ const RegistrationPage = () => {
 			<div>
 				<label htmlFor="password">Password</label>
 				<input
+					value={password}
 					name="password"
 					type="password"
 					placeholder="123abc"
@@ -40,6 +43,7 @@ const RegistrationPage = () => {
 					minLength="8"
 				/>
 			</div>
+			<button>Register</button>
 		</form>
 	);
 };
