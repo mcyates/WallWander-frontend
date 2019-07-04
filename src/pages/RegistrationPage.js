@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const RegistrationPage = () => {
+const RegistrationPage = (props) => {
 	const [email, setEmail] = useState('');
+	const [userName, setUserName] = useState('');
 	const [password, setPassword] = useState('');
 
 	const register = (e) => {
 		e.preventDefault();
-		console.log(e);
+		console.log(email, userName, password);
 		axios
-			.post('/user/register', {
+			.post('http://localhost:4000/users/register', {
 				email,
+				userName,
 				password
 			})
 			.then((res) => {
 				console.log(res);
 			})
 			.catch((e) => console.error(e));
+		props.navigate('/');
 	};
 
 	return (
@@ -24,18 +27,27 @@ const RegistrationPage = () => {
 			<div>
 				<label htmlFor="email">Email</label>
 				<input
-					value={email}
 					name="email"
 					type="email"
-					placeholder="foo@bar.com"
+					placeholder="hello@email.com"
 					onChange={(e) => setEmail(e.target.value)}
+				/>
+			</div>
+
+			<div>
+				<label htmlFor="name">UserName</label>
+				<input
+					name="name"
+					type="text"
+					minLength="3"
+					placeholder="foobar"
+					onChange={(e) => setUserName(e.target.value)}
 				/>
 			</div>
 
 			<div>
 				<label htmlFor="password">Password</label>
 				<input
-					value={password}
 					name="password"
 					type="password"
 					placeholder="123abc"

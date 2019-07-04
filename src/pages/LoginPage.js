@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
 
-const LoginPage = () => {
+const LoginPage = (props) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
 	const login = (e) => {
 		e.preventDefault();
+
 		axios
-			.post('/user/login', {
+			.post('http://localhost:4000/users/login', {
 				email,
 				password
 			})
@@ -17,6 +18,7 @@ const LoginPage = () => {
 				console.log(res);
 			})
 			.catch((e) => console.error(e));
+		props.navigate('/');
 	};
 
 	return (
@@ -25,7 +27,6 @@ const LoginPage = () => {
 				<div>
 					<label htmlFor="email">Email</label>
 					<input
-						value={email}
 						name="email"
 						type="email"
 						placeholder="foo@bar.com"
@@ -36,7 +37,6 @@ const LoginPage = () => {
 				<div>
 					<label htmlFor="password">Password</label>
 					<input
-						value={password}
 						name="password"
 						type="password"
 						placeholder="123abc"
