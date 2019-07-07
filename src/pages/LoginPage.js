@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
 
+export const baseUrl = 'http://localhost:4000';
+
 const LoginPage = (props) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -10,7 +12,7 @@ const LoginPage = (props) => {
 		e.preventDefault();
 
 		axios
-			.post(`${process.env.API_BASE}/users/login`, {
+			.post(`${baseUrl}/users/login`, {
 				email,
 				password
 			})

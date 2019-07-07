@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+export const baseUrl = 'http://localhost:4000';
+
 const RegistrationPage = (props) => {
 	const [email, setEmail] = useState('');
 	const [userName, setUserName] = useState('');
@@ -10,7 +12,7 @@ const RegistrationPage = (props) => {
 		e.preventDefault();
 		console.log(email, userName, password);
 		axios
-			.post(`${process.env.API_BASE}/users/register`, {
+			.post(`${baseUrl}/users/register`, {
 				email,
 				userName,
 				password

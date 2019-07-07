@@ -6,6 +6,7 @@ import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
 import { Navbar } from '../shared/Navbar';
 import RegistrationPage from '../pages/RegistrationPage';
+import { UploadPage } from '../pages/UploadPage';
 
 export const AppRouter = () => {
 	return (
@@ -16,6 +17,7 @@ export const AppRouter = () => {
 				<HomePage path="/" />
 				<LoginPage path="/login" />
 				<RegistrationPage path="/register" />
+				<UploadPage path="/upload" />
 			</Router>
 		</Suspense>
 	);
