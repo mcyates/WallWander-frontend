@@ -10,7 +10,7 @@ const LoginPage = (props) => {
 		e.preventDefault();
 
 		axios
-			.post('http://localhost:4000/users/login', {
+			.post(`${process.env.API_BASE}/users/login`, {
 				email,
 				password
 			})

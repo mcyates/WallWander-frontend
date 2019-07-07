@@ -10,7 +10,7 @@ const RegistrationPage = (props) => {
 		e.preventDefault();
 		console.log(email, userName, password);
 		axios
-			.post('http://localhost:4000/users/register', {
+			.post(`${process.env.API_BASE}/users/register`, {
 				email,
 				userName,
 				password
