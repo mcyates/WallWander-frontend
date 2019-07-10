@@ -5,7 +5,7 @@ export const baseUrl = 'http://localhost:4000';
 
 const RegistrationPage = (props) => {
 	const [email, setEmail] = useState('');
-	const [userName, setUserName] = useState('');
+	const [userName, setName] = useState('');
 	const [password, setPassword] = useState('');
 
 	const register = (e) => {
@@ -14,7 +14,7 @@ const RegistrationPage = (props) => {
 		axios
 			.post(`${baseUrl}/users/register`, {
 				email,
-				userName,
+				name,
 				password
 			})
 			.then((res) => {
@@ -37,13 +37,13 @@ const RegistrationPage = (props) => {
 			</div>
 
 			<div>
-				<label htmlFor="name">UserName</label>
+				<label htmlFor="name">Username</label>
 				<input
 					name="name"
 					type="text"
 					minLength="3"
 					placeholder="foobar"
-					onChange={(e) => setUserName(e.target.value)}
+					onChange={(e) => setName(e.target.value)}
 				/>
 			</div>
 
