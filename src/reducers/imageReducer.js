@@ -1,4 +1,4 @@
-export const imageReducer = (state, action) => {
+export default (state = [], action) => {
 	switch (action.type) {
 		case 'POPULATE_IMAGES':
 			return action.images;
