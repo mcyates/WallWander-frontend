@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 
-import { register } from '../actions/auth';
-
-export const baseUrl = 'http://localhost:4000';
+import { startRegistration } from '../actions/auth';
 
 const RegistrationPage = (props) => {
 	const [email, setEmail] = useState('');
@@ -15,23 +12,9 @@ const RegistrationPage = (props) => {
 
 	const register = (e) => {
 		e.preventDefault();
-		axios
-			.post(`${baseUrl}/users/register`, {
-				email,
-				name,
-				password
-			})
-			.then((res) => {
-				const { Authorization } = res.headers;
-				const user = {
-					id: Authorization,
-					email: res.data.email,
-					name: res.data.name
-				};
-				dispatch(register(user));
-				localStorage.setItem('user', user);
-			})
-			.catch((e) => console.error(e));
+		const user = { email, name, password };
+		dispatch(startRegistration(user));
+
 		props.navigate('/');
 	};
 

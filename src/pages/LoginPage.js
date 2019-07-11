@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 import { Link } from '@reach/router';
 
-import { login } from '../actions/auth';
-
-export const baseUrl = 'http://localhost:4000';
+import { startLogin } from '../actions/auth';
 
 const LoginPage = (props) => {
 	const [email, setEmail] = useState('');
@@ -15,22 +12,9 @@ const LoginPage = (props) => {
 
 	const login = (e) => {
 		e.preventDefault();
+		const user = { email, password };
+		dispatch(startLogin(user));
 
-		axios
-			.post(`${baseUrl}/users/login`, {
-				email,
-				password
-			})
-			.then((res) => {
-				const { Authorization } = res.headers;
-				const user = {
-					id: Authorization,
-					email: res.data.email
-				};
-				dispatch(login(user));
-				localStorage.setItem('token', Authorization);
-			})
-			.catch((e) => console.error(e));
 		props.navigate('/');
 	};
 

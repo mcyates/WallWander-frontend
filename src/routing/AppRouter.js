@@ -4,7 +4,7 @@ import { Router } from '@reach/router';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import NotFound from '../pages/NotFound';
-import { Navbar } from '../shared/Navbar';
+import { Navbar } from '../components/Navbar';
 import RegistrationPage from '../pages/RegistrationPage';
 import { UploadPage } from '../pages/UploadPage';
 
