@@ -4,7 +4,7 @@ export const baseUrl = 'http://localhost:4000';
 
 export const login = (user) => ({
 	type: 'LOGIN',
-	user
+	...user
 });
 
 export const startLogin = ({ email, password }) => {
@@ -16,15 +16,14 @@ export const startLogin = ({ email, password }) => {
 			})
 			.then((res) => {
 				const { authorization } = res.headers;
-				console.log(res.headers);
 
 				const user = {
 					id: authorization,
 					email: res.data.email
 				};
 				dispatch(login(user));
-				console.log(res.headers);
-				localStorage.setItem('token', user.id);
+				localStorage.setItem('id', user.id);
+				localStorage.setItem('id', user.email);
 			})
 			.catch((e) => console.error(e));
 	};
@@ -32,15 +31,14 @@ export const startLogin = ({ email, password }) => {
 
 export const register = (user) => ({
 	type: 'REGISTER',
-	user
+	...user
 });
 
-export const startRegistration = ({ email, name, password }) => {
+export const startRegistration = ({ email, password }) => {
 	return (dispatch) => {
 		return axios
 			.post(`${baseUrl}/users/register`, {
 				email,
-				name,
 				password
 			})
 			.then((res) => {
@@ -48,26 +46,31 @@ export const startRegistration = ({ email, name, password }) => {
 				console.log(res.headers);
 				const user = {
 					id: authorization,
-					email: res.data.email,
-					name: res.data.name
+					email: res.data.email
 				};
-				console.log(user.id);
-				localStorage.setItem('token', user.id);
+				localStorage.setItem('id', user.id);
+				localStorage.setItem('email', user.email);
 				dispatch(register(user));
 			})
 			.catch((e) => console.error(e));
 	};
 };
 
-export const logout = (token) => ({
+export const logout = (email, id) => ({
 	type: 'LOGOUT',
-	token
+	email,
+	id
 });
 
 export const startLogout = () => {
 	return (dispatch, getState) => {
-		const token = getState().auth.token || localStorage.getItem('token');
-		window.localStorage.removeItem('token');
-		dispatch(logout(token));
+		const id = getState().auth.id || localStorage.getItem('id');
+		const email = getState().auth.email || localStorage.getItem('email');
+		console.log(email, id);
+
+		window.localStorage.removeItem('id');
+		window.localStorage.removeItem('email');
+
+		dispatch(logout(email, id));
 	};
 };

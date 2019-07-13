@@ -3,10 +3,11 @@ export default (state = [], action) => {
 		case 'LOGIN':
 			return {
 				...state,
-				...action.user
+				...action
 			};
 		case 'REGISTER':
 			return {
+				...state,
 				...action.user
 			};
 		default:

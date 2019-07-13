@@ -7,10 +7,12 @@ import { login } from './actions/auth';
 
 const store = configureStore();
 
-// const token = JSON.parse(localStorage.getItem('token'));
-// if (token) {
-// 	store.dispatch(login(token));
-// }
+const id = localStorage.getItem('id') || '';
+const email = localStorage.getItem('email') || '';
+
+if (id && email) {
+	store.dispatch(login(id, email));
+}
 
 function App() {
 	return (
