@@ -14,7 +14,7 @@ export const startLogin = ({ email, password }) => {
 				email,
 				password
 			})
-			.then((res) => {
+			.then(async (res) => {
 				const { authorization } = res.headers;
 
 				const user = {
@@ -23,7 +23,7 @@ export const startLogin = ({ email, password }) => {
 				};
 				dispatch(login(user));
 				localStorage.setItem('id', user.id);
-				localStorage.setItem('id', user.email);
+				localStorage.setItem('email', user.email);
 			})
 			.catch((e) => console.error(e));
 	};

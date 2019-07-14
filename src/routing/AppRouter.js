@@ -7,6 +7,7 @@ import NotFound from '../pages/NotFound';
 import { Navbar } from '../components/Navbar';
 import RegistrationPage from '../pages/RegistrationPage';
 import { UploadPage } from '../pages/UploadPage';
+import WallpaperPage from '../pages/WallpaperPage';
 
 export const AppRouter = () => {
 	return (
@@ -18,6 +19,7 @@ export const AppRouter = () => {
 				<LoginPage path="/login" />
 				<RegistrationPage path="/register" />
 				<UploadPage path="/upload" />
+				<WallpaperPage path="/wallpapers/:id" />
 			</Router>
 		</Suspense>
 	);

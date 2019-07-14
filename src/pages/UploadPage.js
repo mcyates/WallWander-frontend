@@ -9,36 +9,45 @@ import '@uppy/dashboard/dist/style.css';
 
 export const baseUrl = 'http://localhost:4000';
 
-const uppy = Uppy({
-	meta: { type: 'wallpaper' },
-	restrictions: { maxNumberOfFiles: 1 },
-	autoProceed: false
-});
-// window.localStorage.getItem('token')
 export const UploadPage = (props) => {
 	const token = useSelector((state) => state.auth.id);
-	console.log(token);
-	useEffect(() => {
-		uppy.use(XHRUpload, {
-			endpoint: `${baseUrl}/images/upload`,
-			method: 'post',
-			formData: true,
-			fieldName: 'wallpaper',
-			headers: {
-				authorization: `${token}`
-			}
-		});
-		uppy.on('complete', (result) => {
-			console.log(result);
-			// const url = result.successful[0].uploadURL;
-		});
 
-		return uppy.close;
+	const uppy = Uppy({
+		meta: { type: 'wallpaper' },
+		restrictions: { maxNumberOfFiles: 1 },
+		autoProceed: false
+	});
+
+	uppy.use(XHRUpload, {
+		endpoint: `${baseUrl}/images/upload`,
+		method: 'post',
+		formData: true,
+		fieldName: 'wallpaper',
+		headers: {
+			authorization: `${token}`
+		}
+	});
+
+	uppy.on('complete', (result) => {
+		if (result.successful) {
+			console.log(result);
+			console.log(result.successful[0]);
+			const id = result.successful[0].response.body.title;
+			console.log(id);
+			props.navigate(`/wallpapers/${id}`);
+		} else {
+			props.navigate('/not');
+		}
+	});
+	useEffect(() => {
+		return () => {
+			uppy.close();
+		};
 	});
 	return (
 		<React.Fragment>
 			<h1>Upload!</h1>
-			<Dashboard uppy={uppy} />
+			<Dashboard thumbnailWidth={750} uppy={uppy} />
 		</React.Fragment>
 	);
 };
