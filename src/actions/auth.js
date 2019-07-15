@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-export const baseUrl = 'http://localhost:4000';
+import { baseUrl } from '../App';
 
 export const login = (user) => ({
 	type: 'LOGIN',
