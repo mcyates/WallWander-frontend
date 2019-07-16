@@ -14,19 +14,8 @@ export const startAddImage = (imageData = {}) => {
 
 export const getImage = (image) => ({
 	type: 'GET_IMAGE',
-	...image
+	image
 });
-
-export const startGetImage = (id) => {
-	return (dispatch) => {
-		return axios(`${baseUrl}/images/${id}`, {
-			method: 'get'
-		}).then((res) => {
-			console.log(res);
-			dispatch(getImage(res.data));
-		});
-	};
-};
 
 export const getImages = (images) => ({
 	type: 'GET_IMAGES',
