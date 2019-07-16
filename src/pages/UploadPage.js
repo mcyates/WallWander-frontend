@@ -6,7 +6,7 @@ import XHRUpload from '@uppy/xhr-upload';
 import { Dashboard } from '@uppy/react';
 import '@uppy/core/dist/style.css';
 import '@uppy/dashboard/dist/style.css';
-import { startAddImage } from '../actions/image';
+import { addImage } from '../actions/image';
 
 export const baseUrl = 'http://localhost:4000';
 
@@ -34,7 +34,7 @@ export const UploadPage = (props) => {
 		if (result.successful) {
 			let image = result.successful[0].response.body;
 			const { id } = image;
-			dispatch(startAddImage(image));
+			dispatch(addImage(image));
 			props.navigate(`/wallpapers/${id}`);
 		} else {
 			props.navigate('/not');

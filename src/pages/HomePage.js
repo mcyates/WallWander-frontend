@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import { WallpaperList } from '../components/WallpaperList';
 
 export const HomePage = () => {
 	return (
@@ -9,6 +10,8 @@ export const HomePage = () => {
 			</header>
 			<main>
 				<Link to="/upload">Upload</Link>
+
+				<WallpaperList />
 			</main>
 		</React.Fragment>
 	);

@@ -3,7 +3,8 @@ export default (state = [], action) => {
 		case 'GET_IMAGE':
 			return [...state, action.image];
 		case 'GET_IMAGES':
-			return action.images;
+			console.log(action);
+			return [...action.images];
 		case 'ADD_IMAGE':
 			return [...state, action.image];
 		case 'REMOVE_IMAGE':
