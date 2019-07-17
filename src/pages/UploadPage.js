@@ -31,14 +31,16 @@ export const UploadPage = (props) => {
 	});
 
 	uppy.on('complete', (result) => {
-		if (result.successful) {
+		if (result.successful[0]) {
 			let image = result.successful[0].response.body;
 			const { id } = image;
 			dispatch(addImage(image));
 			props.navigate(`/wallpapers/${id}`);
-		} else {
-			props.navigate('/not');
 		}
+	});
+
+	uppy.on('upload-error', (fileId, error) => {
+		console.log(fileId, error);
 	});
 
 	useEffect(() => {
@@ -49,7 +51,7 @@ export const UploadPage = (props) => {
 
 	return (
 		<React.Fragment>
-			<h1>Upload!</h1>
+			<h1>Max File-size 10Mb</h1>
 			<Dashboard uppy={uppy} />
 		</React.Fragment>
 	);

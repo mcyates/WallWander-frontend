@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { baseUrl } from '../App';
 import { getImage } from '../actions/image';
@@ -12,8 +12,10 @@ export const WallpaperPage = (props) => {
 		secureUrl: '',
 		title: ''
 	});
-	const dispatch = useDispatch();
 
+	const user = useSelector((state) => state.auth.id);
+	const dispatch = useDispatch();
+	console.log(image.authorToken === user);
 	useEffect(() => {
 		const fetchData = async () => {
 			const image = await axios.get(`${baseUrl}/images/${props.id}`);
@@ -27,6 +29,11 @@ export const WallpaperPage = (props) => {
 		<div>
 			<h1>Wallpaper</h1>
 			<Wallpaper image={image} id={props.id} />
+			{user === image.authorToken ? (
+				<button>Delete</button>
+			) : (
+				<React.Fragment />
+			)}
 		</div>
 	);
 };
