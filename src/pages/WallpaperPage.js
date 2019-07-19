@@ -3,19 +3,23 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { baseUrl } from '../App';
-import { getImage } from '../actions/image';
+import { getImage, deleteImage } from '../actions/image';
+
 import { Wallpaper } from '../components/Wallpaper';
 
 export const WallpaperPage = (props) => {
-	const [image, setImage] = useState({
-		url: '',
-		secureUrl: '',
-		title: ''
-	});
+	const [image, setImage] =
+		useState({
+			url: '',
+			secureUrl: '',
+			title: ''
+		}) || '';
 
+	if (!image) {
+		props.navigate('/');
+	}
 	const user = useSelector((state) => state.auth.id);
 	const dispatch = useDispatch();
-	console.log(image.authorToken === user);
 	useEffect(() => {
 		const fetchData = async () => {
 			const image = await axios.get(`${baseUrl}/images/${props.id}`);
@@ -23,14 +27,22 @@ export const WallpaperPage = (props) => {
 			setImage(image.data[0]);
 		};
 		fetchData();
-	}, [dispatch, props.id]);
+	}, [dispatch, props.id, setImage]);
+
+	const removeImage = async () => {
+		axios.delete(`${baseUrl}/images/${props.id}`).then((image) => {
+			dispatch(deleteImage(image.data));
+			console.log(image);
+			props.navigate('/');
+		});
+	};
 
 	return (
 		<div>
 			<h1>Wallpaper</h1>
 			<Wallpaper image={image} id={props.id} />
 			{user === image.authorToken ? (
-				<button>Delete</button>
+				<button onClick={removeImage}>Delete</button>
 			) : (
 				<React.Fragment />
 			)}

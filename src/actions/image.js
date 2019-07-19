@@ -12,3 +12,8 @@ export const getImages = (images) => ({
 	type: 'GET_IMAGES',
 	images
 });
+
+export const deleteImage = (image) => ({
+	type: 'REMOVE_IMAGE',
+	...image
+});
