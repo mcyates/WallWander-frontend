@@ -56,3 +56,5 @@ export const UploadPage = (props) => {
 		</React.Fragment>
 	);
 };
+
+export default UploadPage;

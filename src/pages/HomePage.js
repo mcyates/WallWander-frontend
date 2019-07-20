@@ -3,11 +3,9 @@ import { WallpaperList } from '../components/WallpaperList';
 
 export const HomePage = () => {
 	return (
-		<React.Fragment>
-			<main>
-				<WallpaperList />
-			</main>
-		</React.Fragment>
+		<main>
+			<WallpaperList />
+		</main>
 	);
 };
 export default HomePage;

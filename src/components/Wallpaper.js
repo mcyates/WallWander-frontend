@@ -1,16 +1,23 @@
 import React from 'react';
-import Image from 'react-lazy-image';
 
-export const Wallpaper = ({ image, id }) => {
+export const Wallpaper = ({ image }) => {
 	return (
-		<React.Fragment>
-			<figure>
-				<Image source={image.secureUrl} alt={image.title} />
+		<div className="wallpaper">
+			<figure className="wallpaper--figure">
+				<img
+					className="wallpaper--img"
+					src={image.secureUrl}
+					alt={image.title}
+				/>
 			</figure>
-			<p>height: {image.height}px</p>
-			<p>width: {image.width}px</p>
-			<p>format: {image.format}</p>
-			<p>Views: {image.views}</p>
-		</React.Fragment>
+			<div className="wallpaper--info">
+				<p>height: {image.height}px</p>
+				<p>width: {image.width}px</p>
+				<p>format: {image.format}</p>
+				<p>Views: {image.views}</p>
+			</div>
+		</div>
 	);
 };
+
+export default Wallpaper;
