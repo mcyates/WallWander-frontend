@@ -1,15 +1,14 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
-// import Image from 'react-lazy-image';
+import Image from 'react-lazy-image';
 import Masonry from 'react-masonry-component';
+
 import { useDispatch } from 'react-redux';
 import { Link } from '@reach/router';
 
 import { getImages } from '../actions/image';
 import { baseUrl } from '../App';
-
-const Image = React.lazy(() => import('react-lazy-image'));
 
 export const WallpaperList = (props) => {
 	const [images, setImages] = useState([]);
@@ -19,7 +18,7 @@ export const WallpaperList = (props) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const { data } = await axios.get(`${baseUrl}/images?limit=5&page=0`);
+			const { data } = await axios.get(`${baseUrl}/images?limit=20&page=0`);
 			const images = data.data;
 			dispatch(getImages(images));
 			setImages(images);
@@ -32,7 +31,7 @@ export const WallpaperList = (props) => {
 
 	const pageChange = async ({ selected }) => {
 		const { data } = await axios.get(
-			`${baseUrl}/images?limit=5&page=${selected}`
+			`${baseUrl}/images?limit=20&page=${selected}`
 		);
 		const images = data.data;
 
@@ -42,16 +41,33 @@ export const WallpaperList = (props) => {
 		return;
 	};
 
+	const masonryOptions = {
+		columnWidth: 1,
+		itemSelector: '.thumb',
+		// percentPosition: true,
+		// gutter: 10,
+		fitWidth: true,
+		stagger: 30
+	};
+
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
-			<Masonry>
+		<React.Fragment>
+			<Masonry className="grid" options={masonryOptions}>
 				{images.map((image) => {
 					const urlArr = image.secureUrl.split('/');
-					urlArr[6] = 'f_auto,c_fit,h_400,w_500';
+					urlArr[6] = 'f_auto,w_500,c_limit';
 					image.secureUrl = urlArr.join('/');
 					return (
-						<Link to={`/wallpapers/${image.id}`} key={image.title}>
-							<Image source={image.secureUrl} alt={image.title} />
+						<Link
+							className="thumb"
+							to={`/wallpapers/${image.id}`}
+							key={image.title}
+						>
+							<Image
+								className="thumb--img"
+								source={image.secureUrl}
+								alt={image.title}
+							/>
 						</Link>
 					);
 				})}
@@ -67,6 +83,6 @@ export const WallpaperList = (props) => {
 			) : (
 				<React.Fragment />
 			)}
-		</Suspense>
+		</React.Fragment>
 	);
 };

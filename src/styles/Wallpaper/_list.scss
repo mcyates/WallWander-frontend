@@ -1,0 +1,16 @@
+.grid {
+	display: block;
+	// width: 80vw;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.thumb {
+	&--img {
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		-o-border-radius: 5px;
+	}
+}

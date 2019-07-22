@@ -38,15 +38,16 @@ export const WallpaperPage = (props) => {
 		});
 	};
 
+	const isAuthor = user === image.authorToken;
+
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
-			<h1>Wallpaper</h1>
-			<Wallpaper image={image} id={props.id} />
-			{user === image.authorToken ? (
-				<button onClick={removeImage}>Delete</button>
-			) : (
-				<React.Fragment />
-			)}
+			<Wallpaper
+				image={image}
+				id={props.id}
+				author={isAuthor}
+				removeImage={removeImage}
+			/>
 		</Suspense>
 	);
 };
