@@ -50,10 +50,11 @@ export const UploadPage = (props) => {
 	});
 
 	return (
-		<React.Fragment>
-			<h1>Max File-size 10Mb</h1>
+		<div className="upload">
+			<h5>Max File-size 10Mb</h5>
+
 			<Dashboard uppy={uppy} />
-		</React.Fragment>
+		</div>
 	);
 };
 

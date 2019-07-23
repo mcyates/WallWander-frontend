@@ -45,7 +45,7 @@ export const WallpaperList = (props) => {
 		columnWidth: 1,
 		itemSelector: '.thumb',
 		// percentPosition: true,
-		// gutter: 10,
+		gutter: 15,
 		fitWidth: true,
 		stagger: 30
 	};
@@ -68,6 +68,12 @@ export const WallpaperList = (props) => {
 								source={image.secureUrl}
 								alt={image.title}
 							/>
+							<div className="thumb--info">
+								<p>
+									{image.width}x{image.height}
+								</p>
+								<p>{image.views} views</p>
+							</div>
 						</Link>
 					);
 				})}
