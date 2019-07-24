@@ -19,12 +19,14 @@ const RegistrationPage = (props) => {
 	};
 
 	return (
-		<UserForm
-			setEmail={setEmail}
-			setPassword={setPassword}
-			submit={register}
-			button="Register"
-		/>
+		<div className="container">
+			<UserForm
+				setEmail={setEmail}
+				setPassword={setPassword}
+				submit={register}
+				button="Register"
+			/>
+		</div>
 	);
 };
 

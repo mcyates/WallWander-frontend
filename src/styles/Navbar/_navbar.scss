@@ -4,20 +4,20 @@
 	max-width: 100%;
 	justify-content: space-between;
 	margin-bottom: 2rem;
+}
 
-	a {
-		margin: 0 1rem;
-		padding: 0.5rem 1rem;
-		color: var(--font-primary);
-		border-bottom: 2px solid transparent;
-		transition: all 0.4s ease;
-		-webkit-transition: all 0.4s ease;
-		-moz-transition: all 0.4s ease;
-		-ms-transition: all 0.4s ease;
-		-o-transition: all 0.4s ease;
+.navlink {
+	margin: 0 1rem;
+	padding: 0.5rem 1rem;
+	color: var(--font-primary);
+	border-bottom: 2px solid transparent;
+	transition: all 0.4s ease;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	-ms-transition: all 0.4s ease;
+	-o-transition: all 0.4s ease;
 
-		&:hover {
-			border-bottom: 2px solid var(--font-primary);
-		}
+	&:hover {
+		border-bottom: 2px solid var(--font-primary);
 	}
 }

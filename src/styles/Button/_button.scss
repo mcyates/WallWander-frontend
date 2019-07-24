@@ -21,4 +21,14 @@
 			background-color: #8d2323;
 		}
 	}
+
+	&-form {
+		padding: 1rem 4rem;
+		background-color: var(--border-color);
+		color: var(--font-primary);
+
+		&:hover {
+			background-color: var(--border-color-dark);
+		}
+	}
 }

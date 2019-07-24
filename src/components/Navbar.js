@@ -17,19 +17,27 @@ export const Navbar = (props) => {
 			{isAuthed ? (
 				<React.Fragment>
 					<div>
-						<Link to="/">Home</Link>
-						<Link to="/upload">Upload</Link>
+						<Link className="navlink" to="/">
+							Home
+						</Link>
+						<Link className="navlink" to="/upload">
+							Upload
+						</Link>
 					</div>
-					<Link to="/" onClick={logout}>
+					<Link className="navlink" to="/" onClick={logout}>
 						Logout
 					</Link>
 				</React.Fragment>
 			) : (
 				<React.Fragment>
 					<div>
-						<Link to="/">Home</Link>
+						<Link className="navlink" to="/">
+							Home
+						</Link>
 					</div>
-					<Link to="/login">Login</Link>
+					<Link className="navlink" to="/login">
+						Login
+					</Link>
 				</React.Fragment>
 			)}
 		</nav>

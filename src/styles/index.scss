@@ -1,5 +1,7 @@
 @import './variables';
+@import './abstract/mixins';
 @import './Wallpaper/index.scss';
+@import './Form/form';
 @import './Navbar/navbar';
 @import './Button/button';
 @import './Upload/upload';
@@ -30,16 +32,28 @@ body {
 	background-color: var(--background-primary);
 }
 
-[hidden],
-template {
-	display: none;
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	max-height: 100%;
+	max-width: 100%;
+	height: 100vh;
+	width: 100vw;
 }
 
-pre {
-	max-width: 100%;
-	overflow: hidden;
+a {
+	color: var(--font-primary);
 }
 
 img {
 	max-width: 100%;
+}
+
+@include respond(phone) {
+	.container {
+		height: 85vh;
+	}
 }

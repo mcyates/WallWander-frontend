@@ -20,15 +20,17 @@ const LoginPage = (props) => {
 	};
 
 	return (
-		<React.Fragment>
+		<div className="container">
 			<UserForm
 				button="Login"
 				setEmail={setEmail}
 				setPassword={setPassword}
 				submit={login}
 			/>
-			<Link to="/register">Register</Link>
-		</React.Fragment>
+			<Link className="navlink" to="/register">
+				Register
+			</Link>
+		</div>
 	);
 };
 

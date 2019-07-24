@@ -50,9 +50,17 @@ export const WallpaperList = (props) => {
 		stagger: 30
 	};
 
+	const updateImages = (e) => {
+		console.log(e.options);
+	};
 	return (
 		<React.Fragment>
-			<Masonry className="grid" options={masonryOptions}>
+			<Masonry
+				className="grid"
+				options={masonryOptions}
+				onImagesLoaded={updateImages}
+				updateOnEachImageLoad={true}
+			>
 				{images.map((image) => {
 					const urlArr = image.secureUrl.split('/');
 					urlArr[6] = 'f_auto,w_500,c_limit';
@@ -63,9 +71,9 @@ export const WallpaperList = (props) => {
 							to={`/wallpapers/${image.id}`}
 							key={image.title}
 						>
-							<Image
+							<img
 								className="thumb--img"
-								source={image.secureUrl}
+								src={image.secureUrl}
 								alt={image.title}
 							/>
 							<div className="thumb--info">
@@ -92,3 +100,8 @@ export const WallpaperList = (props) => {
 		</React.Fragment>
 	);
 };
+// <Image
+// className="thumb--img"
+// source={image.secureUrl}
+// alt={image.title}
+// />

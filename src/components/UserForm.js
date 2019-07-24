@@ -3,10 +3,13 @@ import React from 'react';
 export const UserForm = (props) => {
 	const buttonText = props.button;
 	return (
-		<form onSubmit={props.submit} method="post">
-			<div>
-				<label htmlFor="email">Email</label>
+		<form className="form" onSubmit={props.submit} method="post">
+			<div className="form--box">
+				<label className="form--label" htmlFor="email">
+					Email
+				</label>
 				<input
+					className="form--input"
 					name="email"
 					type="email"
 					placeholder="hello@email.com"
@@ -14,9 +17,12 @@ export const UserForm = (props) => {
 				/>
 			</div>
 
-			<div>
-				<label htmlFor="password">Password</label>
+			<div className="form--box">
+				<label className="form--label" htmlFor="password">
+					Password
+				</label>
 				<input
+					className="form--input"
 					name="password"
 					type="password"
 					placeholder="123abc"
@@ -24,7 +30,7 @@ export const UserForm = (props) => {
 					minLength="8"
 				/>
 			</div>
-			<button>{buttonText}</button>
+			<button className="btn btn-form">{buttonText}</button>
 		</form>
 	);
 };
