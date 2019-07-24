@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
-import Image from 'react-lazy-image';
-import Masonry from 'react-masonry-component';
-
+import sizeMe from 'react-sizeme';
+import StackGrid, { transitions } from 'react-stack-grid';
 import { useDispatch } from 'react-redux';
-import { Link } from '@reach/router';
-
+import Img from '../components/Img';
 import { getImages } from '../actions/image';
 import { baseUrl } from '../App';
 
@@ -41,51 +39,22 @@ export const WallpaperList = (props) => {
 		return;
 	};
 
-	const masonryOptions = {
-		columnWidth: 1,
-		itemSelector: '.thumb',
-		// percentPosition: true,
-		gutter: 15,
-		fitWidth: true,
-		stagger: 30
-	};
-
-	const updateImages = (e) => {
-		console.log(e.options);
-	};
+	const { fadeDown } = transitions;
 	return (
 		<React.Fragment>
-			<Masonry
-				className="grid"
-				options={masonryOptions}
-				onImagesLoaded={updateImages}
-				updateOnEachImageLoad={true}
+			<StackGrid
+				appear={fadeDown.appear}
+				monitorImagesLoaded={true}
+				columnWidth={props.size.width <= 700 ? 250 : 500}
+				gutterHeight={5}
 			>
 				{images.map((image) => {
 					const urlArr = image.secureUrl.split('/');
 					urlArr[6] = 'f_auto,w_500,c_limit';
 					image.secureUrl = urlArr.join('/');
-					return (
-						<Link
-							className="thumb"
-							to={`/wallpapers/${image.id}`}
-							key={image.title}
-						>
-							<img
-								className="thumb--img"
-								src={image.secureUrl}
-								alt={image.title}
-							/>
-							<div className="thumb--info">
-								<p>
-									{image.width}x{image.height}
-								</p>
-								<p>{image.views} views</p>
-							</div>
-						</Link>
-					);
+					return <Img image={image} key={image.title} />;
 				})}
-			</Masonry>
+			</StackGrid>
 
 			{pageCount > 1 ? (
 				<ReactPaginate
@@ -100,8 +69,5 @@ export const WallpaperList = (props) => {
 		</React.Fragment>
 	);
 };
-// <Image
-// className="thumb--img"
-// source={image.secureUrl}
-// alt={image.title}
-// />
+
+export default sizeMe()(WallpaperList);

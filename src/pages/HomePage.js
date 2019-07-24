@@ -1,5 +1,5 @@
 import React from 'react';
-import { WallpaperList } from '../components/WallpaperList';
+import WallpaperList from '../components/WallpaperList';
 
 export const HomePage = () => {
 	return <WallpaperList />;
