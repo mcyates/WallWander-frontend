@@ -1,6 +1,5 @@
-A place to share wallpapers
+A wallpaper App inspired by https://wallhaven.cc/
 
-
-bootstrapped with create-react-app
+Bootstrapped with create-react-app.
 
 MIT license
