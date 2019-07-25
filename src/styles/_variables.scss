@@ -1,7 +1,13 @@
 :root {
-	--background-primary: #2f1c52;
+	--background-primary: #250f4d;
 	--background-primary-light: #442978;
 	--background-primary-alpha: #2f1c523a;
+
+	--background-gradient: linear-gradient(
+		0deg,
+		var(--background-primary) 0%,
+		var(--border-color) 100%
+	);
 
 	--border-color: #7044c3;
 	--border-color-dark: #59349f;

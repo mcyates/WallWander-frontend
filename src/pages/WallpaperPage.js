@@ -33,7 +33,6 @@ export const WallpaperPage = (props) => {
 	const removeImage = async () => {
 		axios.delete(`${baseUrl}/images/${props.id}`).then((image) => {
 			dispatch(deleteImage(image.data));
-			console.log(image);
 			props.navigate('/');
 		});
 	};

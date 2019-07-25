@@ -42,7 +42,6 @@ export const startRegistration = ({ email, password }) => {
 			})
 			.then((res) => {
 				const { authorization } = res.headers;
-				console.log(res.headers);
 				const user = {
 					id: authorization,
 					email: res.data.email
@@ -65,7 +64,6 @@ export const startLogout = () => {
 	return (dispatch, getState) => {
 		const id = getState().auth.id || localStorage.getItem('id');
 		const email = getState().auth.email || localStorage.getItem('email');
-		console.log(email, id);
 
 		window.localStorage.removeItem('id');
 		window.localStorage.removeItem('email');
