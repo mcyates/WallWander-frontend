@@ -33,8 +33,9 @@ export const Navbar = (props) => {
 			) : (
 				<React.Fragment>
 					<div>
-						<Link className="navlink" to="/">
-							Home
+						<Link className="navbar--logo" to="/">
+							<img src={logo} classname="logo-img" alt="logo" />
+
 						</Link>
 					</div>
 					<Link className="navlink" to="/login">
