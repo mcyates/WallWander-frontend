@@ -54,10 +54,6 @@ a {
 	color: var(--font-primary);
 }
 
-img {
-	max-width: 100%;
-}
-
 @include respond(phone) {
 	.container {
 		height: 85vh;

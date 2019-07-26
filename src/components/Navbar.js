@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from '@reach/router';
 import { startLogout } from '../actions/auth';
 
+import logo from '../imgs/logo_150x150.png';
+
 export const Navbar = (props) => {
 	const dispatch = useDispatch();
 	const isAuthed = useSelector((state) => !!state.auth.id);
@@ -16,9 +18,9 @@ export const Navbar = (props) => {
 		<nav className="navbar">
 			{isAuthed ? (
 				<React.Fragment>
-					<div>
-						<Link className="navlink" to="/">
-							Home
+					<div className="navbar--content">
+						<Link className="navbar--logo" to="/">
+							<img src={logo} classname="logo-img" alt="logo" />
 						</Link>
 						<Link className="navlink" to="/upload">
 							Upload

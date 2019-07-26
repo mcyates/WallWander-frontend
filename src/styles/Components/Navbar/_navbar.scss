@@ -6,6 +6,22 @@
 	align-items: center;
 	padding: 1rem 0;
 	margin-bottom: 2rem;
+
+	&--content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		width: 10%;
+	}
+
+	&--logo {
+		img {
+			height: 15rem;
+			width: 15rem;
+			// margin: 1rem;
+		}
+	}
 }
 
 .navlink {
