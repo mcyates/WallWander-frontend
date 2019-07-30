@@ -53,7 +53,7 @@ export const WallpaperList = (props) => {
 			>
 				{images.map((image) => {
 					const urlArr = image.secureUrl.split('/');
-					urlArr[6] = 'f_auto,w_500,c_limit';
+					urlArr[6] = 'f_auto,h_450,w_500,c_limit';
 					image.secureUrl = urlArr.join('/');
 					return <Thumb image={image} key={image.title} />;
 				})}

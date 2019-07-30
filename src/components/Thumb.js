@@ -5,7 +5,7 @@ import Image from 'react-lazy-image';
 export const Thumb = ({ image }) => {
 	return (
 		<Link className="thumb" to={`/wallpapers/${image.id}`} key={image.title}>
-			<figure>
+			<figure className="thumb--fig">
 				<Image
 					className="thumb--img"
 					source={image.secureUrl}
