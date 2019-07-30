@@ -52,6 +52,11 @@ body {
 
 a {
 	color: var(--font-primary);
+
+	&:focus {
+		border: none;
+		outline: none;
+	}
 }
 
 @include respond(phone) {

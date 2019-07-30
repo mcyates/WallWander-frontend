@@ -14,6 +14,13 @@
 		max-width: 90%;
 		max-height: 90vh;
 		position: relative;
+
+		a {
+			&:focus {
+				border: none;
+				outline: none;
+			}
+		}
 	}
 	&--img {
 		width: 100%;

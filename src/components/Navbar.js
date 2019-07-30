@@ -5,44 +5,44 @@ import { startLogout } from '../actions/auth';
 
 import logo from '../imgs/logo_150x150.png';
 
-export const Navbar = (props) => {
+export const Navbar = ( props ) => {
 	const dispatch = useDispatch();
-	const isAuthed = useSelector((state) => !!state.auth.id);
+	const isAuthed = useSelector( ( state ) => !!state.auth.id );
 
 	const logout = () => {
-		dispatch(startLogout());
-		props.navigate('/');
+		dispatch( startLogout() );
+		props.navigate( '/' );
 	};
 
 	return (
 		<nav className="navbar">
-			{isAuthed ? (
+			{ isAuthed ? (
 				<React.Fragment>
 					<div className="navbar--content">
 						<Link className="navbar--logo" to="/">
-							<img src={logo} classname="logo-img" alt="logo" />
+							<img src={ logo } classname="logo-img" alt="logo" />
 						</Link>
 						<Link className="navlink" to="/upload">
 							Upload
 						</Link>
 					</div>
-					<Link className="navlink" to="/" onClick={logout}>
+					<Link className="navlink" to="/" onClick={ logout }>
 						Logout
 					</Link>
 				</React.Fragment>
 			) : (
-				<React.Fragment>
-					<div>
-						<Link className="navbar--logo" to="/">
-							<img src={logo} classname="logo-img" alt="logo" />
+					<React.Fragment>
+						<div>
+							<Link className="navbar--logo" to="/">
+								<img src={ logo } classname="logo-img" alt="logo" />
 
-						</Link>
-					</div>
-					<Link className="navlink" to="/login">
-						Login
+							</Link>
+						</div>
+						<Link className="navlink" to="/login">
+							Login
 					</Link>
-				</React.Fragment>
-			)}
+					</React.Fragment>
+				) }
 		</nav>
 	);
 };
