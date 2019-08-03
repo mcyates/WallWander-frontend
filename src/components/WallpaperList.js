@@ -9,34 +9,34 @@ import { useDispatch } from 'react-redux';
 import { getImages } from '../actions/image';
 import { baseUrl } from '../App';
 
-export const WallpaperList = (props) => {
-	const [images, setImages] = useState([]);
-	const [pageCount, setPageCount] = useState(0);
+export const WallpaperList = ( props ) => {
+	const [ images, setImages ] = useState( [] );
+	const [ pageCount, setPageCount ] = useState( 0 );
 
 	const dispatch = useDispatch();
 
-	useEffect(() => {
+	useEffect( () => {
 		const fetchData = async () => {
-			const { data } = await axios.get(`${baseUrl}/images?limit=15&page=0`);
+			const { data } = await axios.get( `${ baseUrl }/images?limit=15&page=0` );
 			const images = data.data;
-			dispatch(getImages(images));
-			setImages(images);
-			setPageCount(data.last_page);
+			dispatch( getImages( images ) );
+			setImages( images );
+			setPageCount( data.last_page );
 			return;
 		};
 		fetchData();
 		return;
-	}, [dispatch]);
+	}, [ dispatch ] );
 
-	const pageChange = async ({ selected }) => {
+	const pageChange = async ( { selected } ) => {
 		const { data } = await axios.get(
-			`${baseUrl}/images?limit=15&page=${selected}`
+			`${ baseUrl }/images?limit=15&page=${ selected }`
 		);
 		const images = data.data;
 
-		dispatch(getImages(images));
-		setImages(images);
-		setPageCount(data.last_page);
+		dispatch( getImages( images ) );
+		setImages( images );
+		setPageCount( data.last_page );
 		return;
 	};
 
@@ -46,25 +46,25 @@ export const WallpaperList = (props) => {
 			<StackGrid
 				className="grid"
 				itemComponent="div"
-				gutterHeight={-1}
-				appear={fadeDown.appear}
-				monitorImagesLoaded={true}
-				columnWidth={props.size.width <= 700 ? 250 : 500}
+				gutterHeight={ -1 }
+				appear={ fadeDown.appear }
+				monitorImagesLoaded={ true }
+				columnWidth={ props.size.width <= 700 ? 250 : 500 }
 			>
-				{images.map((image) => {
-					const urlArr = image.secureUrl.split('/');
-					urlArr[6] = 'f_auto,h_450,w_500,c_limit';
-					image.secureUrl = urlArr.join('/');
-					return <Thumb image={image} key={image.title} />;
-				})}
+				{ images.map( ( image ) => {
+					const urlArr = image.secureUrl.split( '/' );
+					urlArr[ 6 ] = 'f_auto,h_450,w_500,c_limit';
+					image.secureUrl = urlArr.join( '/' );
+					return <Thumb image={ image } key={ image.title } />;
+				} ) }
 			</StackGrid>
 
-			{pageCount > 1 ? (
+			{ pageCount > 1 ? (
 				<ReactPaginate
-					pageCount={pageCount}
-					pageRangeDisplayed={props.size.width <= 700 ? 2 : 3}
-					marginPagesDisplayed={1}
-					onPageChange={pageChange}
+					pageCount={ pageCount }
+					pageRangeDisplayed={ props.size.width <= 700 ? 2 : 3 }
+					marginPagesDisplayed={ 1 }
+					onPageChange={ pageChange }
 					activeClassName="pagination--active"
 					activeLinkClassName="pagination--active-link"
 					breakClassName="pagination--break"
@@ -79,10 +79,10 @@ export const WallpaperList = (props) => {
 					previousLinkClassName="pagination--previous-link"
 				/>
 			) : (
-				<React.Fragment />
-			)}
+					<React.Fragment />
+				) }
 		</React.Fragment>
 	);
 };
 
-export default sizeMe()(WallpaperList);
+export default sizeMe()( WallpaperList );

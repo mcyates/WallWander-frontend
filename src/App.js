@@ -5,7 +5,7 @@ import configureStore from './store/configureStore';
 import AppRouter from './routing/AppRouter';
 import { login } from './actions/auth';
 
-export const baseUrl = 'https://mattcyates.com/api';
+export const baseUrl = 'https://wallwander.net/api';
 
 const store = configureStore();
 
