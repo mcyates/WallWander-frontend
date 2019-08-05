@@ -4,6 +4,7 @@
 @import './Wallpaper/index.scss';
 @import './Components/Pagination/pagination';
 @import './Components/Form/form';
+@import './Components/Modal/modal';
 @import './Components/Navbar/navbar';
 @import './Upload/upload';
 
@@ -15,6 +16,10 @@
 	box-sizing: inherit;
 	border: 1px solid transparent;
 	text-decoration: none;
+}
+
+ul,
+ol {
 	list-style: none;
 }
 
