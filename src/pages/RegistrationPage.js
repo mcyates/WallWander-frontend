@@ -15,7 +15,7 @@ const RegistrationPage = (props) => {
 		const user = { email, password };
 		dispatch(startRegistration(user));
 
-		props.navigate('/');
+		// props.navigate(`/profile/`);
 	};
 
 	return (

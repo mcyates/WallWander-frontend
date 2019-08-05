@@ -16,7 +16,7 @@ const LoginPage = (props) => {
 		const user = { email, password };
 		dispatch(startLogin(user));
 
-		props.navigate('/');
+		// props.navigate('/');
 	};
 
 	return (
