@@ -7,7 +7,7 @@ import logo from '../imgs/logo_150x150.png';
 
 export const Navbar = (props) => {
 	const dispatch = useDispatch();
-	const isAuthed = useSelector((state) => state.auth.id);
+	const user = useSelector((state) => state.auth);
 
 	const logout = () => {
 		dispatch(startLogout());
@@ -15,25 +15,34 @@ export const Navbar = (props) => {
 	};
 
 	return (
-		<nav className="navbar">
-			{isAuthed ? (
-				<React.Fragment>
-					<div className="navbar--content">
-						<Link className="navbar--logo" to="/">
+		<nav className="nav" role="navigation">
+			{user.id ? (
+				<ul className="nav--list">
+					<div className="nav--content">
+						<Link tabIndex="1" className="nav--logo" to="/">
 							<img src={logo} className="logo-img" alt="logo" />
 						</Link>
-						<Link className="navlink" to="/upload">
-							Upload
-						</Link>
-
-						<Link className="navlink" to={`/profile/${isAuthed}`}>
-							Profile
-						</Link>
 					</div>
-					<Link className="navlink" to="/" onClick={logout}>
-						Logout
-					</Link>
-				</React.Fragment>
+
+					<div className="dropdown" tabIndex="2">
+						<p className="dropbtn">{user.name ? user.name : 'Anonymous'}</p>
+						<div className="dropdown-content">
+							<Link tabIndex="3" className="nav--link" to="/upload">
+								Upload
+							</Link>
+							<Link
+								tabIndex="4"
+								className="nav--link"
+								to={`/profile/${user.id}`}
+							>
+								Profile
+							</Link>
+							<Link tabIndex="5" className="nav--link" to="/" onClick={logout}>
+								Logout
+							</Link>
+						</div>
+					</div>
+				</ul>
 			) : (
 				<React.Fragment>
 					<div>
@@ -41,7 +50,7 @@ export const Navbar = (props) => {
 							<img src={logo} className="logo-img" alt="logo" />
 						</Link>
 					</div>
-					<Link className="navlink" to="/login">
+					<Link className="nav--link" to="/login">
 						Login
 					</Link>
 				</React.Fragment>

@@ -1,11 +1,11 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { baseUrl } from '../App';
 import { getImage, deleteImage } from '../actions/image';
 
-// import { Wallpaper } from '../components/Wallpaper';
+const Navbar = React.lazy(() => import('../components/Navbar'));
+
 const Wallpaper = React.lazy(() => import('../components/Wallpaper'));
 
 export const WallpaperPage = (props) => {
@@ -41,6 +41,7 @@ export const WallpaperPage = (props) => {
 
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
+			<Navbar />
 			<Wallpaper
 				image={image}
 				id={props.id}

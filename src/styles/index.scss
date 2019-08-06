@@ -59,9 +59,19 @@ a {
 	color: var(--font-primary);
 
 	&:focus {
-		border: none;
+		border: 1px solid var(--border-color);
 		outline: none;
 	}
+}
+
+.home {
+	display: flex;
+	flex-direction: column;
+}
+
+.footer {
+	margin: 0 auto;
+	font-size: 1.6rem;
 }
 
 @include respond(phone) {

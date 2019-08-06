@@ -5,6 +5,8 @@ import { Link } from '@reach/router';
 import { startLogin } from '../actions/auth';
 import { UserForm } from '../components/UserForm';
 
+const Navbar = React.lazy(() => import('../components/Navbar'));
+
 const LoginPage = (props) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -20,17 +22,20 @@ const LoginPage = (props) => {
 	};
 
 	return (
-		<div className="container">
-			<UserForm
-				button="Login"
-				setEmail={setEmail}
-				setPassword={setPassword}
-				submit={login}
-			/>
-			<Link className="navlink" to="/register">
-				Register
-			</Link>
-		</div>
+		<React.Fragment>
+			<Navbar />
+			<div className="container">
+				<UserForm
+					button="Login"
+					setEmail={setEmail}
+					setPassword={setPassword}
+					submit={login}
+				/>
+				<Link className="nav--link" to="/register">
+					Register
+				</Link>
+			</div>
+		</React.Fragment>
 	);
 };
 

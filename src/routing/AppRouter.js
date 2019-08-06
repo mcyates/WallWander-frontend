@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { Router } from '@reach/router';
 
-// import HomePage from '../pages/HomePage';
 const HomePage = React.lazy(() => import('../pages/HomePage'));
 const LoginPage = React.lazy(() => import('../pages/LoginPage'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
@@ -9,12 +8,10 @@ const Profile = React.lazy(() => import('../pages/Profile'));
 const RegistrationPage = React.lazy(() => import('../pages/RegistrationPage'));
 const UploadPage = React.lazy(() => import('../pages/UploadPage'));
 const WallpaperPage = React.lazy(() => import('../pages/WallpaperPage'));
-const Navbar = React.lazy(() => import('../components/Navbar'));
 
 export const AppRouter = () => {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
-			<Navbar />
 			<Router>
 				<NotFound default />
 				<HomePage path="/" />
