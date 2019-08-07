@@ -17,3 +17,10 @@ export const deleteImage = (image) => ({
 	type: 'REMOVE_IMAGE',
 	...image
 });
+
+export const startDeleteImage = (image) => {
+	console.log(image);
+	return (dispatch) => {
+		dispatch(deleteImage(image));
+	};
+};

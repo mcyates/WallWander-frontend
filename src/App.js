@@ -10,12 +10,9 @@ export const baseUrl = 'http://localhost:4000';
 
 const store = configureStore();
 
-const id = localStorage.getItem('id') || '';
-const email = localStorage.getItem('email') || '';
-const name = localStorage.getItem('name') || '';
+const user = JSON.parse(localStorage.getItem('user'));
 
-if (id && email) {
-	const user = { id, email, name };
+if (user) {
 	store.dispatch(login(user));
 }
 

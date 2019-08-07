@@ -19,14 +19,14 @@ export const startLogin = ({ email, password }) => {
 				console.log(res.data);
 
 				const user = {
-					id: authorization,
+					id: res.data.id,
 					email: res.data.email,
-					name: res.data.name || ''
+					name: res.data.name || '',
+					token: authorization
 				};
-				window.localStorage.setItem('id', user.id);
-				window.localStorage.setItem('email', user.email);
-				window.localStorage.setItem('name', user.name);
-				navigate(`/profile/${authorization}`);
+				window.localStorage.setItem('user', JSON.stringify(user));
+
+				navigate(`/profile/${user.id}`);
 				dispatch(login(user));
 			})
 			.catch((e) => console.error(e));
@@ -49,13 +49,14 @@ export const startRegistration = ({ email, password }) => {
 				const { authorization } = res.headers;
 				console.log(res);
 				const user = {
-					id: authorization,
+					id: res.data.id,
 					email: res.data.email,
-					name: ''
+					name: '',
+					token: authorization
 				};
-				window.localStorage.setItem('id', user.id);
-				window.localStorage.setItem('email', user.email);
-				navigate(`/profile/${authorization}`);
+				window.localStorage.setItem('user', JSON.stringify(user));
+
+				navigate(`/profile/${user.id}/settings`);
 				dispatch(register(user));
 			})
 			.catch((e) => console.error(e));

@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-
 import axios from 'axios';
+
+import ProfileNav from './ProfileNav';
 import { useDispatch } from 'react-redux';
-import { getImages } from '../actions/image';
-import { baseUrl } from '../App';
 
-import WallpaperList from '../components/WallpaperList';
-const Navbar = React.lazy(() => import('../components/Navbar'));
+import { WallpaperList } from '../../components/WallpaperList';
+import { getImages } from '../../actions/image';
+import { baseUrl } from '../../App';
 
-export const HomePage = () => {
+const Navbar = React.lazy(() => import('../../components/Navbar'));
+
+export const Uploads = (props) => {
 	const [images, setImages] = useState([]);
 
 	const dispatch = useDispatch();
@@ -24,15 +26,14 @@ export const HomePage = () => {
 		fetchData();
 		return;
 	}, [dispatch]);
-
 	return (
-		<div className="home">
+		<React.Fragment>
 			<Navbar />
+			<ProfileNav id={props.id} />
+			<p>uploads</p>
 			<WallpaperList images={images} />
-			<footer className="footer">
-				Created by Matthew Yates, &copy; {new Date().getFullYear()}
-			</footer>
-		</div>
+		</React.Fragment>
 	);
 };
-export default HomePage;
+
+export default Uploads;

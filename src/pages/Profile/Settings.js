@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import NameModal from '../components/Profile/NameModal';
-import { startSetName } from '../actions/auth';
+import NameModal from '../../components/Profile/NameModal';
+import { startSetName } from '../../actions/auth';
 
-import '../styles/Profile/Profile.scss';
+const Navbar = React.lazy(() => import('../../components/Navbar'));
+const ProfileNav = React.lazy(() => import('./ProfileNav'));
 
-const Navbar = React.lazy(() => import('../components/Navbar'));
-
-export const Profile = (props) => {
+export const Settings = (props) => {
 	const dispatch = useDispatch();
 	const [name, setName] = useState('');
+
 	const [visible, setVisible] = useState(false);
 
 	const user = useSelector((state) => state.auth);
@@ -34,11 +34,11 @@ export const Profile = (props) => {
 		dispatch(startSetName(userInfo));
 	};
 	return (
-		<div className="profile">
+		<React.Fragment>
 			<Navbar />
 			<NameModal visible={visible} setName={setName} submit={changeName} />
-			<div className="profile--box">
-				<h1 className="profile--title">Profile</h1>
+			<ProfileNav id={props.id} />
+			<div className="settings">
 				<div className="profile--name">
 					<p>
 						Username: <span>{user.name}</span>
@@ -48,8 +48,7 @@ export const Profile = (props) => {
 					</button>
 				</div>
 			</div>
-		</div>
+		</React.Fragment>
 	);
 };
-
-export default Profile;
+export default Settings;

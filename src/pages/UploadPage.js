@@ -12,7 +12,7 @@ import { addImage } from '../actions/image';
 const Navbar = React.lazy(() => import('../components/Navbar'));
 
 export const UploadPage = (props) => {
-	const token = useSelector((state) => state.auth.id);
+	const user = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
 	const uppy = Uppy({
@@ -27,7 +27,7 @@ export const UploadPage = (props) => {
 		formData: true,
 		fieldName: 'wallpaper',
 		headers: {
-			authorization: `${token}`
+			authorization: `${user.token}`
 		}
 	});
 

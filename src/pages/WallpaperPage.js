@@ -19,25 +19,23 @@ export const WallpaperPage = (props) => {
 	if (!image) {
 		props.navigate('/');
 	}
-	const user = useSelector((state) => state.auth.id);
+	const user = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const fetchData = async () => {
 			const image = await axios.get(`${baseUrl}/images/${props.id}`);
-			dispatch(getImage(image.data[0]));
-			setImage(image.data[0]);
+			dispatch(getImage(image.data));
+			setImage(image.data);
 		};
 		fetchData();
 	}, [dispatch, props.id, setImage]);
-
 	const removeImage = async () => {
-		axios.delete(`${baseUrl}/images/${props.id}`).then((image) => {
-			dispatch(deleteImage(image.data));
-			props.navigate('/');
-		});
+		axios.delete(`${baseUrl}/images/${props.id}`);
+		dispatch(deleteImage(image));
+		props.navigate(`/profile/${user.id}/uploads`);
 	};
 
-	const isAuthor = user === image.authorToken;
+	const isAuthor = user.id === image.authorId;
 
 	return (
 		<Suspense fallback={<div>Loading...</div>}>

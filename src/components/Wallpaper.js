@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 export const Wallpaper = (props) => {
 	const { image, author, removeImage } = props;
@@ -17,16 +18,23 @@ export const Wallpaper = (props) => {
 						<p>width: {image.width}px</p>
 						<p>format: {image.format}</p>
 						<p>Views: {image.views}</p>
-						{author ? (
-							<button className="btn btn-danger" onClick={removeImage}>
-								Delete
-							</button>
-						) : (
-							<React.Fragment />
-						)}
 					</figcaption>
 				</a>
 			</figure>
+			<p>
+				uploader:{' '}
+				<Link className="nav--link" to={`/profile/${image.authorId}`}>
+					{image.authorName}
+				</Link>
+			</p>
+
+			{author ? (
+				<button className="btn btn-danger" onClick={removeImage}>
+					Delete
+				</button>
+			) : (
+				<React.Fragment />
+			)}
 		</div>
 	);
 };

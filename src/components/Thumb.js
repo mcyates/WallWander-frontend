@@ -10,7 +10,7 @@ export const Thumb = ({ image }) => {
 					className="thumb--img"
 					source={image.secureUrl}
 					defaultSource="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-					offset={50}
+					offset={1000}
 					alt={image.title}
 				/>
 
