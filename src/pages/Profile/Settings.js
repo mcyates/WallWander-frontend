@@ -39,11 +39,11 @@ export const Settings = (props) => {
 			<NameModal visible={visible} setName={setName} submit={changeName} />
 			<ProfileNav uri={props.uri} id={props.id} />
 			<div className="settings">
-				<div className="profile--name">
+				<div className="settings--name">
 					<p>
-						Username: <span>{user.name}</span>
+						<span>{user.name}</span>
 					</p>
-					<button onClick={show} className="btn profile--btn">
+					<button onClick={show} className="btn settings--btn">
 						Change Username
 					</button>
 				</div>
