@@ -37,7 +37,7 @@ export const Settings = (props) => {
 		<React.Fragment>
 			<Navbar />
 			<NameModal visible={visible} setName={setName} submit={changeName} />
-			<ProfileNav id={props.id} />
+			<ProfileNav uri={props.uri} id={props.id} />
 			<div className="settings">
 				<div className="profile--name">
 					<p>

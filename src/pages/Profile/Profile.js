@@ -8,7 +8,7 @@ const Profile = (props) => {
 	return (
 		<div className="profile">
 			<Navbar />
-			<ProfileNav id={props.id} />
+			<ProfileNav uri={props.uri} id={props.id} />
 			<div className="profile--box" />
 		</div>
 	);

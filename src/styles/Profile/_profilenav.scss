@@ -1,0 +1,37 @@
+.p-nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&-box {
+		width: 60rem;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		background-color: var(--background-primary);
+		box-shadow: var(--boxshadow);
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		-o-border-radius: 5px;
+	}
+
+	&-link {
+		width: 100%;
+		max-width: 20rem;
+		height: 100%;
+
+		text-align: center;
+		padding: 1rem 2rem;
+		border-bottom: 2px solid transparent;
+		&:hover {
+			border-bottom: 2px solid var(--border-color);
+		}
+
+		&:focus {
+			border: 2px solid var(--border-color);
+		}
+	}
+}

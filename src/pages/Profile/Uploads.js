@@ -29,7 +29,7 @@ export const Uploads = (props) => {
 	return (
 		<React.Fragment>
 			<Navbar />
-			<ProfileNav id={props.id} />
+			<ProfileNav uri={props.uri} id={props.id} />
 			<p>uploads</p>
 			<WallpaperList images={images} />
 		</React.Fragment>
