@@ -97,20 +97,17 @@ export const startSetName = (user) => {
 	};
 };
 
-export const logout = (email, id) => ({
+export const logout = (user) => ({
 	type: 'LOGOUT',
-	email,
-	id
+	...user
 });
 
 export const startLogout = () => {
 	return (dispatch, getState) => {
-		const id = getState().auth.id || localStorage.getItem('id');
-		const email = getState().auth.email || localStorage.getItem('email');
+		const user = getState().auth || localStorage.getItem('user');
 
-		window.localStorage.removeItem('id');
-		window.localStorage.removeItem('email');
+		window.localStorage.removeItem('user');
 
-		dispatch(logout(email, id));
+		dispatch(logout(user));
 	};
 };
