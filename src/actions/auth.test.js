@@ -2,7 +2,10 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as auth from './auth';
 
-describe('action creators', () => {
+const middlewares = [thunk];
+const mockstore = configureMockStore(middlewares);
+
+describe('synchronous action creators', () => {
 	it('should create an action to login a user', () => {
 		const user = {
 			email: 'foo@bar.com',
