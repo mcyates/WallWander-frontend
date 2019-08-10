@@ -1,6 +1,6 @@
 export const addImage = (image) => ({
 	type: 'ADD_IMAGE',
-	...image
+	image
 });
 
 export const getImage = (image) => ({

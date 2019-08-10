@@ -13,7 +13,7 @@ describe('action creators', () => {
 		};
 		const expectedAction = {
 			type: 'ADD_IMAGE',
-			...image
+			image
 		};
 
 		expect(actions.addImage(image)).toEqual(expectedAction);
