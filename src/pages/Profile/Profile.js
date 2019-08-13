@@ -22,7 +22,6 @@ const Profile = (props) => {
 		fetchData();
 		return;
 	}, [props.id]);
-	console.log(user);
 
 	return (
 		<div className="profile">

@@ -16,7 +16,6 @@ export const startLogin = ({ email, password }) => {
 			})
 			.then(async (res) => {
 				const { authorization } = res.headers;
-				console.log(res.data);
 
 				const user = {
 					id: res.data.id,
@@ -47,7 +46,6 @@ export const startRegistration = ({ email, password }) => {
 			})
 			.then((res) => {
 				const { authorization } = res.headers;
-				console.log(res);
 				const user = {
 					id: res.data.id,
 					email: res.data.email,
@@ -71,7 +69,7 @@ export const setName = (user) => ({
 });
 
 export const startSetName = (user) => {
-	const { id, email, name } = user;
+	const { id, email, name, token } = user;
 	return (dispatch) => {
 		return axios
 			.post(
@@ -81,17 +79,17 @@ export const startSetName = (user) => {
 					email
 				},
 				{
-					headers: { authorization: id }
+					headers: { authorization: token }
 				}
 			)
 			.then((res) => {
-				console.log(res);
 				const user = {
 					id,
 					email,
-					name
+					name,
+					token
 				};
-				window.localStorage.setItem('name', user.name);
+				window.localStorage.setItem('user', user);
 				dispatch(setName(user));
 			});
 	};

@@ -8,10 +8,10 @@ export const ProfileNav = (props) => {
 	return (
 		<nav role="navigation" className="p-nav">
 			<div className="p-nav-box">
-				<Link className="p-nav-link" to={`/profile/${user.id}`}>
+				<Link className="p-nav-link" to={`/profile/${props.id}`}>
 					Profile
 				</Link>
-				<Link className="p-nav-link" to={`/profile/${user.id}/uploads`}>
+				<Link className="p-nav-link" to={`/profile/${props.id}/uploads`}>
 					Uploads
 				</Link>
 				{props.id === user.id ? (

@@ -28,6 +28,7 @@ export const Settings = (props) => {
 		const userInfo = {
 			id: user.id,
 			email: user.email,
+			token: user.token,
 			name
 		};
 		hide();

@@ -1,4 +1,4 @@
-# Wallwander
+# Wallwander-frontend
 A wallpaper App inspired by [wallhaven](https://wallhaven.cc/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

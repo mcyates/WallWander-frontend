@@ -29,6 +29,13 @@ export const WallpaperPage = (props) => {
 		};
 		fetchData();
 	}, [dispatch, props.id, setImage]);
+
+	const favoriteImage = async () => {
+		axios.post(`${baseUrl}/images/${props.id}/favorite`, {
+			userId: user.id
+		});
+	};
+
 	const removeImage = async () => {
 		axios.delete(`${baseUrl}/images/${props.id}`);
 		dispatch(deleteImage(image));
@@ -43,7 +50,9 @@ export const WallpaperPage = (props) => {
 			<Wallpaper
 				image={image}
 				id={props.id}
+				user={!!user}
 				author={isAuthor}
+				favoriteImage={favoriteImage}
 				removeImage={removeImage}
 			/>
 		</Suspense>

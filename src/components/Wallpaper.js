@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from '@reach/router';
 
 export const Wallpaper = (props) => {
-	const { image, author, removeImage } = props;
+	const { author, image, user, favoriteImage, removeImage } = props;
 	const urlArr = image.secureUrl.split('/');
 	urlArr[6] = 'f_auto,h_2560,w_1440,c_limit,q_auto:best';
 	const optUrl = urlArr.join('/');
-	// urlArr[6] = 'f_auto,c_limit';
 
 	return (
 		<div className="wallpaper">
@@ -27,6 +26,13 @@ export const Wallpaper = (props) => {
 					{image.authorName}
 				</Link>
 			</p>
+			{!author && user ? (
+				<button className="btn settings--btn" onClick={favoriteImage}>
+					Favorite
+				</button>
+			) : (
+				<React.Fragment />
+			)}
 
 			{author ? (
 				<button className="btn btn-danger" onClick={removeImage}>
