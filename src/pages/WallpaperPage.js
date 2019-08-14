@@ -31,7 +31,7 @@ export const WallpaperPage = (props) => {
 	}, [dispatch, props.id, setImage]);
 
 	const favoriteImage = async () => {
-		axios.post(`${baseUrl}/images/${props.id}/favorite`, {
+		axios.post(`${baseUrl}/image/${props.id}/favorite`, {
 			userId: user.id
 		});
 	};
