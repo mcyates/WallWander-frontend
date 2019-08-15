@@ -5,8 +5,8 @@ import StackGrid, { transitions } from 'react-stack-grid';
 import Thumb from './Thumb';
 
 import { useDispatch } from 'react-redux';
-import { getImages } from '../actions/image';
-import { baseUrl } from '../App';
+import { getImages } from '../../actions/image';
+import { baseUrl } from '../../App';
 
 export const WallpaperList = (props) => {
 	const { images, setImages } = props;

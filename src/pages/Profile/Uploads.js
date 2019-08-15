@@ -4,7 +4,7 @@ import axios from 'axios';
 import ProfileNav from './ProfileNav';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { WallpaperList } from '../../components/WallpaperList';
+import { WallpaperList } from '../../components/wallpaper/WallpaperList';
 import { getImages } from '../../actions/image';
 import { baseUrl } from '../../App';
 
@@ -29,6 +29,7 @@ export const Uploads = (props) => {
 		fetchData();
 		return;
 	}, [dispatch, props.id, user.id]);
+
 	return (
 		<React.Fragment>
 			<Navbar />

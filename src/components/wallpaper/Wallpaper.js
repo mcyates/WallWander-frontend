@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
+const Favorite = React.lazy(() => import('./Favorite'));
+
 export const Wallpaper = (props) => {
-	const { author, image, user, favoriteImage, removeImage } = props;
+	const { wallpaperData, favoriteData, removeImage } = props;
+	const { author, image, user } = wallpaperData;
+
 	const urlArr = image.secureUrl.split('/');
 	urlArr[6] = 'f_auto,h_2560,w_1440,c_limit,q_auto:best';
 	const optUrl = urlArr.join('/');
@@ -22,17 +26,12 @@ export const Wallpaper = (props) => {
 			</figure>
 			<p>
 				uploader:{' '}
-				<Link className="nav--link" to={`/profile/${image.authorId}`}>
+				<Link className="nav--link" to={`/profile/${image.userId}`}>
 					{image.authorName}
 				</Link>
 			</p>
-			{!author && user ? (
-				<button className="btn settings--btn" onClick={favoriteImage}>
-					Favorite
-				</button>
-			) : (
-				<React.Fragment />
-			)}
+
+			<Favorite author={author} user={user} favoriteData={favoriteData} />
 
 			{author ? (
 				<button className="btn btn-danger" onClick={removeImage}>
@@ -41,6 +40,10 @@ export const Wallpaper = (props) => {
 			) : (
 				<React.Fragment />
 			)}
+
+			<footer>
+				icons made by <a href="www.flaticon.com">flaticon</a>
+			</footer>
 		</div>
 	);
 };

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { getImages } from '../actions/image';
 import { baseUrl } from '../App';
 
-import WallpaperList from '../components/WallpaperList';
+import WallpaperList from '../components/wallpaper/WallpaperList';
 const Navbar = React.lazy(() => import('../components/Navbar'));
 
 export const HomePage = () => {

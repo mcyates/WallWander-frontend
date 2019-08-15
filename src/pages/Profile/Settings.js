@@ -44,7 +44,7 @@ export const Settings = (props) => {
 					<p>
 						<span>{user.name}</span>
 					</p>
-					<button onClick={show} className="btn settings--btn">
+					<button onClick={show} className="btn btn--settings">
 						Change Username
 					</button>
 				</div>

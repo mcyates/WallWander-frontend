@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { format, parse } from 'date-fns';
+import { useDispatch } from 'react-redux';
+
+import { WallpaperList } from '../../components/wallpaper/WallpaperList';
+import { getImages } from '../../actions/image';
 
 import { baseUrl } from '../../App';
 
@@ -10,6 +14,10 @@ const ProfileNav = React.lazy(() => import('./ProfileNav'));
 
 const Profile = (props) => {
 	const [user, setUser] = useState({});
+	const [images, setImages] = useState([]);
+
+	const dispatch = useDispatch();
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const { data } = await axios.get(`${baseUrl}/users/${props.id}`);
@@ -23,6 +31,18 @@ const Profile = (props) => {
 		return;
 	}, [props.id]);
 
+	useEffect(() => {
+		const fetchData = async () => {
+			const { data } = await axios.get(
+				`${baseUrl}/images/favorites/${props.id}?limit=15&page=0`
+			);
+			const images = data.data;
+			dispatch(getImages(images));
+			setImages(images);
+		};
+		fetchData();
+	}, [dispatch, props.id]);
+
 	return (
 		<div className="profile">
 			<Navbar />
@@ -32,6 +52,7 @@ const Profile = (props) => {
 				<p>Joined: {user.createdAt}</p>
 				<p>uploads: {user.uploads}</p>
 			</div>
+			<WallpaperList images={images} />
 		</div>
 	);
 };

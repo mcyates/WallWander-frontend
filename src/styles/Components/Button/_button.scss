@@ -1,5 +1,5 @@
 .btn {
-	padding: 1rem 2rem;
+	color: var(--font-primary);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -16,6 +16,8 @@
 	}
 
 	&-danger {
+		padding: 1rem 1.5rem;
+
 		background-color: #ed2323;
 		&:hover {
 			background-color: #8d2323;
@@ -24,11 +26,39 @@
 
 	&-form {
 		padding: 1rem 4rem;
+
 		background-color: var(--border-color);
 		color: var(--font-primary);
 
 		&:hover {
 			background-color: var(--border-color-dark);
+		}
+	}
+
+	&--settings {
+		padding: 1rem 2rem;
+		background-color: var(--border-color-dark);
+		box-shadow: var(--boxshadow);
+		color: var(--font-primary);
+
+		&:hover {
+			background-color: var(--border-color);
+		}
+	}
+
+	&--svg {
+		height: 4.5rem;
+		width: 4.5rem;
+		background-color: transparent;
+		border: 2px solid transparent;
+
+		img {
+			height: 100%;
+			width: 90%;
+		}
+
+		&:hover {
+			border: 2px solid var(--fav-red);
 		}
 	}
 }
