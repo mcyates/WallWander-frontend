@@ -6,7 +6,6 @@ import favHeart from '../../icons/002-like-1.svg';
 export const Favorite = (props) => {
 	const { author, user, favoriteData } = props;
 	const { isFaved, addFavorite, unFavorite } = favoriteData;
-
 	return (
 		<React.Fragment>
 			{!author && user ? (

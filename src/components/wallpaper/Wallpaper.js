@@ -13,6 +13,9 @@ export const Wallpaper = (props) => {
 
 	return (
 		<div className="wallpaper">
+			{tags.map((tag) => {
+				return <p>{tag.tag}</p>;
+			})}
 			<figure className="wallpaper--figure">
 				<a href={image.secureUrl}>
 					<img className="wallpaper--img" src={optUrl} alt={image.title} />

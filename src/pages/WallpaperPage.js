@@ -22,6 +22,9 @@ export const WallpaperPage = (props) => {
 	const [isFaved, setIsFaved] = useState(false);
 	const [tags, setTags] = useState([]);
 
+	const [tagText, setTagText] = useState('');
+	const [tagNsfw, setTagNsfw] = useState('false');
+
 	if (!image) {
 		props.navigate('/');
 	}
@@ -29,7 +32,7 @@ export const WallpaperPage = (props) => {
 	const addFavorite = async () => {
 		axios({
 			method: 'post',
-			url: `${baseUrl}/image/${props.id}/favorite`,
+			url: `${baseUrl}/favorite/${props.id}`,
 			headers: { authorization: user.token },
 			data: {
 				userId: user.id
@@ -55,6 +58,19 @@ export const WallpaperPage = (props) => {
 		axios.delete(`${baseUrl}/images/${props.id}`);
 		dispatch(deleteImage(image));
 		props.navigate(`/profile/${user.id}/uploads`);
+	};
+
+	const addTag = async () => {
+		const tag = await axios({
+			method: 'post',
+			url: `${baseUrl}/images/${props.id}/tags`,
+			headers: { authorization: user.token },
+			data: {
+				tag: tagText,
+				nsfw: tagNsfw
+			}
+		}).catch((e) => console.log(e));
+		setTags(...tags, tag);
 	};
 
 	useEffect(() => {
@@ -110,6 +126,7 @@ export const WallpaperPage = (props) => {
 			<Navbar />
 			<Wallpaper
 				wallpaperData={wallpaperData}
+				addTag={addTag}
 				favoriteData={favoriteData}
 				removeImage={removeImage}
 			/>
