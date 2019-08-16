@@ -20,6 +20,7 @@ export const WallpaperPage = (props) => {
 		}) || '';
 
 	const [isFaved, setIsFaved] = useState(false);
+	const [tags, setTags] = useState([]);
 
 	if (!image) {
 		props.navigate('/');
@@ -57,16 +58,16 @@ export const WallpaperPage = (props) => {
 	};
 
 	useEffect(() => {
-		const fetchData = async () => {
+		const fetchImage = async () => {
 			const image = await axios.get(`${baseUrl}/images/${props.id}`);
 			dispatch(getImage(image.data));
 			setImage(image.data);
 		};
-		fetchData();
+		fetchImage();
 	}, [dispatch, props.id, setImage]);
 
 	useEffect(() => {
-		const fetchData = async () => {
+		const fetchFav = async () => {
 			const { data } = await axios({
 				method: 'get',
 				url: `${baseUrl}/favorite/${props.id}?userId=${user.id}`,
@@ -74,15 +75,29 @@ export const WallpaperPage = (props) => {
 			});
 			setIsFaved(data);
 		};
-		fetchData();
+		fetchFav();
 	}, [isFaved, props.id, user.id, user.token]);
+
+	useEffect(() => {
+		const fetchTags = async () => {
+			const { data } = await axios({
+				method: 'get',
+				url: `${baseUrl}/images/${props.id}/tags`
+			});
+
+			setTags(data);
+		};
+
+		fetchTags();
+	}, [props.id]);
 
 	const isAuthor = user.id === image.authorId;
 	const wallpaperData = {
-		image,
+		author: isAuthor,
 		id: props.id,
-		user: !!user,
-		author: isAuthor
+		image,
+		tags,
+		user: !!user
 	};
 	const favoriteData = {
 		isFaved,

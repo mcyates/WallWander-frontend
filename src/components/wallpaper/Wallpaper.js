@@ -5,7 +5,7 @@ const Favorite = React.lazy(() => import('./Favorite'));
 
 export const Wallpaper = (props) => {
 	const { wallpaperData, favoriteData, removeImage } = props;
-	const { author, image, user } = wallpaperData;
+	const { author, image, tags, user } = wallpaperData;
 
 	const urlArr = image.secureUrl.split('/');
 	urlArr[6] = 'f_auto,h_2560,w_1440,c_limit,q_auto:best';
