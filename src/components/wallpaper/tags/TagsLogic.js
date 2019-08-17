@@ -9,18 +9,28 @@ export const TagsLogic = (props) => {
 	const [tags, setTags] = useState([]);
 
 	const [tagText, setTagText] = useState('');
-	const [tagNsfw, setTagNsfw] = useState('false');
+	const [tagNsfw, setTagNsfw] = useState(false);
 
-	const addTag = async () => {
-		const tag = await axios({
-			method: 'post',
-			url: `${baseUrl}/images/${props.id}/tags`,
-			headers: { authorization: user.token },
-			data: {
-				tag: tagText,
-				nsfw: tagNsfw
-			}
-		}).catch((e) => console.log(e));
+	const addTag = async (e) => {
+		e.preventDefault();
+
+		if (tagNsfw === 'sfw') {
+			setTagNsfw(false);
+		} else if (tagNsfw === 'nsfw') {
+			setTagNsfw(true);
+		}
+		const tag = await axios
+			.post(
+				`${baseUrl}/images/${id}/tags`,
+				{
+					tag: tagText,
+					nsfw: tagNsfw
+				},
+				{
+					headers: { authorization: user.token }
+				}
+			)
+			.catch((e) => console.log(e));
 		setTags(...tags, tag);
 	};
 
@@ -30,13 +40,19 @@ export const TagsLogic = (props) => {
 				method: 'get',
 				url: `${baseUrl}/images/${id}/tags`
 			});
-
 			setTags(data);
 		};
 
 		fetchTags();
-	}, [id]);
-	return <TagsView tags={tags} />;
+	}, [id, setTags]);
+	return (
+		<TagsView
+			tags={tags}
+			setTagNsfw={setTagNsfw}
+			setTagText={setTagText}
+			submit={addTag}
+		/>
+	);
 };
 
 export default TagsLogic;

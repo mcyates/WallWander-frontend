@@ -16,8 +16,6 @@ const RegistrationPage = (props) => {
 		e.preventDefault();
 		const user = { email, password };
 		dispatch(startRegistration(user));
-
-		// props.navigate(`/profile/`);
 	};
 
 	return (
