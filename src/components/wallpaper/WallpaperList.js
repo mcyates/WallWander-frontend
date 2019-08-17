@@ -39,7 +39,6 @@ export const WallpaperList = (props) => {
 			<StackGrid
 				className="grid"
 				itemComponent="div"
-				gutterHeight={-1}
 				appear={fadeDown.appear}
 				monitorImagesLoaded={true}
 				columnWidth={columnWidth}

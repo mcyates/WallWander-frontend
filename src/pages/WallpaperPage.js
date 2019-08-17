@@ -19,58 +19,14 @@ export const WallpaperPage = (props) => {
 			title: ''
 		}) || '';
 
-	const [isFaved, setIsFaved] = useState(false);
-	const [tags, setTags] = useState([]);
-
-	const [tagText, setTagText] = useState('');
-	const [tagNsfw, setTagNsfw] = useState('false');
-
 	if (!image) {
 		props.navigate('/');
 	}
-
-	const addFavorite = async () => {
-		axios({
-			method: 'post',
-			url: `${baseUrl}/favorite/${props.id}`,
-			headers: { authorization: user.token },
-			data: {
-				userId: user.id
-			}
-		})
-			.then(() => {
-				setIsFaved(true);
-			})
-			.catch((e) => console.log(e));
-	};
-
-	const unFavorite = () => {
-		axios({
-			method: 'delete',
-			headers: { authorization: user.token },
-			url: `${baseUrl}/favorite/${props.id}?userId=${user.id}`
-		}).then(() => {
-			setIsFaved(false);
-		});
-	};
 
 	const removeImage = async () => {
 		axios.delete(`${baseUrl}/images/${props.id}`);
 		dispatch(deleteImage(image));
 		props.navigate(`/profile/${user.id}/uploads`);
-	};
-
-	const addTag = async () => {
-		const tag = await axios({
-			method: 'post',
-			url: `${baseUrl}/images/${props.id}/tags`,
-			headers: { authorization: user.token },
-			data: {
-				tag: tagText,
-				nsfw: tagNsfw
-			}
-		}).catch((e) => console.log(e));
-		setTags(...tags, tag);
 	};
 
 	useEffect(() => {
@@ -82,54 +38,19 @@ export const WallpaperPage = (props) => {
 		fetchImage();
 	}, [dispatch, props.id, setImage]);
 
-	useEffect(() => {
-		const fetchFav = async () => {
-			const { data } = await axios({
-				method: 'get',
-				url: `${baseUrl}/favorite/${props.id}?userId=${user.id}`,
-				headers: { authorization: user.token }
-			});
-			setIsFaved(data);
-		};
-		fetchFav();
-	}, [isFaved, props.id, user.id, user.token]);
-
-	useEffect(() => {
-		const fetchTags = async () => {
-			const { data } = await axios({
-				method: 'get',
-				url: `${baseUrl}/images/${props.id}/tags`
-			});
-
-			setTags(data);
-		};
-
-		fetchTags();
-	}, [props.id]);
-
 	const isAuthor = user.id === image.authorId;
 	const wallpaperData = {
 		author: isAuthor,
 		id: props.id,
 		image,
-		tags,
-		user: !!user
-	};
-	const favoriteData = {
-		isFaved,
-		unFavorite,
-		addFavorite
+		isAuthed: !!user,
+		user: user
 	};
 
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
 			<Navbar />
-			<Wallpaper
-				wallpaperData={wallpaperData}
-				addTag={addTag}
-				favoriteData={favoriteData}
-				removeImage={removeImage}
-			/>
+			<Wallpaper wallpaperData={wallpaperData} removeImage={removeImage} />
 		</Suspense>
 	);
 };

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
-const Favorite = React.lazy(() => import('./Favorite'));
+const Favorite = React.lazy(() => import('./favorites/FavoriteLogic'));
+const TagsLogic = React.lazy(() => import('./tags/TagsLogic'));
 
 export const Wallpaper = (props) => {
-	const { wallpaperData, favoriteData, removeImage } = props;
-	const { author, image, tags, user } = wallpaperData;
+	const { wallpaperData, removeImage } = props;
+	const { author, id, image, isAuthed, user } = wallpaperData;
 
 	const urlArr = image.secureUrl.split('/');
 	urlArr[6] = 'f_auto,h_2560,w_1440,c_limit,q_auto:best';
@@ -13,9 +14,7 @@ export const Wallpaper = (props) => {
 
 	return (
 		<div className="wallpaper">
-			{tags.map((tag) => {
-				return <p>{tag.tag}</p>;
-			})}
+			<TagsLogic id={id} user={user} />
 			<figure className="wallpaper--figure">
 				<a href={image.secureUrl}>
 					<img className="wallpaper--img" src={optUrl} alt={image.title} />
@@ -34,7 +33,13 @@ export const Wallpaper = (props) => {
 				</Link>
 			</p>
 
-			<Favorite author={author} user={user} favoriteData={favoriteData} />
+			<Favorite
+				id={id}
+				userId={user.id}
+				author={author}
+				user={user}
+				isAuthed={isAuthed}
+			/>
 
 			{author ? (
 				<button className="btn btn-danger" onClick={removeImage}>
