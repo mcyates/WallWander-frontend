@@ -19,7 +19,7 @@ export const TagsLogic = (props) => {
 		} else if (tagNsfw === 'nsfw') {
 			setTagNsfw(true);
 		}
-		const tag = await axios
+		const { data } = await axios
 			.post(
 				`${baseUrl}/images/${id}/tags`,
 				{
@@ -31,7 +31,16 @@ export const TagsLogic = (props) => {
 				}
 			)
 			.catch((e) => console.log(e));
-		setTags(...tags, tag);
+		const tag = data[0];
+		setTags([...tags, tag]);
+	};
+
+	const removeTag = async (data) => {
+		await axios.delete(`${baseUrl}/images/${id}/tags/${data}`, {
+			headers: { authorization: user.id }
+		});
+		const newTags = tags.filter((tag) => tag.tag !== data);
+		setTags([...newTags]);
 	};
 
 	useEffect(() => {
@@ -47,10 +56,11 @@ export const TagsLogic = (props) => {
 	}, [id, setTags]);
 	return (
 		<TagsView
-			tags={tags}
+			removeTag={removeTag}
 			setTagNsfw={setTagNsfw}
 			setTagText={setTagText}
 			submit={addTag}
+			tags={tags}
 		/>
 	);
 };

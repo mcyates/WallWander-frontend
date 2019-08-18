@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const TagsView = (props) => {
-	const { submit, tags } = props;
+	const { removeTag, submit, tags } = props;
 
 	return (
 		<div className="tags--box">
@@ -29,8 +29,14 @@ export const TagsView = (props) => {
 					let tagClass = `tag tag-${tag.nsfw}`;
 
 					return (
-						<li className={tagClass} key={tag.tag}>
+						<li className={tagClass} key={tag.id}>
 							{tag.tag}
+							<button
+								className="btn-tag--danger"
+								onClick={() => removeTag(tag.tag)}
+							>
+								X
+							</button>
 						</li>
 					);
 				})}
