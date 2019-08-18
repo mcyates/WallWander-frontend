@@ -4,10 +4,10 @@ import notFavHeart from '../../../icons/001-like.svg';
 import favHeart from '../../../icons/002-like-1.svg';
 
 export const FavoriteView = (props) => {
-	const { author, isFaved, isAuthed, addFavorite, unFavorite } = props;
+	const { isFaved, isAuthed, addFavorite, unFavorite } = props;
 	return (
 		<React.Fragment>
-			{!author && isAuthed ? (
+			{isAuthed ? (
 				isFaved ? (
 					<button className="btn btn--svg" onClick={unFavorite}>
 						<img src={favHeart} alt="favorite button" />

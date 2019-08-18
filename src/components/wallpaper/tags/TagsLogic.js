@@ -32,6 +32,7 @@ export const TagsLogic = (props) => {
 			)
 			.catch((e) => console.log(e));
 		const tag = data[0];
+
 		setTags([...tags, tag]);
 	};
 
@@ -48,6 +49,13 @@ export const TagsLogic = (props) => {
 			const { data } = await axios({
 				method: 'get',
 				url: `${baseUrl}/images/${id}/tags`
+			});
+			data.forEach((tag) => {
+				if (tag.nsfw) {
+					tag.nsfw = 'nsfw';
+				} else {
+					tag.nsfw = 'sfw';
+				}
 			});
 			setTags(data);
 		};

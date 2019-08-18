@@ -32,14 +32,11 @@ export const Wallpaper = (props) => {
 					{image.authorName}
 				</Link>
 			</p>
-
-			<Favorite
-				id={id}
-				userId={user.id}
-				author={author}
-				user={user}
-				isAuthed={isAuthed}
-			/>
+			{author ? (
+				<React.Fragment />
+			) : (
+				<Favorite id={id} userId={user.id} user={user} isAuthed={isAuthed} />
+			)}
 
 			{author ? (
 				<button className="btn btn-danger" onClick={removeImage}>

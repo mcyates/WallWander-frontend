@@ -4,11 +4,11 @@ export const TagsView = (props) => {
 	const { removeTag, submit, tags } = props;
 
 	return (
-		<div className="tags--box">
+		<div className="tags">
 			<h3>Tags</h3>
-			<form className="tag--form" onSubmit={submit} method="post">
+			<form className="tags-form" onSubmit={submit} method="post">
 				<input
-					className="tag--form-input"
+					className="tags-form-input"
 					name="tagText"
 					type="text"
 					placeholder="add tag"
@@ -17,22 +17,22 @@ export const TagsView = (props) => {
 				<select
 					defaultValue="false"
 					onChange={(e) => props.setTagNsfw(e.target.value)}
-					className="tag--form-select"
+					className="tags-form-select"
 				>
 					<option value="false">sfw</option>
 					<option value="true">nsfw</option>
 				</select>
-				<button className="btn-tag--form">Add</button>
+				<button className="btn-tags-form">Add</button>
 			</form>
-			<ul className="taglist">
+			<ul className="tags-list">
 				{tags.map((tag) => {
-					let tagClass = `tag tag-${tag.nsfw}`;
+					let tagClass = `tags-tag tags-tag-${tag.nsfw}`;
 
 					return (
 						<li className={tagClass} key={tag.id}>
-							{tag.tag}
+							<p className="tags-tag-data">{tag.tag}</p>
 							<button
-								className="btn-tag--danger"
+								className="btn-tags-danger"
 								onClick={() => removeTag(tag.tag)}
 							>
 								X
