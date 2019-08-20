@@ -18,7 +18,7 @@
 	&-danger {
 		padding: 1rem 1.5rem;
 
-		background-color: #ed2323;
+		background-color: var(--fav-red);
 		&:hover {
 			background-color: #8d2323;
 		}
@@ -27,22 +27,22 @@
 	&-form {
 		padding: 1rem 4rem;
 
-		background-color: var(--border-color);
+		background-color: var(--background-secondary-dark);
 		color: var(--font-primary);
 
 		&:hover {
-			background-color: var(--border-color-dark);
+			background-color: var(--background-secondary-light);
 		}
 	}
 
 	&--settings {
 		padding: 1rem 2rem;
-		background-color: var(--border-color-dark);
-		box-shadow: var(--boxshadow);
+		background-color: var(--background-secondary-dark);
+		box-shadow: var(--boxshadow-sm);
 		color: var(--font-primary);
 
 		&:hover {
-			background-color: var(--border-color);
+			background-color: var(--background-secondary-light);
 		}
 	}
 
@@ -81,7 +81,7 @@
 			-o-transition: all 0.3s ease;
 
 			&:hover {
-				background-color: var(--border-color);
+				background-color: var(--background-secondary-light);
 				cursor: pointer;
 			}
 		}

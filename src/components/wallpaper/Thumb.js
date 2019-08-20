@@ -4,7 +4,7 @@ import Image from 'react-lazy-image';
 
 export const Thumb = ({ image }) => {
 	return (
-		<Link className="thumb" to={`/wallpapers/${image.id}`} key={image.title}>
+		<Link className="thumb" to={`/wallpapers/${image.id}`}>
 			<figure className="thumb--fig">
 				<Image
 					className="thumb--img"

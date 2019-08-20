@@ -35,12 +35,12 @@ export const Settings = (props) => {
 		dispatch(startSetName(userInfo));
 	};
 	return (
-		<React.Fragment>
-			<Navbar />
+		<div className="settings">
 			<NameModal visible={visible} setName={setName} submit={changeName} />
+			<Navbar />
 			<ProfileNav uri={props.uri} id={props.id} />
-			<div className="settings">
-				<div className="settings--name">
+			<div className="settings-box">
+				<div className="settings-name">
 					<p>
 						<span>{user.name}</span>
 					</p>
@@ -49,7 +49,7 @@ export const Settings = (props) => {
 					</button>
 				</div>
 			</div>
-		</React.Fragment>
+		</div>
 	);
 };
 export default Settings;

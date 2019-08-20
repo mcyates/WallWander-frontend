@@ -19,8 +19,12 @@ export const TagsView = (props) => {
 					onChange={(e) => props.setTagNsfw(e.target.value)}
 					className="tags-form-select"
 				>
-					<option value="false">sfw</option>
-					<option value="true">nsfw</option>
+					<option className="tags-form-option" value="false">
+						sfw
+					</option>
+					<option className="tags-form-option" value="true">
+						nsfw
+					</option>
 				</select>
 				<button className="btn-tags-form">Add</button>
 			</form>

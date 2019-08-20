@@ -14,14 +14,14 @@ export const NameModal = (props) => {
 					onSubmit={props.submit}
 					method="post"
 				>
-					<div className="form--box">
-						<label className="form--label" htmlFor="name">
+					<div className="form-box">
+						<label className="form-label" htmlFor="name">
 							Username
 						</label>
 						<input
 							type="text"
 							placeholder="atleast 6 characters"
-							className="form--input"
+							className="form-input"
 							onChange={(e) => setName(e.target.value)}
 							minLength="6"
 						/>

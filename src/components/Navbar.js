@@ -27,17 +27,22 @@ export const Navbar = (props) => {
 					<div className="dropdown" tabIndex="2">
 						<p className="dropbtn">{user.name ? user.name : 'Anonymous'}</p>
 						<div className="dropdown-content">
-							<Link tabIndex="3" className="nav--link" to="/upload">
+							<Link tabIndex="3" className="dropdown-link" to="/upload">
 								Upload
 							</Link>
 							<Link
 								tabIndex="4"
-								className="nav--link"
+								className="dropdown-link"
 								to={`/profile/${user.id}`}
 							>
 								Profile
 							</Link>
-							<Link tabIndex="5" className="nav--link" to="/" onClick={logout}>
+							<Link
+								tabIndex="5"
+								className="dropdown-link"
+								to="/"
+								onClick={logout}
+							>
 								Logout
 							</Link>
 						</div>

@@ -47,7 +47,7 @@ export const WallpaperList = (props) => {
 					const urlArr = image.secureUrl.split('/');
 					urlArr[6] = 'f_auto,h_450,w_500,c_limit';
 					image.secureUrl = urlArr.join('/');
-					return <Thumb image={image} key={image.title} />;
+					return <Thumb image={image} key={image.id} />;
 				})}
 			</StackGrid>
 

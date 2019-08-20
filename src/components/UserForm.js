@@ -4,12 +4,12 @@ export const UserForm = (props) => {
 	const buttonText = props.button;
 	return (
 		<form className="form" onSubmit={props.submit} method="post">
-			<div className="form--box">
-				<label className="form--label" htmlFor="email">
+			<div className="form-box">
+				<label className="form-label" htmlFor="email">
 					Email
 				</label>
 				<input
-					className="form--input"
+					className="form-input"
 					name="email"
 					type="email"
 					placeholder="hello@email.com"
@@ -17,12 +17,12 @@ export const UserForm = (props) => {
 				/>
 			</div>
 
-			<div className="form--box">
-				<label className="form--label" htmlFor="password">
+			<div className="form-box">
+				<label className="form-label" htmlFor="password">
 					Password
 				</label>
 				<input
-					className="form--input"
+					className="form-input"
 					name="password"
 					type="password"
 					placeholder="123abc"

@@ -10,13 +10,11 @@
 @import './Upload/upload';
 
 *,
-*::before,
-*::after {
+*::before {
 	margin: 0;
 	padding: 0;
 	box-sizing: inherit;
 	border: 1px solid transparent;
-	text-decoration: none;
 }
 
 ul,
@@ -58,9 +56,10 @@ body {
 
 a {
 	color: var(--font-primary);
+	text-decoration: none;
 
 	&:focus {
-		border: 1px solid var(--border-color);
+		border: 1px solid var(--background-secondary-light);
 		outline: none;
 	}
 }
