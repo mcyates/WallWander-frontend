@@ -55,7 +55,7 @@ body {
 }
 
 a {
-	color: var(--font-primary);
+	color: inherit;
 	text-decoration: none;
 
 	&:focus {

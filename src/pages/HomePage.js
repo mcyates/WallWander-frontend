@@ -10,6 +10,7 @@ const Navbar = React.lazy(() => import('../components/Navbar'));
 
 export const HomePage = () => {
 	const [images, setImages] = useState([]);
+	const [paginationData, setPaginationData] = useState({});
 
 	const dispatch = useDispatch();
 
@@ -17,8 +18,12 @@ export const HomePage = () => {
 		const fetchData = async () => {
 			const { data } = await axios.get(`${baseUrl}/images?limit=15&page=0`);
 			const images = data.data;
-			dispatch(getImages(images));
 			setImages(images);
+			setPaginationData({
+				lastPage: data.last_page,
+				currentPage: data.current_page
+			});
+			dispatch(getImages(images));
 			return;
 		};
 		fetchData();
@@ -28,7 +33,12 @@ export const HomePage = () => {
 	return (
 		<div className="home">
 			<Navbar />
-			<WallpaperList images={images} />
+			<WallpaperList
+				images={images}
+				setImages={setImages}
+				pageChangeUrl={`${baseUrl}/images`}
+				paginationData={paginationData}
+			/>
 			<footer className="footer">
 				Created by Matthew Yates, &copy; {new Date().getFullYear()}
 			</footer>

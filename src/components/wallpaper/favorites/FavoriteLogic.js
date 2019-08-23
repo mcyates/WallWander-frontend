@@ -33,18 +33,19 @@ export const Favorite = (props) => {
 			setIsFaved(false);
 		});
 	};
-
 	useEffect(() => {
-		const fetchFav = async () => {
-			const { data } = await axios({
-				method: 'get',
-				url: `${baseUrl}/favorite/${id}?userId=${user.id}`,
-				headers: { authorization: user.token }
-			});
-			setIsFaved(data);
-		};
-		fetchFav();
-	}, [id, setIsFaved, user.id, user.token]);
+		if (author === false && isAuthed === true) {
+			const fetchFav = async () => {
+				const { data } = await axios({
+					method: 'get',
+					url: `${baseUrl}/favorite/${id}?userId=${user.id}`,
+					headers: { authorization: user.token }
+				});
+				setIsFaved(data);
+			};
+			fetchFav();
+		}
+	}, [author, id, isAuthed, setIsFaved, user.id, user.token]);
 
 	return (
 		<FavoriteView

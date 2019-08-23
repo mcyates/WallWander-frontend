@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 export const TagsView = (props) => {
 	const { removeTag, submit, tags } = props;
@@ -34,7 +35,9 @@ export const TagsView = (props) => {
 
 					return (
 						<li className={tagClass} key={tag.id}>
-							<p className="tags-tag-data">{tag.tag}</p>
+							<Link to={`/wallpapers/search/?tags=${tag.tag}`}>
+								<p className="tags-tag-data">{tag.tag}</p>
+							</Link>
 							<button
 								className="btn-tags-danger"
 								onClick={() => removeTag(tag.tag)}

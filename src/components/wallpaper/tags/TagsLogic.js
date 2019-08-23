@@ -33,6 +33,12 @@ export const TagsLogic = (props) => {
 			.catch((e) => console.log(e));
 		const tag = data[0];
 
+		if (tag.nsfw) {
+			tag.nsfw = 'nsfw';
+		} else {
+			tag.nsfw = 'sfw';
+		}
+
 		setTags([...tags, tag]);
 	};
 
@@ -62,6 +68,7 @@ export const TagsLogic = (props) => {
 
 		fetchTags();
 	}, [id, setTags]);
+
 	return (
 		<TagsView
 			removeTag={removeTag}

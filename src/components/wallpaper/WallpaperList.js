@@ -6,22 +6,21 @@ import Thumb from './Thumb';
 
 import { useDispatch } from 'react-redux';
 import { getImages } from '../../actions/image';
-import { baseUrl } from '../../App';
 
 export const WallpaperList = (props) => {
-	const { images, setImages } = props;
+	const { images, setImages, pageChangeUrl, paginationData } = props;
 	const [pageCount, setPageCount] = useState(0);
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		setPageCount(images.last_page);
+		setPageCount(paginationData.lastPage);
 		return;
-	}, [images.last_page]);
+	}, [paginationData.lastPage]);
 
 	const pageChange = async ({ selected }) => {
 		const { data } = await axios.get(
-			`${baseUrl}/images?limit=15&page=${selected}`
+			`${pageChangeUrl}?limit=1&page=${selected}`
 		);
 		const images = data.data;
 
@@ -54,7 +53,7 @@ export const WallpaperList = (props) => {
 			{pageCount > 1 ? (
 				<ReactPaginate
 					pageCount={pageCount}
-					pageRangeDisplayed={props.size.width <= 700 ? 2 : 3}
+					pageRangeDisplayed={columnWidth <= 700 ? 2 : 3}
 					marginPagesDisplayed={1}
 					onPageChange={pageChange}
 					activeClassName="pagination--active"

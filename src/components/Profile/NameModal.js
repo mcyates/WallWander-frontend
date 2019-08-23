@@ -23,7 +23,7 @@ export const NameModal = (props) => {
 							placeholder="atleast 6 characters"
 							className="form-input"
 							onChange={(e) => setName(e.target.value)}
-							minLength="6"
+							minLength="4"
 						/>
 					</div>
 					<button className="btn btn-form">Submit</button>

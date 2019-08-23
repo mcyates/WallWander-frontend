@@ -21,11 +21,18 @@
 
 	&-tag {
 		display: inline-flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+
 		margin: 4px;
 		padding-left: 5px;
 		background-color: var(--background-primary);
 		box-shadow: var(--boxshadow-sm);
-		justify-content: space-around;
+		&-data {
+			float: left;
+			height: 100%;
+		}
 
 		&-nsfw {
 			color: var(--fav-red);
@@ -35,6 +42,11 @@
 		-moz-border-radius: 5px;
 		-ms-border-radius: 5px;
 		-o-border-radius: 5px;
+
+		&:hover {
+			background-color: var(--background-secondary);
+			cursor: pointer;
+		}
 	}
 
 	&-form {
