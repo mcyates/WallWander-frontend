@@ -12,6 +12,8 @@ const Navbar = React.lazy(() => import('../../components/Navbar'));
 
 export const Uploads = (props) => {
 	const [images, setImages] = useState([]);
+	const [paginationData, setPaginationData] = useState({});
+
 	const user = useSelector((state) => state.auth);
 
 	const dispatch = useDispatch();
@@ -22,8 +24,12 @@ export const Uploads = (props) => {
 				`${baseUrl}/images/uploads/${props.id}?limit=15&page=0`
 			);
 			const images = data.data;
-			dispatch(getImages(images));
 			setImages(images);
+			setPaginationData({
+				lastPage: data.last_page,
+				currentPage: data.current_page
+			});
+			dispatch(getImages(images));
 			return;
 		};
 		fetchData();
@@ -34,7 +40,12 @@ export const Uploads = (props) => {
 		<React.Fragment>
 			<Navbar />
 			<ProfileNav uri={props.uri} id={props.id} />
-			<WallpaperList images={images} />
+			<WallpaperList
+				images={images}
+				setImages={setImages}
+				pageChangeUrl={`${baseUrl}/images/uploads/${props.id}`}
+				paginationData={paginationData}
+			/>
 		</React.Fragment>
 	);
 };

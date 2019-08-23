@@ -14,6 +14,7 @@ const ProfileNav = React.lazy(() => import('./ProfileNav'));
 const Profile = (props) => {
 	const [user, setUser] = useState({});
 	const [images, setImages] = useState([]);
+	const [paginationData, setPaginationData] = useState({});
 
 	const dispatch = useDispatch();
 
@@ -36,8 +37,12 @@ const Profile = (props) => {
 				`${baseUrl}/images/favorites/${props.id}?limit=15&page=0`
 			);
 			const images = data.data;
-			dispatch(getImages(images));
 			setImages(images);
+			setPaginationData({
+				lastPage: data.last_page,
+				currentPage: data.current_page
+			});
+			dispatch(getImages(images));
 		};
 		fetchData();
 	}, [dispatch, props.id]);
@@ -51,7 +56,12 @@ const Profile = (props) => {
 				<p>Joined: {user.createdAt}</p>
 				<p>uploads: {user.uploads}</p>
 			</div>
-			<WallpaperList images={images} />
+			<WallpaperList
+				images={images}
+				setImages={setImages}
+				pageChangeUrl={`${baseUrl}/images/favorites/${props.id}`}
+				paginationData={paginationData}
+			/>
 		</div>
 	);
 };
