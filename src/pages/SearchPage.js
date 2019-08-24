@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import Search from '../components/search/Search';
 import WallpaperList from '../components/wallpaper/WallpaperList';
 
 import { baseUrl } from '../App';
@@ -16,7 +17,7 @@ export const SearchPage = (props) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			let { data } = await axios.get(
-				`${baseUrl}/search/${search}&limit=15&page=0`
+				`${baseUrl}/search/${search}&nsfw=false&limit=15&page=0`
 			);
 			const images = data.imgs.data;
 			setImages(images);
@@ -31,8 +32,11 @@ export const SearchPage = (props) => {
 
 	return (
 		<React.Fragment>
-			<Navbar />
-			<h3>{tags}</h3>
+		<Navbar />
+		<div className="search-box" >
+			<p className="search-tags">{tags}</p>
+			<Search navigate={props.navigate} />
+			</div>
 			<WallpaperList
 				images={images}
 				setImages={setImages}
@@ -40,6 +44,7 @@ export const SearchPage = (props) => {
 				paginationData={paginationData}
 			/>
 		</React.Fragment>
+
 	);
 };
 

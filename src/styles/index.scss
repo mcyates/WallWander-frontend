@@ -7,6 +7,7 @@
 @import './Components/Form/form';
 @import './Components/Modal/modal';
 @import './Components/Navbar/navbar';
+@import './Components/search/search.scss';
 @import './Upload/upload';
 
 *,
@@ -28,6 +29,12 @@ html {
 
 	font-family: 'Open Sans', sans-serif;
 	font-size: 62.5%;
+}
+
+.svg {
+	&-fav {
+		fill: var(--fave-red);
+	}
 }
 
 body {

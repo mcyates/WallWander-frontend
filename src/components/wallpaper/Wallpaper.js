@@ -14,7 +14,6 @@ export const Wallpaper = (props) => {
 
 	return (
 		<div className="wallpaper">
-			<TagsLogic id={id} user={user} />
 			<figure className="wallpaper--figure">
 				<a href={image.secureUrl}>
 					<img className="wallpaper--img" src={optUrl} alt={image.title} />
@@ -26,29 +25,33 @@ export const Wallpaper = (props) => {
 					</figcaption>
 				</a>
 			</figure>
-			<p>
-				uploader:{' '}
+
+			<div className="wallpaper--misc">
+				<TagsLogic id={id} user={user} />
+
+				<div>
+				{author ? (
+					<React.Fragment />
+				) : (
+					<Favorite id={id} userId={user.id} user={user} isAuthed={isAuthed} />
+				)}
+				
+				<p className="wallpaper--uploader">
+				uploader:
 				<Link className="nav--link" to={`/profile/${image.userId}`}>
-					{image.authorName}
+				{image.authorName}
 				</Link>
-			</p>
-			{author ? (
-				<React.Fragment />
-			) : (
-				<Favorite id={id} userId={user.id} user={user} isAuthed={isAuthed} />
-			)}
-
-			{author ? (
-				<button className="btn btn-danger" onClick={removeImage}>
-					Delete
-				</button>
-			) : (
-				<React.Fragment />
-			)}
-
-			<footer>
-				icons made by <a href="www.flaticon.com">flaticon</a>
-			</footer>
+				</p>
+				
+				{author ? (
+					<button className="btn btn-danger" onClick={removeImage}>
+						Delete
+						</button>
+						) : (
+							<React.Fragment />
+							)}
+							</div>
+							</div>
 		</div>
 	);
 };

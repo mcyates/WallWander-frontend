@@ -1,7 +1,7 @@
 import React from 'react';
 
-import notFavHeart from '../../../icons/001-like.svg';
-import favHeart from '../../../icons/002-like-1.svg';
+import notFavHeart from '../../../icons/unfav.svg';
+import favHeart from '../../../icons/fav.svg';
 
 export const FavoriteView = (props) => {
 	const { isFaved, isAuthed, addFavorite, unFavorite } = props;

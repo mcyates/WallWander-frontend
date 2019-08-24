@@ -5,10 +5,11 @@ import { useDispatch } from 'react-redux';
 import { getImages } from '../actions/image';
 import { baseUrl } from '../App';
 
+import Search from '../components/search/Search';
 import WallpaperList from '../components/wallpaper/WallpaperList';
 const Navbar = React.lazy(() => import('../components/Navbar'));
 
-export const HomePage = () => {
+export const HomePage = (props) => {
 	const [images, setImages] = useState([]);
 	const [paginationData, setPaginationData] = useState({});
 
@@ -33,6 +34,7 @@ export const HomePage = () => {
 	return (
 		<div className="home">
 			<Navbar />
+			<Search navigate={props.navigate} />
 			<WallpaperList
 				images={images}
 				setImages={setImages}

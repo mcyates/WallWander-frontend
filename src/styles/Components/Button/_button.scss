@@ -105,4 +105,21 @@
 			}
 		}
 	}
+
+	&-search {
+		background-color: var(--background-secondary);
+		height: 100%;
+		width: 3.5rem;
+
+		
+		&:hover {
+			cursor: pointer;
+			background-color: var(--background-secondary-light);
+		}
+		border-radius: 0 5px 5px 0;
+		-webkit-border-radius: 0 5px 5px 0;
+		-moz-border-radius: 0 5px 5px 0;
+		-ms-border-radius: 0 5px 5px 0;
+    -o-border-radius: 0 5px 5px 0;  
+	}
 }
