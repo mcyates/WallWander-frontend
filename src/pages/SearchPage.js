@@ -32,10 +32,10 @@ export const SearchPage = (props) => {
 
 	return (
 		<React.Fragment>
-		<Navbar />
-		<div className="search-box" >
-			<p className="search-tags">{tags}</p>
-			<Search navigate={props.navigate} />
+			<Navbar />
+			<div className='search-box'>
+				<p className='search-tags'>{tags}</p>
+				<Search />
 			</div>
 			<WallpaperList
 				images={images}
@@ -44,7 +44,6 @@ export const SearchPage = (props) => {
 				paginationData={paginationData}
 			/>
 		</React.Fragment>
-
 	);
 };
 
