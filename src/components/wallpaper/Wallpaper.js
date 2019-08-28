@@ -21,12 +21,6 @@ export const Wallpaper = (props) => {
 				<figure className="wallpaper-figure">
 					<a href={image.secureUrl}>
 						<img className="wallpaper-img" src={optUrl} alt={image.title} />
-						<Image
-							className="wallpaper-img"
-							source={optUrl}
-							alt={image.title}
-							defaultSource="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNUYIz6DwACQAF8ntZl+wAAAABJRU5ErkJggg=="
-						/>
 					</a>
 				</figure>
 			</div>
