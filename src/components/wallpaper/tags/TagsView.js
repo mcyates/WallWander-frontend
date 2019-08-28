@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@reach/router';
 
 export const TagsView = (props) => {
-	const { removeTag, submit, tags } = props;
+	const { removeTag, submit, tags, tagText } = props;
 
 	return (
 		<div className="tags">
@@ -12,6 +12,7 @@ export const TagsView = (props) => {
 					className="tags-form-input"
 					name="tagText"
 					type="text"
+					value={tagText}
 					placeholder="add tag"
 					onChange={(e) => props.setTagText(e.target.value)}
 				/>
@@ -31,10 +32,11 @@ export const TagsView = (props) => {
 			</form>
 			<ul className="tags-list">
 				{tags.map((tag) => {
-					let tagClass = `tags-tag tags-tag-${tag.nsfw}`;
-
 					return (
-						<li className={tagClass} key={tag.id}>
+						<li
+							className={`tags-tag tags-tag-${tag.nsfw ? 'nsfw' : 'sfw'}`}
+							key={tag.id}
+						>
 							<Link to={`/wallpapers/search/?tags=${tag.tag}`}>
 								<p className="tags-tag-data">{tag.tag}</p>
 							</Link>

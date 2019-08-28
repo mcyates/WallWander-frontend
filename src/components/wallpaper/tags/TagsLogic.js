@@ -33,13 +33,8 @@ export const TagsLogic = (props) => {
 			.catch((e) => console.log(e));
 		const tag = data[0];
 
-		if (tag.nsfw) {
-			tag.nsfw = 'nsfw';
-		} else {
-			tag.nsfw = 'sfw';
-		}
-
 		setTags([...tags, tag]);
+		setTagText('');
 	};
 
 	const removeTag = async (data) => {
@@ -56,13 +51,6 @@ export const TagsLogic = (props) => {
 				method: 'get',
 				url: `${baseUrl}/images/${id}/tags`
 			});
-			data.forEach((tag) => {
-				if (tag.nsfw) {
-					tag.nsfw = 'nsfw';
-				} else {
-					tag.nsfw = 'sfw';
-				}
-			});
 			setTags(data);
 		};
 
@@ -76,6 +64,7 @@ export const TagsLogic = (props) => {
 			setTagText={setTagText}
 			submit={addTag}
 			tags={tags}
+			tagText={tagText}
 		/>
 	);
 };
