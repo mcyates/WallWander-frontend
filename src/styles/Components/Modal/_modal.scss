@@ -12,18 +12,36 @@
 
 	z-index: 12;
 
-	&--form {
+	&-form {
+		position: relative;
 		z-index: 4;
-		&--box {
+		&-box {
 			display: flex;
 			justify-content: space-around;
-			background-color: pink;
+			align-items: center;
 			width: 80%;
 		}
 		align-self: center;
 	}
 
-	&--overlay {
+	&-close {
+		padding: 0.5rem 1rem;
+		position: absolute;
+		top: 0%;
+		right: 0%;
+
+		color: var(--font-primary);
+		font-size: 2rem;
+
+		background-color: var(--background-secondary-dark);
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		-o-border-radius: 5px;
+	}
+
+	&-overlay {
 		z-index: 3;
 		position: absolute;
 		top: 0%;
@@ -33,5 +51,21 @@
 		background-color: rgba(32, 6, 32, 0.795);
 		filter: blur(1rem);
 		-webkit-filter: blur(1rem);
+	}
+}
+
+@include respond(phone) {
+	.modal {
+		&-form {
+			&-box {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
+
+		&-close {
+			top: 5%;
+			right: 5%;
+		}
 	}
 }

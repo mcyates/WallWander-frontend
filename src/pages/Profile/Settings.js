@@ -36,7 +36,12 @@ export const Settings = (props) => {
 	};
 	return (
 		<div className="settings">
-			<NameModal visible={visible} setName={setName} submit={changeName} />
+			<NameModal
+				visible={visible}
+				setName={setName}
+				submit={changeName}
+				hide={hide}
+			/>
 			<Navbar />
 			<ProfileNav uri={props.uri} id={props.id} />
 			<div className="settings-box">
