@@ -10,7 +10,7 @@ export const baseUrl = 'http://localhost:4000';
 
 const store = configureStore();
 
-const user = JSON.parse(localStorage.getItem('user'));
+const user = JSON.parse(localStorage.getItem('user')) || false;
 
 if (user) {
 	store.dispatch(login(user));

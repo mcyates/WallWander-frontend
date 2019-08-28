@@ -3,14 +3,13 @@ import React from 'react';
 export const NameModal = (props) => {
 	const { hide, setName, visible } = props;
 
-	// visible ? show() : hide();
 	if (visible) {
 		return (
 			<div className="modal">
 				<div className="modal-overlay" onClick={() => hide()} />
 
 				<form className="form modal-form" onSubmit={props.submit} method="post">
-					<button className="modal-close" onClick={() => hide()}>
+					<button type="button" className="modal-close" onClick={() => hide()}>
 						X
 					</button>
 					<div className="modal-form-box">
@@ -26,7 +25,9 @@ export const NameModal = (props) => {
 							minLength="4"
 						/>
 					</div>
-					<button className="btn btn-form">Submit</button>
+					<button type="submit" className="btn btn-form">
+						Submit
+					</button>
 				</form>
 			</div>
 		);
