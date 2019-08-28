@@ -10,6 +10,7 @@ export const UserForm = (props) => {
 				</label>
 				<input
 					className="form-input"
+					id="email"
 					name="email"
 					type="email"
 					placeholder="hello@email.com"
@@ -25,6 +26,7 @@ export const UserForm = (props) => {
 					className="form-input"
 					name="password"
 					type="password"
+					id="password"
 					placeholder="123abc"
 					onChange={(e) => props.setPassword(e.target.value)}
 					minLength="8"

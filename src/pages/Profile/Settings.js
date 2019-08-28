@@ -3,17 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import NameModal from '../../components/Profile/NameModal';
 import { startSetName } from '../../actions/auth';
+import { setNsfw } from '../../actions/search';
 
 const Navbar = React.lazy(() => import('../../components/Navbar'));
 const ProfileNav = React.lazy(() => import('./ProfileNav'));
 
 export const Settings = (props) => {
 	const dispatch = useDispatch();
-	const [name, setName] = useState('');
-
-	const [visible, setVisible] = useState(false);
 
 	const user = useSelector((state) => state.auth);
+
+	const search = useSelector((state) => state.search);
+
+	const [visible, setVisible] = useState(false);
+	const [name, setName] = useState('');
 
 	const show = () => {
 		setVisible(true);
@@ -22,6 +25,9 @@ export const Settings = (props) => {
 	const hide = () => {
 		setVisible(false);
 	};
+	if (user.name === '') {
+		show();
+	}
 
 	const changeName = (e) => {
 		e.preventDefault();
@@ -33,6 +39,11 @@ export const Settings = (props) => {
 		};
 		hide();
 		dispatch(startSetName(userInfo));
+	};
+
+	const handeNsfwChange = (e) => {
+		e.preventDefault();
+		dispatch(setNsfw(!search.nsfw));
 	};
 	return (
 		<div className="settings">
@@ -51,6 +62,17 @@ export const Settings = (props) => {
 					</p>
 					<button onClick={show} className="btn btn--settings">
 						Change Username
+					</button>
+				</div>
+				<div className="settings-adult">
+					<p>allow nsfw</p>
+					<button
+						onClick={handeNsfwChange}
+						className={`settings-adult-btn settings-${
+							search.nsfw ? 'nsfw' : 'sfw'
+						}`}
+					>
+						{search.nsfw ? 'nsfw' : 'sfw'}
 					</button>
 				</div>
 			</div>

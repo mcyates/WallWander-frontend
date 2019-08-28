@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import axios from 'axios';
 
 import Search from '../components/search/Search';
@@ -13,12 +15,15 @@ export const SearchPage = (props) => {
 	const [images, setImages] = useState([]);
 	const [paginationData, setPaginationData] = useState({});
 	const [tags, setTags] = useState([]);
+	const searchFilters = useSelector((state) => state.search);
 
 	useEffect(() => {
 		const fetchData = async () => {
 			let { data } = await axios.get(
-				`${baseUrl}/search/${search}&nsfw=false&limit=15&page=0`
+				`${baseUrl}/search/${search}&nsfw=${searchFilters.nsfw}&limit=15&page=0`
 			);
+
+			console.log(searchFilters.nsfw);
 			const images = data.imgs.data;
 			setImages(images);
 			setPaginationData({
@@ -28,14 +33,14 @@ export const SearchPage = (props) => {
 			setTags(...data.tags);
 		};
 		fetchData();
-	}, [props.location.search, search]);
+	}, [props.location.search, search, searchFilters.nsfw]);
 
 	return (
 		<React.Fragment>
-		<Navbar />
-		<div className="search-box" >
-			<p className="search-tags">{tags}</p>
-			<Search navigate={props.navigate} />
+			<Navbar />
+			<div className="search-box">
+				<p className="search-tags">{tags}</p>
+				<Search navigate={props.navigate} />
 			</div>
 			<WallpaperList
 				images={images}
@@ -44,7 +49,6 @@ export const SearchPage = (props) => {
 				paginationData={paginationData}
 			/>
 		</React.Fragment>
-
 	);
 };
 

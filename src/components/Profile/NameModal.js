@@ -21,6 +21,7 @@ export const NameModal = (props) => {
 							type="text"
 							placeholder="min 6 characters"
 							className="form-input"
+							id="name"
 							onChange={(e) => setName(e.target.value)}
 							minLength="4"
 						/>

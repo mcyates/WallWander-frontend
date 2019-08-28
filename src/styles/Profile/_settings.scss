@@ -22,9 +22,57 @@
 
 	&-name {
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		padding: 2rem 0;
 
 		min-width: 40rem;
+	}
+
+	&-adult {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 40rem;
+
+		&-btn {
+			width: 10rem;
+			height: 4rem;
+
+			color: var(--font-primary);
+			font-size: 1.8rem;
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-ms-border-radius: 5px;
+			-o-border-radius: 5px;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+	&-sfw {
+		background-color: var(--background-primary);
+
+		&:hover {
+			background-color: var(--background-secondary-light);
+		}
+		transition: all 0.4s ease;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+	}
+	&-nsfw {
+		background-color: var(--fav-red);
+		transition: all 0.4s ease;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+
+		&-hover {
+			background-color: var(--fav-red-dark);
+		}
 	}
 }

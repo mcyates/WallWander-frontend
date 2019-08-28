@@ -8,10 +8,7 @@ export default (state = [], action) => {
 			return [...state, action.image];
 		case 'REMOVE_IMAGE':
 			return state.filter((image) => {
-				if (image) {
-					return action.url !== image.url;
-				}
-				return state;
+				return action.id !== image.id;
 			});
 		default:
 			return state;

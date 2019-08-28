@@ -1,42 +1,64 @@
 .search {
-  display: flex;
-  margin: 0 auto;
-  min-height: 4rem;
+	display: flex;
+	margin: 0 auto;
+	min-height: 4rem;
 
-  &-box {
-    height: 15rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-  }
+	&-box {
+		height: 15rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	}
 
 	&-input {
 		font-size: 1.8rem;
 		width: 30rem;
-    height: 100%;
-    padding: 0 1.5rem;
-    
-    box-shadow: var(--boxshadow-sm);
+		height: 100%;
+		padding: 0 1.5rem;
+
+		box-shadow: var(--boxshadow-sm);
+
+		transition: all 0.4s ease;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	&-adult {
+		width: 6rem;
+		font-size: 1.8rem;
+		color: var(--font-primary);
 		border-radius: 5px 0 0 5px;
 		-webkit-border-radius: 5px 0 0 5px;
 		-moz-border-radius: 5px 0 0 5px;
 		-ms-border-radius: 5px 0 0 5px;
-    -o-border-radius: 5px 0 0 5px;    
-      &:hover {
-        cursor: pointer;
-    }
+		-o-border-radius: 5px 0 0 5px;
 
-    transition: all 0.4s ease;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    
-  }
+		&:hover {
+			cursor: pointer;
+		}
+	}
 
-  &-tags {
+	&-sfw {
+		background-color: var(--background-primary);
 
-  }
-  
+		&:hover {
+			background-color: var(--background-secondary-light);
+		}
+		transition: all 0.4s ease;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+	}
+
+	&-nsfw {
+		background-color: var(--fav-red);
+	}
 }

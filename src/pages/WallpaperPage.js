@@ -34,8 +34,8 @@ export const WallpaperPage = (props) => {
 	}
 
 	const removeImage = async () => {
-		axios.delete(`${baseUrl}/images/${props.id}`);
 		dispatch(deleteImage(image));
+		await axios.delete(`${baseUrl}/images/${props.id}`);
 		hide();
 		props.navigate(`/profile/${user.id}/uploads`);
 	};
