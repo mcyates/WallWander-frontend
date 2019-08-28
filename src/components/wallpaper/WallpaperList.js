@@ -20,7 +20,7 @@ export const WallpaperList = (props) => {
 
 	const pageChange = async ({ selected }) => {
 		const { data } = await axios.get(
-			`${pageChangeUrl}?limit=1&page=${selected}`
+			`${pageChangeUrl}?limit=15&page=${selected}`
 		);
 		const images = data.data;
 
