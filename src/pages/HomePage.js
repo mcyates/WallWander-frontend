@@ -32,16 +32,16 @@ export const HomePage = (props) => {
 	}, [dispatch]);
 
 	return (
-		<div className='home'>
+		<div className="home">
 			<Navbar />
-			<Search />
+			<Search navigate={props.navigate} />
 			<WallpaperList
 				images={images}
 				setImages={setImages}
 				pageChangeUrl={`${baseUrl}/images`}
 				paginationData={paginationData}
 			/>
-			<footer className='footer'>
+			<footer className="footer">
 				Created by Matthew Yates, &copy; {new Date().getFullYear()}
 			</footer>
 		</div>
