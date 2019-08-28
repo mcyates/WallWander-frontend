@@ -7,7 +7,7 @@ export const NameModal = (props) => {
 	if (visible) {
 		return (
 			<div className="modal">
-				<div className="modal-overlay" />
+				<div className="modal-overlay" onClick={() => hide()} />
 
 				<form className="form modal-form" onSubmit={props.submit} method="post">
 					<button className="modal-close" onClick={() => hide()}>

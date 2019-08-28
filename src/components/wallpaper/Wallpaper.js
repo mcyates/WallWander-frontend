@@ -3,9 +3,10 @@ import { Link } from '@reach/router';
 
 const Favorite = React.lazy(() => import('./favorites/FavoriteLogic'));
 const TagsLogic = React.lazy(() => import('./tags/TagsLogic'));
+const DeleteModal = React.lazy(() => import('./DeleteModal'));
 
 export const Wallpaper = (props) => {
-	const { wallpaperData, removeImage } = props;
+	const { hide, show, removeImage, visible, wallpaperData } = props;
 	const { author, id, image, isAuthed, user } = wallpaperData;
 
 	const urlArr = image.secureUrl.split('/');
@@ -14,6 +15,7 @@ export const Wallpaper = (props) => {
 
 	return (
 		<div className="wallpaper">
+			<DeleteModal hide={hide} removeImage={removeImage} visible={visible} />
 			<div className="wallpaper-fit">
 				<figure className="wallpaper-figure">
 					<a href={image.secureUrl}>
@@ -49,7 +51,7 @@ export const Wallpaper = (props) => {
 						)}
 
 						{author ? (
-							<button className="btn btn-danger" onClick={removeImage}>
+							<button onClick={show} className="btn btn-danger">
 								Delete
 							</button>
 						) : (

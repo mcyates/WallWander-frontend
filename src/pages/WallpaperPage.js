@@ -12,6 +12,16 @@ export const WallpaperPage = (props) => {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.auth);
 
+	const [visible, setVisible] = useState(false);
+
+	const show = () => {
+		setVisible(true);
+	};
+
+	const hide = () => {
+		setVisible(false);
+	};
+
 	const [image, setImage] =
 		useState({
 			url: '',
@@ -26,6 +36,7 @@ export const WallpaperPage = (props) => {
 	const removeImage = async () => {
 		axios.delete(`${baseUrl}/images/${props.id}`);
 		dispatch(deleteImage(image));
+		hide();
 		props.navigate(`/profile/${user.id}/uploads`);
 	};
 
@@ -50,7 +61,13 @@ export const WallpaperPage = (props) => {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
 			<Navbar />
-			<Wallpaper wallpaperData={wallpaperData} removeImage={removeImage} />
+			<Wallpaper
+				hide={hide}
+				removeImage={removeImage}
+				show={show}
+				visible={visible}
+				wallpaperData={wallpaperData}
+			/>
 		</Suspense>
 	);
 };
