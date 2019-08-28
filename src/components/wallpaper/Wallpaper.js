@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'react-lazy-image';
 import { Link } from '@reach/router';
 
 const Favorite = React.lazy(() => import('./favorites/FavoriteLogic'));
