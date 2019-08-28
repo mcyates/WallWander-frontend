@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import NameModal from '../../components/Profile/NameModal';
@@ -25,9 +25,12 @@ export const Settings = (props) => {
 	const hide = () => {
 		setVisible(false);
 	};
-	if (user.name === '') {
-		show();
-	}
+
+	useEffect(() => {
+		if (user.name === '') {
+			show();
+		}
+	}, [user.name]);
 
 	const changeName = (e) => {
 		e.preventDefault();
