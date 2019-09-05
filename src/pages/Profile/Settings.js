@@ -63,7 +63,7 @@ export const Settings = (props) => {
 					<p>
 						<span>{user.name}</span>
 					</p>
-					<button onClick={show} className="btn btn--settings">
+					<button type="button" onClick={show} className="btn btn--settings">
 						Change Username
 					</button>
 				</div>
@@ -71,6 +71,7 @@ export const Settings = (props) => {
 					<p>allow nsfw</p>
 					<button
 						onClick={handeNsfwChange}
+						type="button"
 						className={`settings-adult-btn settings-${
 							search.nsfw ? 'nsfw' : 'sfw'
 						}`}

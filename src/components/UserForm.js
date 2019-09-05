@@ -32,7 +32,9 @@ export const UserForm = (props) => {
 					minLength="8"
 				/>
 			</div>
-			<button className="btn btn-form">{buttonText}</button>
+			<button type="submit" className="btn btn-form">
+				{buttonText}
+			</button>
 		</form>
 	);
 };

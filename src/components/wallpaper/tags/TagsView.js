@@ -28,7 +28,9 @@ export const TagsView = (props) => {
 						nsfw
 					</option>
 				</select>
-				<button className="btn-tags-form">Add</button>
+				<button type="submit" className="btn-tags-form">
+					Add
+				</button>
 			</form>
 			<ul className="tags-list">
 				{tags.map((tag) => {
@@ -41,6 +43,7 @@ export const TagsView = (props) => {
 								<p className="tags-tag-data">{tag.tag}</p>
 							</Link>
 							<button
+								type="button"
 								className="btn-tags-danger"
 								onClick={() => removeTag(tag.tag)}
 							>

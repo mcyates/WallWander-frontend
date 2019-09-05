@@ -51,7 +51,7 @@ export const Wallpaper = (props) => {
 						)}
 
 						{author ? (
-							<button onClick={show} className="btn btn-danger">
+							<button type="button" onClick={show} className="btn btn-danger">
 								Delete
 							</button>
 						) : (

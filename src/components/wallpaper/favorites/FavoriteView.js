@@ -9,11 +9,11 @@ export const FavoriteView = (props) => {
 		<React.Fragment>
 			{isAuthed ? (
 				isFaved ? (
-					<button className="btn btn--svg" onClick={unFavorite}>
+					<button type="button" className="btn btn--svg" onClick={unFavorite}>
 						<img src={favHeart} alt="favorite button" />
 					</button>
 				) : (
-					<button className="btn btn--svg" onClick={addFavorite}>
+					<button type="button" className="btn btn--svg" onClick={addFavorite}>
 						<img src={notFavHeart} alt="favorite button" />
 					</button>
 				)

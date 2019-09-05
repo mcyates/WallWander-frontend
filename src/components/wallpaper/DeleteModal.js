@@ -10,11 +10,15 @@ export const DeleteModal = (props) => {
 				<div className="modal-overlay" onClick={() => hide()} />
 
 				<div className="form modal-form" onSubmit={props.submit} method="post">
-					<button className="modal-close" onClick={() => hide()}>
+					<button type="button" className="modal-close" onClick={() => hide()}>
 						X
 					</button>
 
-					<button onClick={removeImage} className="btn btn-danger">
+					<button
+						type="button"
+						onClick={removeImage}
+						className="btn btn-danger"
+					>
 						Delete
 					</button>
 				</div>
