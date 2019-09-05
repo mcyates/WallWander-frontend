@@ -1,7 +1,7 @@
 import reducer from './imageReducer';
 
 describe('image reducer', () => {
-	it('handle default case', () => {
+	it('handles default case', () => {
 		expect(reducer(undefined, {})).toEqual([]);
 	});
 	it('handle GET_IMAGE', () => {
@@ -21,7 +21,7 @@ describe('image reducer', () => {
 			})
 		).toEqual([]);
 	});
-	it('handle GET_IMAGE if image is present in store', () => {
+	it('handles GET_IMAGE if image is present in store', () => {
 		const image = {
 			url: 'loremupsum.jpg',
 			height: 50,
@@ -38,7 +38,7 @@ describe('image reducer', () => {
 			})
 		).toEqual([image]);
 	});
-	it('HANDLE GET_IMAGES', () => {
+	it('handles GET_IMAGES', () => {
 		const image = {
 			url: 'loremupsum.jpg',
 			height: 50,
@@ -56,7 +56,7 @@ describe('image reducer', () => {
 			})
 		).toEqual(images);
 	});
-	it('should handle ADD_IMAGE', () => {
+	it('handles ADD_IMAGE', () => {
 		const image = {
 			url: 'loremupsum.jpg',
 			height: 50,
@@ -76,7 +76,7 @@ describe('image reducer', () => {
 			}
 		]);
 	});
-	it('handle REMOVE_IMAGE', () => {
+	it('handles REMOVE_IMAGE', () => {
 		const image = {
 			url: 'loremupsum.jpg',
 			height: 50,
