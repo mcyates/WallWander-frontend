@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { startRegistration } from '../actions/auth';
-import { UserForm } from '../components/UserForm';
+import { UserForm } from '../components/Forms/UserForm';
 
 const Navbar = React.lazy(() => import('../components/Navbar'));
 
@@ -23,10 +23,12 @@ const RegistrationPage = (props) => {
 			<Navbar />
 			<div className="container">
 				<UserForm
+					button="Register"
+					email={email}
+					password={password}
 					setEmail={setEmail}
 					setPassword={setPassword}
 					submit={register}
-					button="Register"
 				/>
 			</div>
 		</React.Fragment>

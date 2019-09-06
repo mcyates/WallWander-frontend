@@ -6,7 +6,7 @@
 	margin-bottom: 2rem;
 
 	width: 50rem;
-	height: 20vh;
+	height: 60rem;
 
 	background-color: var(--background-secondary);
 	box-shadow: var(--boxshadow);
@@ -19,9 +19,16 @@
 
 	&-box {
 		display: flex;
-		width: 80%;
+		flex-direction: column;
+		width: 50%;
+		min-height: 5rem;
 		justify-content: space-around;
-		align-items: center;
+		align-items: baseline;
+	}
+
+	&-error {
+		font-size: 1.4rem;
+		color: var(--fav-red);
 	}
 
 	&-label {
@@ -55,10 +62,16 @@
 		max-height: 100rem;
 		box-shadow: none;
 
-		&--box {
+		&-box {
 			flex-direction: column;
 			justify-content: flex-start;
-			align-items: flex-start;
+			align-items: baseline;
+			width: 90%;
+		}
+
+		&-input {
+			width: 100%;
+			align-self: center;
 		}
 	}
 }

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from '@reach/router';
 
 import { startLogin } from '../actions/auth';
-import { UserForm } from '../components/UserForm';
+import { UserForm } from '../components/Forms/UserForm';
 
 const Navbar = React.lazy(() => import('../components/Navbar'));
 
@@ -15,10 +15,9 @@ const LoginPage = (props) => {
 
 	const login = (e) => {
 		e.preventDefault();
+		console.log(e.target);
 		const user = { email, password };
 		dispatch(startLogin(user));
-
-		// props.navigate('/');
 	};
 
 	return (
@@ -27,6 +26,8 @@ const LoginPage = (props) => {
 			<div className="container">
 				<UserForm
 					button="Login"
+					email={email}
+					password={password}
 					setEmail={setEmail}
 					setPassword={setPassword}
 					submit={login}
