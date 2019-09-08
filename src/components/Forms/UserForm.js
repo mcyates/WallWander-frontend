@@ -63,3 +63,5 @@ export const UserForm = (props) => {
 		</form>
 	);
 };
+
+export default UserForm;

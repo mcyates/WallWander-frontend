@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from '@reach/router';
-
-const Favorite = React.lazy(() => import('./favorites/FavoriteLogic'));
-const TagsLogic = React.lazy(() => import('./tags/TagsLogic'));
-const DeleteModal = React.lazy(() => import('./DeleteModal'));
+import Favorite from './favorites/FavoriteLogic';
+import TagsLogic from './tags/TagsLogic';
+import DeleteModal from './DeleteModal';
 
 export const Wallpaper = (props) => {
 	const { hide, show, removeImage, visible, wallpaperData } = props;
