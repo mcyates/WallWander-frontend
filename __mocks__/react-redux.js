@@ -8,7 +8,8 @@ jest.mock('react-redux', () => {
 				id: '12345',
 				email: 'foo@bar.com',
 				name: 'foobar',
-				token: '123abc'
+				token: '123abc',
+				nsfw: false
 			};
 		}
 	};

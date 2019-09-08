@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Uppy from '@uppy/core';
@@ -51,12 +51,12 @@ export const UploadPage = (props) => {
 	});
 
 	return (
-		<div className="upload">
+		<Suspense className="upload" fallback={<div>Loading...</div>}>
 			<Navbar />
 			<h5>Max File-size 10Mb</h5>
 
 			<Dashboard uppy={uppy} />
-		</div>
+		</Suspense>
 	);
 };
 

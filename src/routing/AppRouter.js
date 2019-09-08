@@ -3,7 +3,7 @@ import { Router } from '@reach/router';
 
 const HomePage = React.lazy(() => import('../pages/HomePage'));
 const LoginPage = React.lazy(() => import('../pages/LoginPage'));
-const NotFound = React.lazy(() => import('../pages/NotFound'));
+const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'));
 const Profile = React.lazy(() => import('../pages/Profile/Profile'));
 const RegistrationPage = React.lazy(() => import('../pages/RegistrationPage'));
 const SearchPage = React.lazy(() => import('../pages/SearchPage'));
@@ -16,7 +16,7 @@ export const AppRouter = () => {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
 			<Router>
-				<NotFound default />
+				<NotFoundPage default />
 				<HomePage path="/" />
 				<LoginPage path="/login" />
 				<RegistrationPage path="/register" />

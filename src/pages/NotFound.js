@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 const Navbar = React.lazy(() => import('../components/Navbar'));
 
-export const NotFound = () => (
-	<React.Fragment>
+export const NotFoundPage = () => (
+	<Suspense fallback={<div>Loading...</div>}>
 		<Navbar />
 		<div>404 not Found.</div>;
-	</React.Fragment>
+	</Suspense>
 );
 
-export default NotFound;
+export default NotFoundPage;
