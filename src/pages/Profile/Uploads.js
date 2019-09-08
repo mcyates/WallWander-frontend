@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import ProfileNav from './ProfileNav';
 import { useDispatch, useSelector } from 'react-redux';
 
+import Navbar from '../../components/Navbar';
+import ProfileNav from './ProfileNav';
 import { WallpaperList } from '../../components/wallpaper/WallpaperList';
 import { getImages } from '../../actions/image';
 import { baseUrl } from '../../App';
-
-const Navbar = React.lazy(() => import('../../components/Navbar'));
 
 export const Uploads = (props) => {
 	const [images, setImages] = useState([]);

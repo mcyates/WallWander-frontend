@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+
 import { format, parse } from 'date-fns';
 import { useDispatch } from 'react-redux';
 
+import Navbar from '../../components/Navbar';
+import ProfileNav from './ProfileNav';
 import { WallpaperList } from '../../components/wallpaper/WallpaperList';
 import { getImages } from '../../actions/image';
 
 import { baseUrl } from '../../App';
-
-const Navbar = React.lazy(() => import('../../components/Navbar'));
-const ProfileNav = React.lazy(() => import('./ProfileNav'));
 
 const Profile = (props) => {
 	const [user, setUser] = useState({});

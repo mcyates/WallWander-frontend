@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import NameModal from '../../components/Profile/NameModal';
+import Navbar from '../../components/Navbar';
+import ProfileNav from './ProfileNav';
 import { startSetName } from '../../actions/auth';
 import { setNsfw } from '../../actions/search';
-
-const Navbar = React.lazy(() => import('../../components/Navbar'));
-const ProfileNav = React.lazy(() => import('./ProfileNav'));
 
 export const Settings = (props) => {
 	const dispatch = useDispatch();
