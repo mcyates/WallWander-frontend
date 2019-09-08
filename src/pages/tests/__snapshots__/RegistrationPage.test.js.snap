@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationPage should match snapshot 1`] = `[Function]`;
+
+exports[`test Registration page should match snapshot 1`] = `[Function]`;
