@@ -32,7 +32,7 @@ export const Wallpaper = (props) => {
 						<p>Views: {image.views}</p>
 					</div>
 					<p className="wallpaper-uploader">
-						uploader:
+						uploader
 						<Link className="nav--link" to={`/profile/${image.userId}`}>
 							{image.authorName}
 						</Link>

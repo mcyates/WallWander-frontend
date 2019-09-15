@@ -3,7 +3,7 @@ import { Router } from '@reach/router';
 
 const HomePage = React.lazy(() => import('../pages/HomePage'));
 const LoginPage = React.lazy(() => import('../pages/LoginPage'));
-const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'));
+const NotFoundPage = React.lazy(() => import('../pages/NotFound'));
 const Profile = React.lazy(() => import('../pages/Profile/Profile'));
 const RegistrationPage = React.lazy(() => import('../pages/RegistrationPage'));
 const SearchPage = React.lazy(() => import('../pages/SearchPage'));

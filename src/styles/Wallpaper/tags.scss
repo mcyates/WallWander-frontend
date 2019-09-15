@@ -98,3 +98,9 @@
 		}
 	}
 }
+
+@include respond(tabLand) {
+	.tags {
+		margin-top: 2rem;
+	}
+}
