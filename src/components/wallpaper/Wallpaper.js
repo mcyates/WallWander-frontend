@@ -11,6 +11,7 @@ export const Wallpaper = (props) => {
 	const urlArr = image.secureUrl.split('/');
 	urlArr[6] = 'f_auto,h_2560,w_1440,c_limit,q_auto:best';
 	const optUrl = urlArr.join('/');
+	console.log(image);
 
 	return (
 		<div className="wallpaper">
@@ -33,7 +34,7 @@ export const Wallpaper = (props) => {
 					</div>
 					<p className="wallpaper-uploader">
 						uploader
-						<Link className="nav--link" to={`/profile/${image.userId}`}>
+						<Link className="nav--link" to={`/profile/${image.authorId}`}>
 							{image.authorName}
 						</Link>
 					</p>
