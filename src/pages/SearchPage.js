@@ -3,12 +3,11 @@ import { useSelector } from 'react-redux';
 
 import axios from 'axios';
 
+import Navbar from '../components/Navbar';
 import Search from '../components/search/Search';
 import WallpaperList from '../components/wallpaper/WallpaperList';
 
 import { baseUrl } from '../App';
-
-const Navbar = React.lazy(() => import('../components/Navbar'));
 
 export const SearchPage = (props) => {
 	const { search } = props.location;

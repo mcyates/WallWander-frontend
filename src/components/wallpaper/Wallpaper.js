@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from '@reach/router';
-
-const Favorite = React.lazy(() => import('./favorites/FavoriteLogic'));
-const TagsLogic = React.lazy(() => import('./tags/TagsLogic'));
-const DeleteModal = React.lazy(() => import('./DeleteModal'));
+import Favorite from './favorites/FavoriteLogic';
+import TagsLogic from './tags/TagsLogic';
+import DeleteModal from './DeleteModal';
 
 export const Wallpaper = (props) => {
 	const { hide, show, removeImage, visible, wallpaperData } = props;
@@ -12,6 +11,7 @@ export const Wallpaper = (props) => {
 	const urlArr = image.secureUrl.split('/');
 	urlArr[6] = 'f_auto,h_2560,w_1440,c_limit,q_auto:best';
 	const optUrl = urlArr.join('/');
+	console.log(image);
 
 	return (
 		<div className="wallpaper">
@@ -33,8 +33,8 @@ export const Wallpaper = (props) => {
 						<p>Views: {image.views}</p>
 					</div>
 					<p className="wallpaper-uploader">
-						uploader:
-						<Link className="nav--link" to={`/profile/${image.userId}`}>
+						uploader
+						<Link className="nav--link" to={`/profile/${image.authorId}`}>
 							{image.authorName}
 						</Link>
 					</p>

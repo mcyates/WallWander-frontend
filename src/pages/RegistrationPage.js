@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { startRegistration } from '../actions/auth';
 import { UserForm } from '../components/Forms/UserForm';
 
-const Navbar = React.lazy(() => import('../components/Navbar'));
+import Navbar from '../components/Navbar';
 
 const RegistrationPage = (props) => {
 	const [email, setEmail] = useState('');

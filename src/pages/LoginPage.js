@@ -5,7 +5,7 @@ import { Link } from '@reach/router';
 import { startLogin } from '../actions/auth';
 import { UserForm } from '../components/Forms/UserForm';
 
-const Navbar = React.lazy(() => import('../components/Navbar'));
+import Navbar from '../components/Navbar';
 
 const LoginPage = (props) => {
 	const [email, setEmail] = useState('');
@@ -15,7 +15,6 @@ const LoginPage = (props) => {
 
 	const login = (e) => {
 		e.preventDefault();
-		console.log(e.target);
 		const user = { email, password };
 		dispatch(startLogin(user));
 	};

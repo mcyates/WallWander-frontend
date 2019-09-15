@@ -28,8 +28,14 @@ $breakpoint argument choices:
 		}
 	}
 
+	@if $breakpoint == tabLand {
+		@media only screen and (max-width: 125em) {
+			@content;
+		}
+	}
+
 	@if $breakpoint == lap-desk {
-		@media only screen and (min-width: 112.5em) {
+		@media only screen and (min-width: 121em) {
 			@content;
 		}
 	}
