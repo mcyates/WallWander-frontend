@@ -6,6 +6,9 @@ jobs:
       - image: circleci/node:12
     steps:
       - checkout
+
+      - setup_remote_docker:
+          docker_layer_caching: false
       #build container
       - run:
           name: log directory
