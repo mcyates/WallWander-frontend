@@ -1,0 +1,20 @@
+version: "3"
+services:
+  wallwander-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+      - "3001:443"
+    volumes:
+      - /app/node_modules
+      - .:/app
+  # wallwander-tests:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   volumes:
+  #     - /app/node_modules
+  #     - .:/app
+  #   command: ["npm", "run", "test"]

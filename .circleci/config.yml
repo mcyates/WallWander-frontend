@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:12
+    steps:
+      #build container
+      - run:
+          name: build image
+          command: "sudo docker build -t myates/ww-f-dev -f Dockerfile.dev ."
+      # run tests!
+      - run: docker run -e CI=true myates/ww-f-dev npm run test
