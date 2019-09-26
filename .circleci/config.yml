@@ -4,6 +4,9 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:12
+        auth:
+          username: myates
+          password: $DOCKER_PASS
     steps:
       - checkout
       - setup_remote_docker
@@ -23,11 +26,7 @@ jobs:
       #     name: Verify Docker Works
       #     command: docker run hello-world
 
-      - run: echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
       #build container
-      - run:
-          name: log directory
-          command: "ls"
       - run:
           name: build image
           command: "sudo docker build -t myates/ww-f-dev -f Dockerfile.dev ."
