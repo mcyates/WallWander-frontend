@@ -9,7 +9,6 @@ jobs:
           password: $DOCKER_PASS
     steps:
       - checkout
-      # - setup_remote_docker
       - run:
           name: Install docker
           command: |
@@ -24,6 +23,7 @@ jobs:
             echo "3"
             sudo apt-get install docker-ce
 
+      - setup_remote_docker
       - run:
           name: Verify Docker Works
           command: docker run hello-world
