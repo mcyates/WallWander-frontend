@@ -9,7 +9,7 @@ jobs:
           password: $DOCKER_PASS
     steps:
       - checkout
-      - setup_remote_docker
+      # - setup_remote_docker
       - run:
           name: Install docker
           command: |
@@ -31,6 +31,6 @@ jobs:
       #build container
       - run:
           name: build image
-          command: "sudo docker build -t myates/ww-f-dev -f Dockerfile.dev ."
+          command: " docker build -t myates/ww-f-dev -f Dockerfile.dev ."
       # run tests!
       - run: docker run -e CI=true myates/ww-f-dev npm run test
