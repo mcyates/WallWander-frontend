@@ -5,7 +5,11 @@ jobs:
       # specify the version you desire here
       - image: circleci/node:12
     steps:
+      - checkout
       #build container
+      - run:
+          name: log directory
+          command: "ls"
       - run:
           name: build image
           command: "sudo docker build -t myates/ww-f-dev -f Dockerfile.dev ."
