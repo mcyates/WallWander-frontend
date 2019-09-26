@@ -33,4 +33,4 @@ jobs:
           name: build image
           command: " docker build -t myates/ww-f-dev -f Dockerfile.dev ."
       # run tests!
-      - run: docker run -e CI=true myates/ww-f-dev npm run test
+      - run: docker run -e sudo CI=true myates/ww-f-dev npm run test
