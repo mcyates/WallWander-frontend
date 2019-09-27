@@ -24,9 +24,9 @@ jobs:
             sudo apt-get install docker-ce
 
       - setup_remote_docker
-      #build container
       - run:
           name: build image
-          command: " docker build -t myates/ww-f-dev -f Dockerfile.dev ."
-      # run tests!
-      - run: docker run -e CI=true myates/ww-f-dev npm run test
+          command: "docker build -t myates/ww-f-dev -f Dockerfile.dev ."
+      - run:
+          name: run tests
+          command: docker run -e CI=true myates/ww-f-dev npm run test
