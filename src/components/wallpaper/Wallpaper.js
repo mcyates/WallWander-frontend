@@ -11,34 +11,33 @@ export const Wallpaper = (props) => {
 	const urlArr = image.secureUrl.split('/');
 	urlArr[6] = 'f_auto,h_2560,w_1440,c_limit,q_auto:best';
 	const optUrl = urlArr.join('/');
-	console.log(image);
 
 	return (
-		<div className="wallpaper">
+		<div className='wallpaper'>
 			<DeleteModal hide={hide} removeImage={removeImage} visible={visible} />
-			<div className="wallpaper-fit">
-				<figure className="wallpaper-figure">
+			<div className='wallpaper-fit'>
+				<figure className='wallpaper-figure'>
 					<a href={image.secureUrl}>
-						<img className="wallpaper-img" src={optUrl} alt={image.title} />
+						<img className='wallpaper-img' src={optUrl} alt={image.title} />
 					</a>
 				</figure>
 			</div>
 
-			<div className="wallpaper-sidebar">
-				<div className="wallpaper-container">
-					<div className="wallpaper-info">
+			<div className='wallpaper-sidebar'>
+				<div className='wallpaper-container'>
+					<div className='wallpaper-info'>
 						<p>height: {image.height}px</p>
 						<p>width: {image.width}px</p>
 						<p>format: {image.format}</p>
 						<p>Views: {image.views}</p>
 					</div>
-					<p className="wallpaper-uploader">
+					<p className='wallpaper-uploader'>
 						uploader
-						<Link className="nav--link" to={`/profile/${image.authorId}`}>
+						<Link className='nav--link' to={`/profile/${image.authorId}`}>
 							{image.authorName}
 						</Link>
 					</p>
-					<div className="wallpaper-actions">
+					<div className='wallpaper-actions'>
 						{author ? (
 							<React.Fragment />
 						) : (
@@ -51,7 +50,7 @@ export const Wallpaper = (props) => {
 						)}
 
 						{author ? (
-							<button type="button" onClick={show} className="btn btn-danger">
+							<button type='button' onClick={show} className='btn btn-danger'>
 								Delete
 							</button>
 						) : (
