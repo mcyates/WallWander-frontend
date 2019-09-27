@@ -11,7 +11,6 @@ Use npm to install all dependencies.
 ```bash
 npm i
 ```
-
 then run
 
 ## Usage
