@@ -7,17 +7,3 @@ before_install:
 
 script:
   - docker run -e CI=true myates/ww-f-dev npm run test
-
-deploy:
-  provider: elasticbeanstalk
-  region: "us-west-2"
-  app: wallwander
-  env: Wallwander-env-1
-  bucket_name: "elasticbeanstalk-us-east-1-687497944065.s3.amazonaws.com"
-  bucket_path: wallwander
-  on:
-    branch: master
-  access_key_id:
-    secure: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: "$AWS_SECRET_KEY"

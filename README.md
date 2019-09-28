@@ -1,8 +1,7 @@
 # Wallwander-frontend
 
 A wallpaper App inspired by [wallhaven](https://wallhaven.cc/)
-
-[![CircleCI](https://circleci.com/gh/M-C-Yates/WallWander-frontend/tree/master.svg?style=svg)](https://circleci.com/gh/M-C-Yates/WallWander-frontend/tree/master) [![Build Status](https://travis-ci.org/M-C-Yates/WallWander-frontend.svg?branch=master)](https://travis-ci.org/M-C-Yates/WallWander-frontend)
+[![Build Status](https://travis-ci.org/M-C-Yates/WallWander-frontend.svg?branch=master)](https://travis-ci.org/M-C-Yates/WallWander-frontend)
 
 ## Installation
 
@@ -11,6 +10,7 @@ Use npm to install all dependencies.
 ```bash
 npm i
 ```
+
 then run
 
 ## Usage
