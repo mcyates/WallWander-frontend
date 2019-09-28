@@ -13,7 +13,7 @@ deploy:
   region: "us-west-2"
   app: "wallwander"
   env: "Wallwander-env-1"
-  bucket_name: "http://elasticbeanstalk-us-east-1-687497944065.s3.amazonaws.com"
+  bucket_name: "elasticbeanstalk-us-east-1-687497944065.s3.amazonaws.com"
   # bucket_path: "wallwander"
   on:
     branch: master
