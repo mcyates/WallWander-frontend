@@ -14,7 +14,7 @@ deploy:
   app: "wallwander"
   env: "Wallwander-env-1"
   bucket_name: "elasticbeanstalk-us-east-1-687497944065"
-  bucket_path: "wallwander"
+  # bucket_path: "wallwander"
   on:
     branch: master
   access_key_id:
