@@ -9,32 +9,6 @@
 @import './Components/search/search.scss';
 @import './Upload/upload';
 
-@mixin respond($breakpoint) {
-	@if $breakpoint == phone {
-		@media only screen and (max-width: 37.5em) {
-			@content;
-		}
-	}
-
-	@if $breakpoint == tab {
-		@media only screen and (max-width: 56.25em) {
-			@content;
-		}
-	}
-
-	@if $breakpoint == tabLand {
-		@media only screen and (max-width: 125em) {
-			@content;
-		}
-	}
-
-	@if $breakpoint == lap-desk {
-		@media only screen and (min-width: 121em) {
-			@content;
-		}
-	}
-}
-
 *,
 *::before {
 	margin: 0;

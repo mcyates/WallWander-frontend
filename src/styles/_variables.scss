@@ -30,3 +30,29 @@
 
 	--font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
 }
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media only screen and (max-width: 37.5em) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == tab {
+		@media only screen and (max-width: 56.25em) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == tabLand {
+		@media only screen and (max-width: 125em) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == lap-desk {
+		@media only screen and (min-width: 121em) {
+			@content;
+		}
+	}
+}
