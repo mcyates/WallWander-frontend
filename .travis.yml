@@ -5,10 +5,8 @@ services:
 before_install:
   - docker build -t myates/ww-f-dev -f Dockerfile.dev .
 
-before_script:
-  - echo docker login -u "$DOCKER_USER" -P "DOCKER_PASS"
-
 script:
   - docker run -e CI=true myates/ww-f-dev npm run test
   - docker build -t myates/ww-frontend .
+  - echo docker login -u "$DOCKER_USER" -P "DOCKER_PASS"
   - docker push myates/ww-frontend
