@@ -3,8 +3,10 @@ services:
   - docker
 
 before_install:
-  - echo docker login -u "$DOCKER_USER" -P "DOCKER_PASS"
   - docker build -t myates/ww-f-dev -f Dockerfile.dev .
+
+before_script:
+  - echo docker login -u "$DOCKER_USER" -P "DOCKER_PASS"
 
 script:
   - docker run -e CI=true myates/ww-f-dev npm run test
