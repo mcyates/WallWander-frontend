@@ -11,9 +11,3 @@ before_install:
 script:
   - docker build -t myates/ww-f-dev -f Dockerfile.dev .
   - docker run -e CI=true myates/ww-f-dev npm run test
-
-deploy:
-  provider: script
-  script: bash scripts/deploy.sh
-  on:
-    branch: master
