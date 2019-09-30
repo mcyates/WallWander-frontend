@@ -3,10 +3,17 @@ services:
   - docker
 
 before_install:
-  - docker build -t myates/ww-f-dev -f Dockerfile.dev .
-  - echo sudo docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 
 script:
+  - docker build -t myates/ww-f-dev -f Dockerfile.dev .
   - docker run -e CI=true myates/ww-f-dev npm run test
-  - docker build -t myates/ww-frontend .
-  - docker push myates/ww-frontend
+
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: master
