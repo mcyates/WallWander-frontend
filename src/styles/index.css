@@ -107,6 +107,39 @@ a:focus {
   @apply border-purple-700;
 }
 
+.dropdown-content {
+  @apply invisible;
+}
+
+.dropdown:hover .dropdown-content {
+  @apply visible;
+}
+
+.settings-adult-btn {
+  @apply p-8;
+  @apply text-center;
+  @apply rounded;
+  @apply shadow;
+}
+
+.settings-nsfw {
+  @apply bg-red-600;
+  @apply text-black;
+}
+.settings-nsfw:hover {
+  @apply bg-red-800;
+  @apply text-white;
+}
+.settings-sfw {
+  @apply bg-purple-500;
+  @apply text-black;
+}
+
+.settings-sfw:hover {
+  @apply bg-purple-900;
+  @apply text-white;
+}
+
 @media (min-width: 640px) {
   body {
     @apply text-2xl;

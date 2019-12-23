@@ -57,23 +57,27 @@ export const Settings = props => {
       />
       <Navbar />
       <ProfileNav uri={props.uri} id={props.id} />
-      <div className="settings-box">
-        <div className="settings-name">
-          <p>
+      <div className="flex flex-col items-start justify-around p-8  bg-gray-800">
+        <div className="flex justify-between items-center py-8">
+          <p className="mr-8">
             <span>{user.name}</span>
           </p>
-          <button type="button" onClick={show} className="btn btn--settings">
+          <button
+            type="button"
+            onClick={show}
+            className="p-8 text-center bg-purple-500 hover:bg-purple-900 text-black hover:text-white rounded shadow"
+          >
             Change Username
           </button>
         </div>
-        <div className="settings-adult">
+        <div className="settings-adult flex justify-between items-center ">
           <p>allow nsfw</p>
           <button
             onClick={handeNsfwChange}
             type="button"
             className={`settings-adult-btn settings-${
               search.nsfw ? "nsfw" : "sfw"
-            }`}
+            } mx-8`}
           >
             {search.nsfw ? "nsfw" : "sfw"}
           </button>

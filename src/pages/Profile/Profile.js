@@ -51,7 +51,7 @@ const Profile = props => {
     <div className="profile flex flex-col items-center">
       <Navbar />
       <ProfileNav uri={props.uri} id={props.id} />
-      <div className="profile--box">
+      <div className="flex flex-col items-start justify-around h-32 bg-gray-800 p-8 rounded shadow">
         <p>{user.name}</p>
         <p>Joined: {user.createdAt}</p>
         <p>uploads: {user.uploads}</p>
