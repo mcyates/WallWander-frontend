@@ -1,0 +1,50 @@
+@tailwind base;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+*:focus {
+  outline: none;
+  border: none;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  font-size: 62.5%;
+}
+
+.svg-fav {
+  fill: var(--fave-red);
+}
+
+body {
+  @apply bg-gray-900;
+  @apply text-lg;
+  @apply text-gray-100;
+}
+
+a {
+  color: inherit;
+  @apply no-underline;
+}
+
+a:focus {
+  border: 1px solid var(--background-secondary-light);
+  outline: none;
+}
+
+@media (min-width: 640px) {
+  body {
+    @apply text-2xl;
+  }
+}
+
+@tailwind components;
+
+@tailwind utilities;
