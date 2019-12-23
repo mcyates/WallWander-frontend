@@ -311,6 +311,7 @@ module.exports = {
     maxHeight: {
       full: "100%",
       "30": "30rem",
+      "85vw": "85vw",
       screen: "100vh"
     },
     maxWidth: {
@@ -324,11 +325,14 @@ module.exports = {
       "4xl": "56rem",
       "5xl": "64rem",
       "6xl": "72rem",
+      "85vw": "85vw",
+      "90": "90%",
       full: "100%"
     },
     minHeight: {
       "0": "0",
       "4": "4rem",
+      "20": "20rem",
       full: "100%",
       screen: "100vh"
     },
@@ -407,6 +411,8 @@ module.exports = {
       "9/12": "75%",
       "10/12": "83.333333%",
       "11/12": "91.666667%",
+      "10%": "10%",
+      "50": "50%",
       full: "100%",
       screen: "100vw"
     }),

@@ -4,7 +4,10 @@ import Image from "react-lazy-image";
 
 export const Thumb = ({ image }) => {
   return (
-    <Link className=" sm:w-1/6 my-16 mx-8" to={`/wallpapers/${image.id}`}>
+    <Link
+      className="sm:w-1/6 my-16 mx-8 flex-grow"
+      to={`/wallpapers/${image.id}`}
+    >
       <figure className=" flex flex-col items-center w-auto h-auto relative">
         <Image
           className="w-full max-h-30 z-10 rounded shadow-xl"

@@ -22,7 +22,7 @@ export const Navbar = props => {
       {user.id ? (
         <ul className="nav--list">
           <div className="nav--content">
-            <Link tabIndex="1" className="nav--logo" to="/">
+            <Link tabIndex="1" className="" to="/">
               <img src={logo} className="logo-img" alt="logo" />
             </Link>
           </div>
@@ -58,7 +58,7 @@ export const Navbar = props => {
               <img src={logo} className="logo-img" alt="logo" />
             </Link>
           </div>
-          <Link className="nav--link" to="/login">
+          <Link className="nav-link" to="/login">
             Login
           </Link>
         </React.Fragment>

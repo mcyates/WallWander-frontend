@@ -39,9 +39,96 @@ a:focus {
   outline: none;
 }
 
+.nav-link {
+  @apply border-transparent;
+  @apply border-b;
+}
+
+.nav-link:hover {
+  @apply border-purple-300;
+  @apply text-purple-300;
+}
+
+.wallpaper-img {
+  @apply w-full;
+  @apply h-auto;
+  @apply max-w-85vw;
+  @apply max-h-85vw;
+  @apply mx-auto;
+  @apply rounded;
+}
+
+.tags-tag {
+  @apply inline-flex;
+  @apply flex-row;
+  justify-content: space-evenly;
+  @apply items-center;
+  @apply bg-purple-900;
+  @apply rounded;
+  @apply m-3;
+  @apply text-center;
+}
+.tags-tag-nsfw {
+  @apply text-red-500;
+}
+
+.form {
+  @apply flex;
+  @apply flex-col;
+  @apply items-center;
+  @apply justify-around;
+  @apply mb-8;
+  @apply bg-gray-800;
+  @apply rounded;
+  @apply shadow;
+  width: 50rem;
+  height: 60rem;
+}
+
+.form-box {
+  @apply flex;
+  @apply flex-col;
+  @apply w-50;
+  @apply justify-around;
+  @apply items-baseline;
+  min-height: 5rem;
+}
+
+.form-input {
+  @apply py-4;
+  @apply px-2;
+  @apply text-black;
+  @apply border-b-2;
+  @apply border-transparent;
+}
+
+.form-input:hover {
+  @apply cursor-pointer;
+  @apply border-purple-700;
+}
+
 @media (min-width: 640px) {
   body {
     @apply text-2xl;
+  }
+
+  .form {
+    @apply w-full;
+    @apply h-full;
+    @apply max-h-full;
+    @apply shadow-none;
+  }
+
+  .form-box {
+    @apply flex-col;
+    @apply justify-start;
+    @apply items-baseline;
+    width: 90%;
+  }
+
+  .form-input {
+    width: 100%;
+    @apply self-center;
   }
 }
 

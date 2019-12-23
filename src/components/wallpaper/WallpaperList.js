@@ -34,7 +34,7 @@ export const WallpaperList = props => {
 
   return (
     <React.Fragment>
-      <div className="flex flex-wrap justify-center items-center overflow-hidden mx-auto ">
+      <div className="flex flex-wrap justify-center items-center overflow-hidden mx-auto sm:w-3/4 sm:-mx-1">
         {images.map(image => {
           const urlArr = image.secureUrl.split("/");
           urlArr[6] = "f_auto,h_450,w_500,c_limit";
