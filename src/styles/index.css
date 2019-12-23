@@ -140,6 +140,12 @@ a:focus {
   @apply text-white;
 }
 
+.pagination {
+  @apply flex;
+  @apply items-center;
+  @apply justify-between;
+}
+
 @media (min-width: 640px) {
   body {
     @apply text-2xl;

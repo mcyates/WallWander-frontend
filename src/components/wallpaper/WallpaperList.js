@@ -50,15 +50,15 @@ export const WallpaperList = props => {
           marginPagesDisplayed={1}
           onPageChange={pageChange}
           activeClassName="pagination--active"
-          activeLinkClassName="pagination--active-link"
+          activeLinkClassName="pagination--active-link text-purple-600 border-b border-purple-600"
           breakClassName="pagination--break"
           breakLinkClassName="pagination--break-link"
-          containerClassName="pagination"
-          disabledClassName="pagination--disabled"
+          containerClassName="pagination text-4xl"
+          disabledClassName="pagination--disabled invisible"
           nextClassName="pagination--next"
           nextLinkClassName="pagination--next-link"
-          pageClassName="pagination--page"
-          pageLinkClassName="pagination--page-link"
+          pageClassName="pagination--page mx-4 "
+          pageLinkClassName="pagination--page-link hover:text-purple-600"
           previousClassName="pagination--previous"
           previousLinkClassName="pagination--previous-link"
         />
