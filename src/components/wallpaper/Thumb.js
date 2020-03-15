@@ -8,7 +8,7 @@ export const Thumb = ({ image }) => {
       className="sm:w-1/6 my-16 mx-8 flex-grow"
       to={`/wallpapers/${image.id}`}
     >
-      <figure className=" flex flex-col items-center w-auto h-auto relative">
+      <figure className="thumb-fig flex flex-col items-center w-auto h-auto relative">
         <Image
           className="w-full max-h-30 z-10 rounded shadow-xl"
           source={image.secureUrl}

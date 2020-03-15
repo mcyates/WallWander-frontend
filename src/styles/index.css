@@ -171,6 +171,10 @@ a:focus {
   }
 }
 
+.thumb-fig {
+  max-width: 536px;
+}
+
 @tailwind components;
 
 @tailwind utilities;

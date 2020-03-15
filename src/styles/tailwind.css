@@ -759,6 +759,10 @@ a:focus {
   }
 }
 
+.thumb-fig {
+  max-width: 536px;
+}
+
 .container {
   width: 100%;
 }
