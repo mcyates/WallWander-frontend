@@ -83,6 +83,8 @@ a:focus {
   @apply shadow;
   width: 50rem;
   height: 60rem;
+  max-width: 50rem;
+  margin: 10rem auto;
 }
 
 .form-box {
