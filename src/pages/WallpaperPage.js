@@ -8,9 +8,9 @@ const Navbar = React.lazy(() => import("../components/Navbar"));
 
 const Wallpaper = React.lazy(() => import("../components/wallpaper/Wallpaper"));
 
-export const WallpaperPage = props => {
+export const WallpaperPage = (props) => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.auth);
+  const user = useSelector((state) => state.auth);
 
   const [visible, setVisible] = useState(false);
 
@@ -26,7 +26,7 @@ export const WallpaperPage = props => {
     useState({
       url: "",
       secureUrl: "",
-      title: ""
+      title: "",
     }) || "";
 
   if (!image) {
@@ -55,11 +55,11 @@ export const WallpaperPage = props => {
     id: props.id,
     image,
     isAuthed: !!user,
-    user: user
+    user: user,
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="wrapper">
       <Suspense fallback={<div>Loading...</div>}>
         <Navbar />
         <Wallpaper

@@ -9,12 +9,12 @@ import WallpaperList from "../components/wallpaper/WallpaperList";
 
 import { baseUrl } from "../App";
 
-export const SearchPage = props => {
+export const SearchPage = (props) => {
   const { search } = props.location;
   const [images, setImages] = useState([]);
   const [paginationData, setPaginationData] = useState({});
   const [tags, setTags] = useState([]);
-  const searchFilters = useSelector(state => state.search);
+  const searchFilters = useSelector((state) => state.search);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +27,7 @@ export const SearchPage = props => {
       setImages(images);
       setPaginationData({
         lastPage: data.imgs.last_page,
-        currentPage: data.imgs.current_page
+        currentPage: data.imgs.current_page,
       });
       setTags(...data.tags);
     };
@@ -35,7 +35,7 @@ export const SearchPage = props => {
   }, [props.location.search, search, searchFilters.nsfw]);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="wrapper">
       <Navbar />
       <div className="">
         <p className="text-4xl">{tags}</p>

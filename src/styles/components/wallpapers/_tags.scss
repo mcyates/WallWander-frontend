@@ -1,0 +1,20 @@
+.tags-tag {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0.75rem;
+  text-align: center;
+
+  background-color: $bg-secondary;
+
+  border-radius: $rounded;
+  -webkit-border-radius: $rounded;
+  -moz-border-radius: $rounded;
+  -ms-border-radius: $rounded;
+  -o-border-radius: $rounded;
+}
+.tags-tag-nsfw {
+  @apply text-red-500;
+  color: $fave-red;
+}

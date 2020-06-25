@@ -7,20 +7,20 @@ import { UserForm } from "../components/Forms/UserForm";
 
 import Navbar from "../components/Navbar";
 
-const LoginPage = props => {
+const LoginPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
 
-  const login = e => {
+  const login = (e) => {
     e.preventDefault();
     const user = { email, password };
     dispatch(startLogin(user));
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="wrapper">
       <Navbar />
       <div className="container">
         <UserForm

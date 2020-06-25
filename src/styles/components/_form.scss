@@ -1,0 +1,59 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 60rem;
+  max-width: 50rem;
+  margin: 10rem auto;
+  background-color: $gray-dark;
+  box-shadow: $boxshadow;
+  border-radius: $rounded;
+  -webkit-border-radius: $rounded;
+  -moz-border-radius: $rounded;
+  -ms-border-radius: $rounded;
+  -o-border-radius: $rounded;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  justify-content: space-around;
+  align-items: baseline;
+  min-height: 5rem;
+}
+
+.form-input {
+  padding: 1rem 0.5rem;
+
+  color: $font-black;
+
+  border-bottom: 2px solid transparent;
+}
+
+.form-input:hover {
+  cursor: pointer;
+  border-bottom-color: $bg-secondary;
+}
+
+@include screen(tablet) {
+  .form {
+    @apply w-full;
+    @apply h-full;
+    @apply max-h-full;
+    @apply shadow-none;
+  }
+
+  .form-box {
+    @apply flex-col;
+    @apply justify-start;
+    @apply items-baseline;
+    width: 90%;
+  }
+
+  .form-input {
+    width: 100%;
+    @apply self-center;
+  }
+}

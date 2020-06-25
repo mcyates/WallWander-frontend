@@ -5,9 +5,9 @@ import { startLogout } from "../actions/auth";
 
 import logo from "../imgs/logo_150x150.png";
 
-export const Navbar = props => {
+export const Navbar = (props) => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.auth);
+  const user = useSelector((state) => state.auth);
 
   const logout = () => {
     dispatch(startLogout());
@@ -15,10 +15,7 @@ export const Navbar = props => {
   };
 
   return (
-    <nav
-      className="flex my-8 items-center justify-between w-3/4 text-4xl"
-      role="navigation"
-    >
+    <nav className="nav" role="navigation">
       {user.id ? (
         <React.Fragment>
           <div>
@@ -27,28 +24,24 @@ export const Navbar = props => {
             </Link>
           </div>
 
-          <div className="dropdown relative mx-4" tabIndex="2">
-            <button className="w-40 p-4 bg-gray-700 rounded shadow">
+          <div className="dropdown" tabIndex="2">
+            <button className="button-dropdown">
               {user.name ? user.name : "Anonymous"}
             </button>
-            <div className="dropdown-content absolute flex flex-col text-center invisible w-40 bg-gray-500">
-              <Link
-                tabIndex="3"
-                className="dropdown-link h-16 hover:bg-gray-700 hover:text-black"
-                to="/upload"
-              >
+            <div className="dropdown-content">
+              <Link tabIndex="3" className="dropdown-link" to="/upload">
                 Upload
               </Link>
               <Link
                 tabIndex="4"
-                className="dropdown-link h-16 hover:bg-gray-700 hover:text-black"
+                className="dropdown-link"
                 to={`/profile/${user.id}`}
               >
                 Profile
               </Link>
               <Link
                 tabIndex="5"
-                className="dropdown-link h-16 hover:bg-gray-700 hover:text-black"
+                className="dropdown-link"
                 to="/"
                 onClick={logout}
               >

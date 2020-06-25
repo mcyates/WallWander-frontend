@@ -1,0 +1,28 @@
+.dropdown {
+  margin: 0 1rem;
+  position: relative;
+
+  &-content {
+    visibility: hidden;
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 10rem;
+    background-color: lighten($color: $gray, $amount: 20%);
+  }
+
+  &-link {
+    height: 4rem;
+
+    &:hover {
+      background-color: $gray;
+      color: $font-black;
+    }
+  }
+}
+
+.dropdown:hover .dropdown-content {
+  visibility: visible;
+}

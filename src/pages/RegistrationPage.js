@@ -6,20 +6,20 @@ import { UserForm } from "../components/Forms/UserForm";
 
 import Navbar from "../components/Navbar";
 
-const RegistrationPage = props => {
+const RegistrationPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
 
-  const register = e => {
+  const register = (e) => {
     e.preventDefault();
     const user = { email, password };
     dispatch(startRegistration(user));
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="wrapper">
       <Navbar />
       <div className="container">
         <UserForm

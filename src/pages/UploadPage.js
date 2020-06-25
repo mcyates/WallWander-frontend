@@ -11,14 +11,14 @@ import { Dashboard } from "@uppy/react";
 import { addImage } from "../actions/image";
 const Navbar = React.lazy(() => import("../components/Navbar"));
 
-export const UploadPage = props => {
-  const user = useSelector(state => state.auth);
+export const UploadPage = (props) => {
+  const user = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const uppy = Uppy({
     meta: { type: "wallpaper" },
     restrictions: { maxNumberOfFiles: 1 },
-    autoProceed: false
+    autoProceed: false,
   });
 
   uppy.use(XHRUpload, {
@@ -27,11 +27,11 @@ export const UploadPage = props => {
     formData: true,
     fieldName: "wallpaper",
     headers: {
-      authorization: `${user.token}`
-    }
+      authorization: `${user.token}`,
+    },
   });
 
-  uppy.on("complete", result => {
+  uppy.on("complete", (result) => {
     if (result.successful[0]) {
       let image = result.successful[0].response.body;
       const { id } = image;
@@ -51,7 +51,7 @@ export const UploadPage = props => {
   });
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="wrapper">
       <Suspense className="upload" fallback={<div>Loading...</div>}>
         <Navbar />
         <h5>Max File-size 10Mb</h5>

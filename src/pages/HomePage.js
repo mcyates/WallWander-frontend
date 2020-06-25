@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 import Search from "../components/search/Search";
 import WallpaperList from "../components/wallpaper/WallpaperList";
 
-export const HomePage = props => {
+export const HomePage = (props) => {
   const [images, setImages] = useState([]);
   const [paginationData, setPaginationData] = useState({});
 
@@ -22,7 +22,7 @@ export const HomePage = props => {
       setImages(images);
       setPaginationData({
         lastPage: data.last_page,
-        currentPage: data.current_page
+        currentPage: data.current_page,
       });
       dispatch(getImages(images));
       return;
@@ -32,7 +32,7 @@ export const HomePage = props => {
   }, [dispatch]);
 
   return (
-    <div className="flex flex-col items-center mx-auto">
+    <div className="wrapper">
       <Navbar />
       <Search navigate={props.navigate} />
       <WallpaperList

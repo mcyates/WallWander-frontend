@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  margin: 2rem 0;
+  align-items: center;
+  justify-content: space-between;
+  width: 75%;
+  font-size: 3rem;
+}
+
+.nav-link {
+  border-bottom: 1px solid transparent;
+}
+
+.nav-link:hover {
+  border-bottom-color: #6e1b88;
+  color: #6e1b88;
+}
