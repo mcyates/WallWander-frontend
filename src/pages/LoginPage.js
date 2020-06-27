@@ -31,7 +31,7 @@ const LoginPage = (props) => {
           setPassword={setPassword}
           submit={login}
         />
-        <Link className="nav-link" to="/register">
+        <Link className="button" to="/register">
           Register
         </Link>
       </div>

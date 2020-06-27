@@ -1,7 +1,14 @@
 @import "./reset";
 @import "./typography";
 
+html {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 body {
+  width: 100%;
+  margin: 0 auto;
   background-color: $bg-primary;
 
   font-size: $font-size;
@@ -9,10 +16,25 @@ body {
 }
 
 .wrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
+  // margin: 0 auto;
+  border: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.footer {
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
 }
 
 .svg-fav {

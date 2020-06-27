@@ -1,0 +1,109 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+
+    padding: 2rem;
+
+    background-color: $bg-secondary;
+  }
+
+  &-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+
+    p {
+      margin-right: 2rem;
+    }
+  }
+
+  &-button {
+    padding: 0.5rem 1rem;
+    font-size: 1.8rem;
+    box-shadow: $boxshadow-sm;
+    border-radius: $rounded;
+    -webkit-border-radius: $rounded;
+    -moz-border-radius: $rounded;
+    -ms-border-radius: $rounded;
+    -o-border-radius: $rounded;
+    transition: $transition-all;
+    -webkit-transition: $transition-all;
+    -moz-transition: $transition-all;
+    -ms-transition: $transition-all;
+    -o-transition: $transition-all;
+
+    &:hover {
+      cursor: pointer;
+      color: $font-white;
+      background-color: lighten($color: $bg-secondary, $amount: 20%);
+    }
+
+    &:focus {
+      color: $font-white;
+      background-color: lighten($color: $bg-secondary, $amount: 20%);
+    }
+  }
+
+  &-adult {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      color: $font-black;
+      background-color: $font-white;
+      padding: 0.5rem 1rem;
+      font-size: 2rem;
+      margin-left: 1rem;
+      box-shadow: $boxshadow-sm;
+      border-radius: $rounded;
+      -webkit-border-radius: $rounded;
+      -moz-border-radius: $rounded;
+      -ms-border-radius: $rounded;
+      -o-border-radius: $rounded;
+      transition: $transition-all;
+      -webkit-transition: $transition-all;
+      -moz-transition: $transition-all;
+      -ms-transition: $transition-all;
+      -o-transition: $transition-all;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.settings-nsfw {
+  color: $fave-red !important;
+  &:hover {
+    background-color: $fave-red;
+    color: $font-white;
+  }
+
+  &:focus {
+    background-color: $fave-red;
+    color: $font-white;
+  }
+}
+
+.settings-sfw {
+  color: $font-black;
+
+  &:hover {
+    background-color: lighten($color: $bg-secondary, $amount: 20%);
+    color: $font-white;
+  }
+
+  &:focus {
+    background-color: lighten($color: $bg-secondary, $amount: 20%);
+    color: $font-white;
+  }
+}

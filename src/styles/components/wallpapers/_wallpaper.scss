@@ -1,12 +1,57 @@
-.wallpaper-img {
+.wallpaper {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  max-width: 85vw;
-  max-height: 85vw;
-  margin: 0 auto;
-  border-radius: $rounded;
-  -webkit-border-radius: $rounded;
-  -moz-border-radius: $rounded;
-  -ms-border-radius: $rounded;
-  -o-border-radius: $rounded;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &-fig {
+  }
+
+  &-img {
+    width: 100%;
+    height: auto;
+    max-width: 85vw;
+    max-height: 85vw;
+    margin: 0 auto;
+    border-radius: $rounded;
+    -webkit-border-radius: $rounded;
+    -moz-border-radius: $rounded;
+    -ms-border-radius: $rounded;
+    -o-border-radius: $rounded;
+  }
+
+  &-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: 36rem;
+    margin: 0.5rem;
+    padding: 1.5rem;
+
+    background-color: $bg-secondary;
+    box-shadow: $boxshadow-sm;
+
+    border-radius: $rounded;
+    -webkit-border-radius: $rounded;
+    -moz-border-radius: $rounded;
+    -ms-border-radius: $rounded;
+    -o-border-radius: $rounded;
+  }
+}
+
+@include screen(tablet) {
+  .wallpaper {
+    align-items: flex-start;
+    flex-direction: row;
+
+    &-fig {
+      margin: 2rem;
+    }
+  }
 }

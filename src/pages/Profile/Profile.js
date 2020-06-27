@@ -11,7 +11,7 @@ import { getImages } from "../../actions/image";
 
 import { baseUrl } from "../../App";
 
-const Profile = props => {
+const Profile = (props) => {
   const [user, setUser] = useState({});
   const [images, setImages] = useState([]);
   const [paginationData, setPaginationData] = useState({});
@@ -40,7 +40,7 @@ const Profile = props => {
       setImages(images);
       setPaginationData({
         lastPage: data.last_page,
-        currentPage: data.current_page
+        currentPage: data.current_page,
       });
       dispatch(getImages(images));
     };
@@ -48,10 +48,10 @@ const Profile = props => {
   }, [dispatch, props.id]);
 
   return (
-    <div className="profile flex flex-col items-center">
+    <div className="profile">
       <Navbar />
       <ProfileNav uri={props.uri} id={props.id} />
-      <div className="flex flex-col items-start justify-around h-32 bg-gray-800 p-8 rounded shadow">
+      <div className="profile-info">
         <p>{user.name}</p>
         <p>Joined: {user.createdAt}</p>
         <p>uploads: {user.uploads}</p>

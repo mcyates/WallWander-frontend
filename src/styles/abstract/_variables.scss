@@ -8,7 +8,7 @@ $font-white: #fefefe;
 $gray: #4a5568;
 $gray-dark: #2d3748;
 
-$boxshadow: 1rem 1rem 2rem #0e0918bb;
+$boxshadow: 0.75rem 0.75rem 1rem #0e0918bb;
 $boxshadow-sm: 0.5rem 0.5rem 0.5rem #190f2ba2;
 
 $card-background: #f9f9f9;
@@ -22,3 +22,5 @@ $font-min: 1.2rem;
 $font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
 
 $rounded: 2.5px;
+
+$transition-all: all 0.5s ease;

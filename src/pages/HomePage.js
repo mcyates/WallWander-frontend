@@ -41,8 +41,8 @@ export const HomePage = (props) => {
         pageChangeUrl={`${baseUrl}/images`}
         paginationData={paginationData}
       />
-      <footer className="text-xl mt-10">
-        Created by Matthew Yates, &copy; {new Date().getFullYear()}
+      <footer className="footer">
+        Matthew Yates, &copy; {new Date().getFullYear()}
       </footer>
     </div>
   );

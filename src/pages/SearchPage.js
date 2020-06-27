@@ -37,8 +37,8 @@ export const SearchPage = (props) => {
   return (
     <div className="wrapper">
       <Navbar />
-      <div className="">
-        <p className="text-4xl">{tags}</p>
+      <div>
+        <p className="tags-tag">{tags}</p>
         <Search navigate={props.navigate} />
       </div>
       <WallpaperList

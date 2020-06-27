@@ -4,7 +4,7 @@ import Favorite from "./favorites/FavoriteLogic";
 import TagsLogic from "./tags/TagsLogic";
 import DeleteModal from "./DeleteModal";
 
-export const Wallpaper = props => {
+export const Wallpaper = (props) => {
   const { hide, show, removeImage, visible, wallpaperData } = props;
   const { author, id, image, isAuthed, user } = wallpaperData;
 
@@ -13,15 +13,15 @@ export const Wallpaper = props => {
   const optUrl = urlArr.join("/");
 
   return (
-    <div className="container flex flex-col items-center md:items-start md:flex-row max-w-full h-auto justify-center">
+    <div className="wallpaper">
       <DeleteModal hide={hide} removeImage={removeImage} visible={visible} />
-      <figure className="mx-8 my-8 md:my-0">
-        <a className="focus:border-none outline-none" href={image.secureUrl}>
+      <figure className="wallpaper-fig">
+        <a className="" href={image.secureUrl}>
           <img className="wallpaper-img" src={optUrl} alt={image.title} />
         </a>
       </figure>
 
-      <div className="flex flex-col justify-between max-w-xl items-center ml-2 bg-gray-800 shadow p-6 rounded">
+      <div className="wallpaper-box">
         <div className="wallpaper-container ">
           <div className="wallpaper-info">
             <p>height: {image.height}px</p>

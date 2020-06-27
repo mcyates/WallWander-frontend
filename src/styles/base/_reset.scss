@@ -14,6 +14,7 @@ ol {
 html {
   box-sizing: border-box;
   min-height: 100%;
+  max-width: 100%;
 
   font-size: 62.5%;
 }
@@ -22,6 +23,11 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  width: 100%;
-  min-height: 100rem;
+  min-height: 80rem;
+}
+
+@include screen(tablet) {
+  body {
+    min-height: 100rem;
+  }
 }

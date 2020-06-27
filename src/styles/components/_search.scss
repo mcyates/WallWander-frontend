@@ -1,0 +1,48 @@
+.search {
+  display: flex;
+  margin: 2rem auto;
+
+  min-height: 4rem;
+
+  box-shadow: $boxshadow-sm;
+
+  &-input {
+    font-size: 2.25rem;
+    padding: 0.5rem 1rem;
+    color: $font-black;
+    border-radius: $rounded;
+    -webkit-border-radius: $rounded;
+    -moz-border-radius: $rounded;
+    -ms-border-radius: $rounded;
+    -o-border-radius: $rounded;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &-button {
+    background-color: $bg-secondary;
+    min-height: 100%;
+    border-radius: $rounded;
+    -webkit-border-radius: $rounded;
+    -moz-border-radius: $rounded;
+    -ms-border-radius: $rounded;
+    -o-border-radius: $rounded;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: $transition-all;
+    -webkit-transition: $transition-all;
+    -moz-transition: $transition-all;
+    -ms-transition: $transition-all;
+    -o-transition: $transition-all;
+    &:hover {
+      cursor: pointer;
+      background-color: darken($color: $bg-secondary, $amount: 10%);
+    }
+
+    &:focus {
+      cursor: pointer;
+      background-color: darken($color: $bg-secondary, $amount: 10%);
+    }
+  }
+}

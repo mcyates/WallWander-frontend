@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { emailValidation, passwordValidation } from "./UserValidation";
 
-export const UserForm = props => {
+export const UserForm = (props) => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const onEmailChange = e => {
+  const onEmailChange = (e) => {
     setEmailError(emailValidation(e.target.value));
     if (emailError) return;
     props.setEmail(e.target.value);
   };
-  const onPassChange = e => {
+  const onPassChange = (e) => {
     setPasswordError(passwordValidation(e.target.value));
     if (passwordError) {
       if (passwordError === "Please enter a password.") {
@@ -22,7 +22,7 @@ export const UserForm = props => {
   const buttonText = props.button;
 
   return (
-    <form className="form p-6" onSubmit={props.submit} method="post">
+    <form className="form" onSubmit={props.submit} method="post">
       <div className="form-box">
         <label className="form-label" htmlFor="email">
           Email
@@ -55,14 +55,9 @@ export const UserForm = props => {
           type="password"
           value={props.password}
         />
-        {passwordError && (
-          <p className="form-error text-red-500">{passwordError}</p>
-        )}
+        {passwordError && <p className="form-error">{passwordError}</p>}
       </div>
-      <button
-        type="submit"
-        className="p-6 my-8 bg-purple-600 hover:bg-purple-800 rounded shadow"
-      >
+      <button tabIndex={0} type="submit" className="button">
         {buttonText}
       </button>
     </form>

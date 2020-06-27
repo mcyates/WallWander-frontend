@@ -3,22 +3,23 @@
   position: relative;
 
   &-content {
+    position: absolute;
     visibility: hidden;
 
-    position: absolute;
     display: flex;
     flex-direction: column;
-    text-align: center;
     width: 10rem;
-    background-color: lighten($color: $gray, $amount: 20%);
+
+    text-align: center;
+    font-size: 2rem;
   }
 
   &-link {
     height: 4rem;
+    background-color: lighten($color: $bg-secondary, $amount: 20%);
 
     &:hover {
-      background-color: $gray;
-      color: $font-black;
+      background-color: $bg-secondary;
     }
   }
 }

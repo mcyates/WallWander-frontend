@@ -6,7 +6,7 @@ import Thumb from "./Thumb";
 import { useDispatch } from "react-redux";
 import { getImages } from "../../actions/image";
 
-export const WallpaperList = props => {
+export const WallpaperList = (props) => {
   const { images, setImages, pageChangeUrl, paginationData } = props;
   const [pageCount, setPageCount] = useState(0);
 
@@ -30,12 +30,11 @@ export const WallpaperList = props => {
   };
 
   const columnWidth = window.innerWidth - 27 <= 700 ? 250 : 500;
-  console.log(images.length % 5);
 
   return (
     <React.Fragment>
-      <div className="flex flex-wrap justify-center items-center overflow-hidden mx-auto sm:w-3/4 sm:-mx-1">
-        {images.map(image => {
+      <div className="wallpaperslist">
+        {images.map((image) => {
           const urlArr = image.secureUrl.split("/");
           urlArr[6] = "f_auto,h_450,w_500,c_limit";
           image.secureUrl = urlArr.join("/");

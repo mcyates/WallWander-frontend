@@ -57,7 +57,7 @@ export const Navbar = (props) => {
               <img src={logo} className="logo-img" alt="logo" />
             </Link>
           </div>
-          <Link className="nav-link" to="/login">
+          <Link tabIndex="0" className="button" to="/login">
             Login
           </Link>
         </React.Fragment>
