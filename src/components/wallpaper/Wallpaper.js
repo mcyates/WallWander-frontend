@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "@reach/router";
 import Favorite from "./favorites/FavoriteLogic";
 import TagsLogic from "./tags/TagsLogic";
-import DeleteModal from "./DeleteModal";
+import BaseModal from "../BaseModal";
 
 export const Wallpaper = (props) => {
-  const { hide, show, removeImage, visible, wallpaperData } = props;
+  const { removeImage, wallpaperData } = props;
   const { author, id, image, isAuthed, user } = wallpaperData;
 
   const urlArr = image.secureUrl.split("/");
@@ -14,7 +14,6 @@ export const Wallpaper = (props) => {
 
   return (
     <div className="wallpaper">
-      <DeleteModal hide={hide} removeImage={removeImage} visible={visible} />
       <figure className="wallpaper-fig">
         <a className="" href={image.secureUrl}>
           <img className="wallpaper-img" src={optUrl} alt={image.title} />
@@ -47,14 +46,22 @@ export const Wallpaper = (props) => {
               />
             )}
 
+            <TagsLogic id={id} user={user} />
+
             {author ? (
-              <button type="button" onClick={show} className="btn btn-danger">
-                Delete
-              </button>
+              <BaseModal
+                buttonStyle="button-danger wallpaper-modal"
+                buttonText="Delete"
+                canCancel={true}
+                contentLabel="Delete confirmation"
+              >
+                <button className="button-danger" onClick={removeImage}>
+                  Delete
+                </button>
+              </BaseModal>
             ) : (
               <React.Fragment />
             )}
-            <TagsLogic id={id} user={user} />
           </div>
         </div>
       </div>

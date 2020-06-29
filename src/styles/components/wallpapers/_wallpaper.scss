@@ -43,6 +43,10 @@
     -ms-border-radius: $rounded;
     -o-border-radius: $rounded;
   }
+
+  &-modal {
+    display: flex;
+  }
 }
 
 @include screen(tablet) {

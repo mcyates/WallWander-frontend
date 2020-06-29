@@ -1,0 +1,26 @@
+.ReactModal__Overlay {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  // background-color: rgba(0, 0, 0, 0) !important;
+  backdrop-filter: blur(4px);
+}
+
+.ReactModal__Content {
+  background-color: lighten($color: $bg-primary, $amount: 10) !important;
+  border: none !important;
+
+  display: flex;
+
+  box-shadow: $boxshadow-sm;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-evenly;
+  align-items: baseline;
+
+  button {
+    margin-left: 0;
+  }
+}

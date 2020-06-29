@@ -10,7 +10,6 @@ export default (state = [], action) => {
       };
     case "SETNAME":
       return {
-        ...state,
         ...action,
       };
     default:

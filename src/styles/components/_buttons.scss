@@ -1,5 +1,5 @@
 .button-dropdown {
-  width: 10rem;
+  width: 100%;
   padding: 1rem 1.5rem;
   font-size: 2rem;
 
@@ -13,9 +13,11 @@
 
 .button {
   padding: 0.5rem 1rem;
+  margin: 1rem 1rem;
   font-size: 2rem;
 
   background-color: $bg-secondary;
+  border: 2px solid transparent;
   border-bottom: 2px solid darken($color: $bg-secondary, $amount: 50%);
 
   box-shadow: $boxshadow-sm;
@@ -43,5 +45,43 @@
     background-color: lighten($color: $bg-secondary, $amount: 10%);
     border-bottom-color: darken($color: $bg-secondary, $amount: 10%);
     box-shadow: $boxshadow;
+  }
+}
+
+.button-danger {
+  @extend .button;
+  color: $font-white;
+
+  background-color: $fave-red;
+  border-bottom: 2px solid $fave-red-dark;
+
+  &:hover {
+    background-color: $fave-red-dark;
+    border-bottom: 2px solid darken($color: $fave-red, $amount: 50%);
+  }
+  &:focus {
+    background-color: $fave-red-dark;
+    border-bottom: 2px solid darken($color: $fave-red, $amount: 50%);
+  }
+}
+
+.button-modal {
+  @extend .button;
+
+  color: $font-white;
+
+  background-color: transparent;
+  border-color: $font-white;
+
+  &:hover {
+    background-color: $font-white;
+    color: $font-black;
+    border-bottom: 2px solid $font-black;
+  }
+
+  &:focus {
+    background-color: $font-white;
+    color: $font-black;
+    border-bottom: 2px solid $font-black;
   }
 }
