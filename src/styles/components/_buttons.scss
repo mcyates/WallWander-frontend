@@ -1,10 +1,11 @@
+@use "../abstract/variables";
 .button-dropdown {
   width: 100%;
   padding: 1rem 1.5rem;
   font-size: 2rem;
 
-  background-color: $bg-secondary;
-  color: $font-white;
+  background-color: variables.$bg-secondary;
+  color: variables.$font-white;
 
   &:hover {
     cursor: pointer;
@@ -16,72 +17,72 @@
   margin: 1rem 1rem;
   font-size: 2rem;
 
-  background-color: $bg-secondary;
+  background-color: variables.$bg-secondary;
   border: 2px solid transparent;
-  border-bottom: 2px solid darken($color: $bg-secondary, $amount: 50%);
+  border-bottom: 2px solid darken($color: variables.$bg-secondary, $amount: 50%);
 
-  box-shadow: $boxshadow-sm;
+  box-shadow: variables.$boxshadow-sm;
 
-  border-radius: $rounded;
-  -webkit-border-radius: $rounded;
-  -moz-border-radius: $rounded;
-  -ms-border-radius: $rounded;
-  -o-border-radius: $rounded;
+  border-radius: variables.$rounded;
+  -webkit-border-radius: variables.$rounded;
+  -moz-border-radius: variables.$rounded;
+  -ms-border-radius: variables.$rounded;
+  -o-border-radius: variables.$rounded;
 
-  transition: $transition-all;
-  -webkit-transition: $transition-all;
-  -moz-transition: $transition-all;
-  -ms-transition: $transition-all;
-  -o-transition: $transition-all;
+  transition: variables.$transition-all;
+  -webkit-transition: variables.$transition-all;
+  -moz-transition: variables.$transition-all;
+  -ms-transition: variables.$transition-all;
+  -o-transition: variables.$transition-all;
 
   &:hover {
-    background-color: lighten($color: $bg-secondary, $amount: 10%);
-    border-bottom-color: darken($color: $bg-secondary, $amount: 10%);
-    box-shadow: $boxshadow;
+    background-color: lighten($color: variables.$bg-secondary, $amount: 10%);
+    border-bottom-color: darken($color: variables.$bg-secondary, $amount: 10%);
+    box-shadow: variables.$boxshadow;
     cursor: pointer;
   }
 
   &:focus {
-    background-color: lighten($color: $bg-secondary, $amount: 10%);
-    border-bottom-color: darken($color: $bg-secondary, $amount: 10%);
-    box-shadow: $boxshadow;
+    background-color: lighten($color: variables.$bg-secondary, $amount: 10%);
+    border-bottom-color: darken($color: variables.$bg-secondary, $amount: 10%);
+    box-shadow: variables.$boxshadow;
   }
 }
 
 .button-danger {
   @extend .button;
-  color: $font-white;
+  color: variables.$font-white;
 
-  background-color: $fave-red;
-  border-bottom: 2px solid $fave-red-dark;
+  background-color: variables.$fave-red;
+  border-bottom: 2px solid variables.$fave-red-dark;
 
   &:hover {
-    background-color: $fave-red-dark;
-    border-bottom: 2px solid darken($color: $fave-red, $amount: 50%);
+    background-color: variables.$fave-red-dark;
+    border-bottom: 2px solid darken($color: variables.$fave-red, $amount: 50%);
   }
   &:focus {
-    background-color: $fave-red-dark;
-    border-bottom: 2px solid darken($color: $fave-red, $amount: 50%);
+    background-color: variables.$fave-red-dark;
+    border-bottom: 2px solid darken($color: variables.$fave-red, $amount: 50%);
   }
 }
 
 .button-modal {
   @extend .button;
 
-  color: $font-white;
+  color: variables.$font-white;
 
   background-color: transparent;
-  border-color: $font-white;
+  border-color: variables.$font-white;
 
   &:hover {
-    background-color: $font-white;
-    color: $font-black;
-    border-bottom: 2px solid $font-black;
+    background-color: variables.$font-white;
+    color: variables.$font-black;
+    border-bottom: 2px solid variables.$font-black;
   }
 
   &:focus {
-    background-color: $font-white;
-    color: $font-black;
-    border-bottom: 2px solid $font-black;
+    background-color: variables.$font-white;
+    color: variables.$font-black;
+    border-bottom: 2px solid variables.$font-black;
   }
 }

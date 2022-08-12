@@ -1,3 +1,5 @@
+@use "../abstract/variables";
+
 .profile {
   display: flex;
   flex-direction: column;
@@ -23,33 +25,33 @@
 
       text-align: center;
       padding: 1rem 2rem;
-      background-color: $bg-secondary;
+      background-color: variables.$bg-secondary;
 
-      box-shadow: $boxshadow-sm;
+      box-shadow: variables.$boxshadow-sm;
 
       &:hover {
-        background-color: lighten($color: $bg-secondary, $amount: 20%);
+        background-color: lighten($color: variables.$bg-secondary, $amount: 20%);
       }
 
       &:focus {
-        background-color: lighten($color: $bg-secondary, $amount: 20%);
+        background-color: lighten($color: variables.$bg-secondary, $amount: 20%);
       }
       &:first {
-        border-radius: $rounded;
-        -webkit-border-radius: $rounded;
-        -moz-border-radius: $rounded;
-        -ms-border-radius: $rounded;
-        -o-border-radius: $rounded;
+        border-radius: variables.$rounded;
+        -webkit-border-radius: variables.$rounded;
+        -moz-border-radius: variables.$rounded;
+        -ms-border-radius: variables.$rounded;
+        -o-border-radius: variables.$rounded;
         border-top-right-radius: none;
         border-bottom-right-radius: none;
       }
 
       &:last-of-type {
-        border-radius: $rounded;
-        -webkit-border-radius: $rounded;
-        -moz-border-radius: $rounded;
-        -ms-border-radius: $rounded;
-        -o-border-radius: $rounded;
+        border-radius: variables.$rounded;
+        -webkit-border-radius: variables.$rounded;
+        -moz-border-radius: variables.$rounded;
+        -ms-border-radius: variables.$rounded;
+        -o-border-radius: variables.$rounded;
         border-top-left-radius: none;
         border-bottom-left-radius: none;
       }
@@ -62,12 +64,12 @@
     justify-content: space-around;
     height: 10rem;
     padding: 2rem;
-    background-color: $bg-secondary;
-    box-shadow: $boxshadow-sm;
-    border-radius: $rounded;
-    -webkit-border-radius: $rounded;
-    -moz-border-radius: $rounded;
-    -ms-border-radius: $rounded;
-    -o-border-radius: $rounded;
+    background-color: variables.$bg-secondary;
+    box-shadow: variables.$boxshadow-sm;
+    border-radius: variables.$rounded;
+    -webkit-border-radius: variables.$rounded;
+    -moz-border-radius: variables.$rounded;
+    -ms-border-radius: variables.$rounded;
+    -o-border-radius: variables.$rounded;
   }
 }

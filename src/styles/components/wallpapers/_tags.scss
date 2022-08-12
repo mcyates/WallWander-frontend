@@ -1,18 +1,20 @@
+@use "../../abstract/variables";
+
 .tags {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  background-color: darken($color: $bg-secondary, $amount: 15%);
+  background-color: darken($color: variables.$bg-secondary, $amount: 15%);
   padding: 1rem;
   height: auto;
   margin-bottom: 1.5rem;
 
-  border-radius: $rounded;
-  -webkit-border-radius: $rounded;
-  -moz-border-radius: $rounded;
-  -ms-border-radius: $rounded;
-  -o-border-radius: $rounded;
+  border-radius: variables.$rounded;
+  -webkit-border-radius: variables.$rounded;
+  -moz-border-radius: variables.$rounded;
+  -ms-border-radius: variables.$rounded;
+  -o-border-radius: variables.$rounded;
 
   &-form {
     display: flex;
@@ -25,12 +27,12 @@
     &-input {
       width: 12rem;
       height: 3rem;
-      color: $font-black;
-      border-radius: $rounded;
-      -webkit-border-radius: $rounded;
-      -moz-border-radius: $rounded;
-      -ms-border-radius: $rounded;
-      -o-border-radius: $rounded;
+      color: variables.$font-black;
+      border-radius: variables.$rounded;
+      -webkit-border-radius: variables.$rounded;
+      -moz-border-radius: variables.$rounded;
+      -ms-border-radius: variables.$rounded;
+      -o-border-radius: variables.$rounded;
 
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
@@ -40,7 +42,7 @@
       width: 10rem;
       height: 3rem;
       padding: 0.5rem 0.25rem;
-      color: $font-black;
+      color: variables.$font-black;
 
       &:hover {
         cursor: pointer;
@@ -56,19 +58,19 @@
     &-button {
       height: 3rem;
       padding: 0.5rem 0.25rem;
-      background-color: $bg-secondary;
-      color: $font-white;
-      border-radius: $rounded;
-      -webkit-border-radius: $rounded;
-      -moz-border-radius: $rounded;
-      -ms-border-radius: $rounded;
-      -o-border-radius: $rounded;
+      background-color: variables.$bg-secondary;
+      color: variables.$font-white;
+      border-radius: variables.$rounded;
+      -webkit-border-radius: variables.$rounded;
+      -moz-border-radius: variables.$rounded;
+      -ms-border-radius: variables.$rounded;
+      -o-border-radius: variables.$rounded;
 
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
 
       &:hover {
-        background-color: lighten($color: $bg-secondary, $amount: 15%);
+        background-color: lighten($color: variables.$bg-secondary, $amount: 15%);
         cursor: pointer;
       }
     }
@@ -88,16 +90,16 @@
     height: 100%;
     text-align: center;
 
-    background-color: $bg-secondary;
+    background-color: variables.$bg-secondary;
 
-    border-radius: $rounded;
-    -webkit-border-radius: $rounded;
-    -moz-border-radius: $rounded;
-    -ms-border-radius: $rounded;
-    -o-border-radius: $rounded;
+    border-radius: variables.$rounded;
+    -webkit-border-radius: variables.$rounded;
+    -moz-border-radius: variables.$rounded;
+    -ms-border-radius: variables.$rounded;
+    -o-border-radius: variables.$rounded;
 
     &:hover {
-      background-color: lighten($color: $bg-secondary, $amount: 15%);
+      background-color: lighten($color: variables.$bg-secondary, $amount: 15%);
     }
 
     &-data {
@@ -107,25 +109,25 @@
     button {
       height: 100%;
       padding: 1rem 0.5rem;
-      color: $font-white;
-      background-color: $fave-red;
+      color: variables.$font-white;
+      background-color: variables.$fave-red;
 
       &:hover {
         cursor: pointer;
-        background-color: darken($color: $fave-red, $amount: 15%);
+        background-color: darken($color: variables.$fave-red, $amount: 15%);
       }
-      border-radius: $rounded;
-      -webkit-border-radius: $rounded;
-      -moz-border-radius: $rounded;
-      -ms-border-radius: $rounded;
-      -o-border-radius: $rounded;
+      border-radius: variables.$rounded;
+      -webkit-border-radius: variables.$rounded;
+      -moz-border-radius: variables.$rounded;
+      -ms-border-radius: variables.$rounded;
+      -o-border-radius: variables.$rounded;
 
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
 
     &-nsfw {
-      color: $fave-red;
+      color: variables.$fave-red;
     }
   }
 }

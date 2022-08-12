@@ -1,16 +1,16 @@
+@use "../abstract/variables";
 .ReactModal__Overlay {
   background-color: rgba(255, 255, 255, 0.15) !important;
-  // background-color: rgba(0, 0, 0, 0) !important;
   backdrop-filter: blur(4px);
 }
 
 .ReactModal__Content {
-  background-color: lighten($color: $bg-primary, $amount: 10) !important;
+  background-color: lighten($color: variables.$bg-primary, $amount: 10) !important;
   border: none !important;
 
   display: flex;
 
-  box-shadow: $boxshadow-sm;
+  box-shadow: variables.$boxshadow-sm;
 }
 
 .modal-form {

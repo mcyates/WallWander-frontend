@@ -1,5 +1,7 @@
-@import "./reset";
-@import "./typography";
+@use "./reset";
+@use "./typography";
+@use "../abstract/variables";
+@use "../abstract/mixins";
 
 html {
   display: flex;
@@ -9,10 +11,9 @@ html {
 body {
   width: 100%;
   margin: 0 auto;
-  background-color: $bg-primary;
-
-  font-size: $font-size;
-  color: $font-primary;
+  background-color: variables.$bg-primary;
+  font-size: variables.$font-size;
+  color: variables.$font-primary;
 }
 
 .wrapper {
@@ -38,7 +39,7 @@ body {
 }
 
 .svg-fav {
-  fill: $fave-red;
+  fill: variables.$fave-red;
 }
 
 a {
@@ -47,11 +48,11 @@ a {
 }
 
 a:focus {
-  border: 1px solid $bg-secondary;
+  border: 1px solid variables.$bg-secondary;
   outline: none;
 }
 
-@include screen(tablet) {
+@include mixins.screen(tablet) {
   body {
     font-size: 2rem;
   }

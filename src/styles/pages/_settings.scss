@@ -1,3 +1,5 @@
+@use "../abstract/variables";
+
 .settings {
   display: flex;
   flex-direction: column;
@@ -11,7 +13,7 @@
 
     padding: 2rem;
 
-    background-color: $bg-secondary;
+    background-color: variables.$bg-secondary;
   }
 
   &-box {
@@ -28,27 +30,27 @@
   &-button {
     padding: 0.5rem 1rem;
     font-size: 1.8rem;
-    box-shadow: $boxshadow-sm;
-    border-radius: $rounded;
-    -webkit-border-radius: $rounded;
-    -moz-border-radius: $rounded;
-    -ms-border-radius: $rounded;
-    -o-border-radius: $rounded;
-    transition: $transition-all;
-    -webkit-transition: $transition-all;
-    -moz-transition: $transition-all;
-    -ms-transition: $transition-all;
-    -o-transition: $transition-all;
+    box-shadow: variables.$boxshadow-sm;
+    border-radius: variables.$rounded;
+    -webkit-border-radius: variables.$rounded;
+    -moz-border-radius: variables.$rounded;
+    -ms-border-radius: variables.$rounded;
+    -o-border-radius: variables.$rounded;
+    transition: variables.$transition-all;
+    -webkit-transition: variables.$transition-all;
+    -moz-transition: variables.$transition-all;
+    -ms-transition: variables.$transition-all;
+    -o-transition: variables.$transition-all;
 
     &:hover {
       cursor: pointer;
-      color: $font-white;
-      background-color: lighten($color: $bg-secondary, $amount: 20%);
+      color: variables.$font-white;
+      background-color: lighten($color: variables.$bg-secondary, $amount: 20%);
     }
 
     &:focus {
-      color: $font-white;
-      background-color: lighten($color: $bg-secondary, $amount: 20%);
+      color: variables.$font-white;
+      background-color: lighten($color: variables.$bg-secondary, $amount: 20%);
     }
   }
 
@@ -58,22 +60,22 @@
     align-items: center;
 
     button {
-      color: $font-black;
-      background-color: $font-white;
+      color: variables.$font-black;
+      background-color: variables.$font-white;
       padding: 0.5rem 1rem;
       font-size: 2rem;
       margin-left: 1rem;
-      box-shadow: $boxshadow-sm;
-      border-radius: $rounded;
-      -webkit-border-radius: $rounded;
-      -moz-border-radius: $rounded;
-      -ms-border-radius: $rounded;
-      -o-border-radius: $rounded;
-      transition: $transition-all;
-      -webkit-transition: $transition-all;
-      -moz-transition: $transition-all;
-      -ms-transition: $transition-all;
-      -o-transition: $transition-all;
+      box-shadow: variables.$boxshadow-sm;
+      border-radius: variables.$rounded;
+      -webkit-border-radius: variables.$rounded;
+      -moz-border-radius: variables.$rounded;
+      -ms-border-radius: variables.$rounded;
+      -o-border-radius: variables.$rounded;
+      transition: variables.$transition-all;
+      -webkit-transition: variables.$transition-all;
+      -moz-transition: variables.$transition-all;
+      -ms-transition: variables.$transition-all;
+      -o-transition: variables.$transition-all;
       &:hover {
         cursor: pointer;
       }
@@ -82,28 +84,28 @@
 }
 
 .settings-nsfw {
-  color: $fave-red !important;
+  color: variables.$fave-red !important;
   &:hover {
-    background-color: $fave-red;
-    color: $font-white;
+    background-color: variables.$fave-red;
+    color: variables.$font-white;
   }
 
   &:focus {
-    background-color: $fave-red;
-    color: $font-white;
+    background-color: variables.$fave-red;
+    color: variables.$font-white;
   }
 }
 
 .settings-sfw {
-  color: $font-black;
+  color: variables.$font-black;
 
   &:hover {
-    background-color: lighten($color: $bg-secondary, $amount: 20%);
-    color: $font-white;
+    background-color: lighten($color: variables.$bg-secondary, $amount: 20%);
+    color: variables.$font-white;
   }
 
   &:focus {
-    background-color: lighten($color: $bg-secondary, $amount: 20%);
-    color: $font-white;
+    background-color: lighten($color: variables.$bg-secondary, $amount: 20%);
+    color: variables.$font-white;
   }
 }

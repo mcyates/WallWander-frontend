@@ -1,3 +1,5 @@
+@use "../../abstract/variables";
+
 .wallpaperslist {
   display: flex;
   flex-wrap: wrap;
@@ -44,11 +46,11 @@
         margin: 0.5rem 0.5rem;
       }
     }
-    transition: $transition-all;
-    -webkit-transition: $transition-all;
-    -moz-transition: $transition-all;
-    -ms-transition: $transition-all;
-    -o-transition: $transition-all;
+    transition: variables.$transition-all;
+    -webkit-transition: variables.$transition-all;
+    -moz-transition: variables.$transition-all;
+    -ms-transition: variables.$transition-all;
+    -o-transition: variables.$transition-all;
   }
 
   &-img {
@@ -62,10 +64,10 @@
       -webkit-filter: blur(2px);
     }
 
-    transition: $transition-all;
-    -webkit-transition: $transition-all;
-    -moz-transition: $transition-all;
-    -ms-transition: $transition-all;
-    -o-transition: $transition-all;
+    transition: variables.$transition-all;
+    -webkit-transition: variables.$transition-all;
+    -moz-transition: variables.$transition-all;
+    -ms-transition: variables.$transition-all;
+    -o-transition: variables.$transition-all;
   }
 }

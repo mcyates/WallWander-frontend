@@ -1,3 +1,6 @@
+@use "../../abstract/variables";
+@use "../../abstract/mixins";
+
 .wallpaper {
   width: 100%;
   max-width: 100%;
@@ -17,11 +20,11 @@
     max-width: 85vw;
     max-height: 85vw;
     margin: 0 auto;
-    border-radius: $rounded;
-    -webkit-border-radius: $rounded;
-    -moz-border-radius: $rounded;
-    -ms-border-radius: $rounded;
-    -o-border-radius: $rounded;
+    border-radius: variables.$rounded;
+    -webkit-border-radius: variables.$rounded;
+    -moz-border-radius: variables.$rounded;
+    -ms-border-radius: variables.$rounded;
+    -o-border-radius: variables.$rounded;
   }
 
   &-box {
@@ -34,14 +37,14 @@
     margin: 0.5rem;
     padding: 1.5rem;
 
-    background-color: $bg-secondary;
-    box-shadow: $boxshadow-sm;
+    background-color: variables.$bg-secondary;
+    box-shadow: variables.$boxshadow-sm;
 
-    border-radius: $rounded;
-    -webkit-border-radius: $rounded;
-    -moz-border-radius: $rounded;
-    -ms-border-radius: $rounded;
-    -o-border-radius: $rounded;
+    border-radius: variables.$rounded;
+    -webkit-border-radius: variables.$rounded;
+    -moz-border-radius: variables.$rounded;
+    -ms-border-radius: variables.$rounded;
+    -o-border-radius: variables.$rounded;
   }
 
   &-modal {
@@ -49,7 +52,7 @@
   }
 }
 
-@include screen(tablet) {
+@include mixins.screen(tablet) {
   .wallpaper {
     align-items: flex-start;
     flex-direction: row;
