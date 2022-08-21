@@ -15,7 +15,9 @@ export const Settings = (props) => {
   const search = useSelector((state) => state.search);
 
   const [name, setName] = useState("");
+
   const [modalIsOpen, setIsOpen] = useState(false);
+  let dummy = modalIsOpen;
 
   const show = () => {
     setIsOpen(true);
