@@ -43,10 +43,11 @@ export const Settings = (props) => {
     dispatch(startSetName(userInfo));
   };
 
-  const handeNsfwChange = (e) => {
+  const handleNsfwChange = (e) => {
     e.preventDefault();
     dispatch(setNsfw(!search.nsfw));
   };
+
   return (
     <div className="settings">
       <Navbar />
@@ -82,12 +83,12 @@ export const Settings = (props) => {
           </BaseModal>
         </div>
         <div className="settings-adult">
-          <p>Show Adult Content</p>
+          <p>Show Sensitive Content</p>
           <button
-            onClick={handeNsfwChange}
+            onClick={handleNsfwChange}
             type="button"
             className={`settings-adult-btn settings-${
-              search.nsfw ? "nsfw" : "sfw"
+              search.nsfw ? "Sensitive" : "General"
             } mx-8`}
           >
             {search.nsfw ? "true" : "false"}
@@ -97,4 +98,5 @@ export const Settings = (props) => {
     </div>
   );
 };
+
 export default Settings;
